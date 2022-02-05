@@ -1,0 +1,35 @@
+---
+- name: 'Configure non-root user'
+  hosts: indexers
+  gather_facts: no
+  any_errors_fatal: true
+  become: yes
+  become_user: root
+  vars_files:
+    - ~/build/vars/main_vars.yml
+
+  tasks:
+  
+  - name: Enable boot-start
+    shell: /opt/splunk/bin/splunk enable boot-start -user splunk
+  
+  - name: Change owner to splunk
+    file:
+      path: /opt/splunk
+      state: directory
+      recurse: yes
+      owner: splunk
+      group: splunk
+
+  - name: Copy files over
+    copy:
+      src: "{{ item }}"
+      dest: /tmp
+    with_items:
+      - ~/build/files/init_splunk_copy
+
+  - name: Delete text
+    shell: sed -i -n -E '/case/,$ p' /etc/init.d/splunk
+
+  - name: Merge files
+    shell: cat /etc/init.d/splunk >> /tmp/init_splunk_copy && rm /etc/init.d/splunk && mv /tmp/init_splunk_copy /etc/init.d/splunk

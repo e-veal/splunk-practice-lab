@@ -1,0 +1,9 @@
+#Ignore Mac system files
+.DS_Store
+
+#Ignore Google Icon
+Icon*
+
+#executables
+*.exe
+*.tgz
