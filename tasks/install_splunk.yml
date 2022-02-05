@@ -1,6 +1,6 @@
 ---
 - name: 'Installs Splunk'
-  hosts: indexers
+  hosts: [all_servers]
   gather_facts: no
   any_errors_fatal: true
   vars_files:
