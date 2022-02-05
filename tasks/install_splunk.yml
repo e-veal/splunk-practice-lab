@@ -1,6 +1,6 @@
 ---
 - name: 'Installs Splunk'
-  hosts: [all_servers]
+  hosts: "{{active_servers}}"
   gather_facts: no
   any_errors_fatal: true
   vars_files:

@@ -1,6 +1,6 @@
 ---
 - name: 'Configure non-root user'
-  hosts: indexers
+  hosts: "{{active_servers}}"
   gather_facts: no
   any_errors_fatal: true
   become: yes
@@ -10,8 +10,16 @@
 
   tasks:
   
+  - name: Check if boot-start is already configured
+    stat:
+      path: /etc/systemd/system/multi-user.target.wants/Splunkd.service
+    register: boot_result
+  
   - name: Enable boot-start
     shell: /opt/splunk/bin/splunk enable boot-start -user splunk
+    become: yes
+    become_user: root
+    when: not boot_result.stat.exists
   
   - name: Change owner to splunk
     file:
@@ -21,15 +29,25 @@
       owner: splunk
       group: splunk
 
-  - name: Copy files over
+  - name: Check if init files is exists
+    stat:
+      path: /etc/init.d/splunk
+    register: init_file_result
+
+  - name: Copy file over
     copy:
       src: "{{ item }}"
       dest: /tmp
     with_items:
       - ~/build/files/init_splunk_copy
 
+  - name: Rename file
+    shell: mv /tmp/init_splunk_copy /etc/init.d/splunk
+
   - name: Delete text
     shell: sed -i -n -E '/case/,$ p' /etc/init.d/splunk
+    when: init_file_result.stat.exists
 
   - name: Merge files
     shell: cat /etc/init.d/splunk >> /tmp/init_splunk_copy && rm /etc/init.d/splunk && mv /tmp/init_splunk_copy /etc/init.d/splunk
+    when: init_file_result.stat.exists
