@@ -1,9 +1,10 @@
 ---
 # vars file for build
 - ansible_python_interpreter: /usr/bin/python
-- active_servers: [all]
+- active_servers: [all_servers]
 
 # Splunk Versions
 #- splunk_pkg: splunk-7.2.1-be11b2c46e23-Linux-x86_64.tgz
-- splunk_pkg: splunk-7.2.10-a6dfcc62f450-Linux-x86_64.tgz
+#- splunk_pkg: splunk-7.2.10-a6dfcc62f450-Linux-x86_64.tgz
 #- splunk_pkg: splunk-8.1.0-f57c09e87251-Linux-x86_64.tgz
+- splunk_pkg: splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz

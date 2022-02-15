@@ -1,0 +1,16 @@
+---
+- hosts: [all]
+  gather_facts: no
+  any_errors_fatal: true
+  become: yes
+  become_user: splunk
+  vars_files:
+    - ~/build/vars/test_vars.yml
+
+  tasks:  
+
+  - name: Show all the hosts in the inventory
+    command: "{{ item }}"
+    loop:
+      - /opt/splunk/bin/splunk set servername {{ inventory_hostname }} -auth admin:splunk3du
+      - /opt/splunk/bin/splunk restart

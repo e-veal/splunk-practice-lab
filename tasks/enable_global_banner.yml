@@ -1,0 +1,28 @@
+---
+- hosts: [all]
+  gather_facts: no
+  any_errors_fatal: true
+  become: yes
+  become_user: splunk
+  vars_files:
+    - ~/build/vars/test_vars.yml
+
+  tasks:  
+
+  - name: Enable MC server banner
+    copy:
+      src: ~/build/files/spe_banners/mc-global-banner.conf
+      dest: /opt/splunk/etc/system/local/global-banner.conf
+    delegate_to: mc
+
+  - name: Enable SH server banner
+    copy:
+      src: ~/build/files/spe_banners/sh-global-banner.conf
+      dest: /opt/splunk/etc/system/local/global-banner.conf
+    delegate_to: sh
+
+  - name: Enable CM server banner
+    copy:
+      src: ~/build/files/spe_banners/cm-global-banner.conf
+      dest: /opt/splunk/etc/system/local/global-banner.conf
+    delegate_to: cm
