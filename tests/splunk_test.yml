@@ -1,0 +1,49 @@
+---
+- name: Update IPs in base configs
+  hosts: all
+  any_errors_fatal: true
+  vars_files:
+    - ~/build/vars/test_vars.yml
+
+  tasks:  
+
+  - name: Set variables
+    set_fact: 
+      varIdx1: "{{ hostvars['idx1']['ansible_default_ipv4']['address'] }}"
+      varIdx2: "{{ hostvars['idx2']['ansible_default_ipv4']['address'] }}"
+      varDeploy: "{{ hostvars['mc']['ansible_default_ipv4']['address'] }}"
+      varCMgr: "{{ hostvars['cm']['ansible_default_ipv4']['address'] }}"
+  
+  - name: Update IPs in all files
+    lineinfile:
+      path:  /home/ansible/build/files/spe_cluster_forwarder_outputs/local/outputs.conf
+      regexp: '^server = '
+      line: "server = {{ varIdx1 }}:9997, {{ varIdx2 }}:9997"
+    delegate_to: localhost
+
+  - lineinfile:
+      path: /home/ansible/build/files/spe_master_deploymentclient/local/deploymentclient.conf
+      regexp: '^targetUri = '
+      line: "targetUri = {{ varDeploy }}:8089"
+    delegate_to: localhost
+    loop:
+      - /home/ansible/build/files/spe_master_deploymentclient/local/deploymentclient.conf
+      - /home/ansible/build/files/spe_all_deploymentclient/local/deploymentclient.conf
+
+  - lineinfile:
+      path:  /home/ansible/build/files/spe_cluster_search_base/local/server.conf
+      regexp: '(manager_uri){1}'
+      line: "manager_uri = {{ varCMgr }}:8089"
+    delegate_to: localhost
+
+  - lineinfile:
+      path:  /home/ansible/build/files/spe_cluster_indexer_base/local/server.conf
+      regexp: '^manager_uri'
+      line: "manager_uri = {{ varCMgr }}:8089"
+    delegate_to: localhost
+
+  - lineinfile:
+      path:  /home/ansible/build/files/spe_cluster_indexer_base/local/server.conf
+      regexp: '^master_uri'
+      line: "master_uri = {{ varDeploy }}:8089"
+    delegate_to: localhost

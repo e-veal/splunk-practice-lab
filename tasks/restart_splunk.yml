@@ -9,6 +9,4 @@
   tasks:
 
   - name: Restarting splunk
-    command: "{{ item }}"
-    loop:
-      - /opt/splunk/bin/splunk restart
+    command: /opt/splunk/bin/splunk restart

@@ -1,5 +1,5 @@
 ---
-- name: 'Installs Splunk'
+- name: Installs Splunk
   hosts: "{{active_servers}}"
   gather_facts: no
   any_errors_fatal: true
@@ -7,7 +7,7 @@
     - ~/build/vars/main_vars.yml
 
   tasks:
-  - name: Check if wget package is installed
+  - name: Checking if wget package is installed
     package_facts:
       manager: "auto"
 
@@ -17,7 +17,7 @@
       state: latest
     when: "'wget' not in ansible_facts.packages"
 
-  - name: Create splunk user
+  - name: Creating splunk user
     user:
       name: splunk
       groups: 
@@ -28,12 +28,12 @@
     become: yes
     become_user: root
 
-  - name: Check if Splunk is installed
+  - name: Checking if Splunk is installed
     stat:
       path: /opt/splunk
     register: stat_result
 
-  - name: Install Splunk, if not already installed
+  - name: Installing Splunk, if not already installed
     become: yes
     become_user: root
     unarchive:
@@ -51,17 +51,17 @@
     become: yes
     become_user: splunk
 
-  - name: Delete installation file
+  - name: Deleting installation file
     file:
       path: /home/ansible/{{ splunk_pkg }}
       state: absent
   
-  - name: Update shell
+  - name: Updating shell
     shell: source ~/.bashrc
     become: yes
     become_user: splunk
 
-  - name: Start Splunk
+  - name: Starting Splunk
     shell: /opt/splunk/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd splunk3du
     become: yes
     become_user: splunk

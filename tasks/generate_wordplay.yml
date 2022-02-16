@@ -1,0 +1,27 @@
+---
+- name: Set Pass4SymmKey
+  hosts: localhost
+  any_errors_fatal: true
+  vars_files:
+    - ~/build/vars/test_vars.yml
+
+  tasks:  
+
+  - name: Generating key
+    set_fact: 
+      clusterKey: "{{ lookup('password', '/tmp/wordplay chars=ascii_lowercase,ascii_uppercase,digits length=64') }}"
+  
+  - name: Set key
+    lineinfile:
+      path:  "{{ item }}"
+      regexp: '^pass4SymmKey = '
+      line: "pass4SymmKey = {{ clusterKey }}"
+    loop:
+      - /home/ansible/build/files/spe_cluster_indexer_base/local/server.conf
+      - /home/ansible/build/files/spe_cluster_master_base/local/server.conf
+      - /home/ansible/build/files/spe_cluster_search_base/local/server.conf
+
+  - name: Deleting key file
+    file:
+      path: /tmp/wordplay
+      state: absent

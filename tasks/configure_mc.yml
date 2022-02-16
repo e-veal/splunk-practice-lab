@@ -1,6 +1,6 @@
 ---
 - name: Monitoring Console
-  hosts: all
+  hosts: mc
   any_errors_fatal: true
   become: yes
   become_user: splunk
@@ -9,16 +9,21 @@
 
   tasks:
 
-  - name: Upload folders to apps
+  - name: Enabling MC server banner
+    copy:
+      src: ~/build/files/spe_banners/mc-global-banner.conf
+      dest: /opt/splunk/etc/system/local/global-banner.conf
+      
+  - name: Uploading folders to apps on monitoring console
     copy:
       src: "{{ item }}"
       dest: /opt/splunk/etc/apps
       owner: splunk
     loop:
-      - ~/build/files/spe_cluster_search_base
-    when: inventory_hostname == 'mc' 
+      - ~/build/files/spe_cluster_search_base 
+      - ~/build/files/spe_cluster_forwarder_outputs
 
-  - name: Upload folders to deployment-apps
+  - name: Uploading folders to deployment-apps on monitoring console
     copy:
       src: "{{ item }}"
       dest: /opt/splunk/etc/deployment-apps
@@ -29,37 +34,3 @@
       - ~/build/files/spe_cluster_indexer_base
       - ~/build/files/spe_all_deploymentclient
       - ~/build/files/spe_all_indexes
-    when: inventory_hostname == 'mc'  
-
-  - name: Set variables
-    set_fact: 
-      varCMgr: "{{ hostvars['cm']['ansible_default_ipv4']['address'] }}"
-      varDeploy: "{{ hostvars['mc']['ansible_default_ipv4']['address'] }}"
-    
-  - name: Update files in etc/apps
-    lineinfile:
-      path:  /opt/splunk/etc/apps/spe_cluster_search_base/local/server.conf
-      regexp: '(manager_uri){1}'
-      line: "manager_uri = {{ varCMgr }}:8089"
-    when: inventory_hostname == 'mc'
-
-  - name: Update files in etc/deployment-apps
-    lineinfile:
-      path:  /opt/splunk/etc/deployment-apps/spe_cluster_indexer_base/local/server.conf
-      regexp: '^manager_uri'
-      line: "manager_uri = {{ varCMgr }}:8089"
-    when: inventory_hostname == 'mc'
-
-  - name: Update files in etc/deployment-apps
-    lineinfile:
-      path:  /opt/splunk/etc/deployment-apps/spe_cluster_indexer_base/local/server.conf
-      regexp: '^master_uri'
-      line: "master_uri = {{ inventory_hostname }}:8089"
-    when: inventory_hostname == 'mc'
-
-  - name: Update files in etc/deployment-apps
-    lineinfile:
-      path: /opt/splunk/etc/deployment-apps/spe_all_deploymentclient/local/deploymentclient.conf
-      regexp: '^targetUri = '
-      line: "targetUri = {{ varDeploy }}:8089"
-    when: inventory_hostname == 'mc'

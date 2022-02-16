@@ -1,0 +1,24 @@
+---
+- name: Search Head
+  hosts: sh
+  any_errors_fatal: true
+  become: yes
+  become_user: splunk
+  vars_files:
+    - ~/build/vars/test_vars.yml
+
+  tasks:
+
+  - name: Enabling SH server banner
+    copy:
+      src: ~/build/files/spe_banners/sh-global-banner.conf
+      dest: /opt/splunk/etc/system/local/global-banner.conf
+      
+  - name: Uploading folders to apps
+    copy:
+      src: "{{ item }}"
+      dest: /opt/splunk/etc/apps
+      owner: splunk
+    loop:
+      - ~/build/files/spe_cluster_search_base
+      - ~/build/files/spe_cluster_forwarder_outputs

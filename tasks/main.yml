@@ -2,8 +2,10 @@
 # tasks file for build
 - import_playbook: install_splunk.yml
 - import_playbook: non_root.yml
-- import_playbook: enable_global_banner.yml
 - import_playbook: update_servername.yml
+- import_playbook: update_base_configs.yml
+- import_playbook: generate_wordplay.yml
+- import_playbook: configure_sh.yml
 - import_playbook: configure_cmgr.yml
 - import_playbook: configure_mc.yml
 - import_playbook: configure_idx.yml
