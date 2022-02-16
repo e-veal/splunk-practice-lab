@@ -1,0 +1,14 @@
+- name: Restart splunk
+  hosts: all
+  any_errors_fatal: true
+  become: yes
+  become_user: splunk
+  vars_files:
+    - ~/build/vars/test_vars.yml
+
+  tasks:
+
+  - name: Restarting splunk
+    command: "{{ item }}"
+    loop:
+      - /opt/splunk/bin/splunk restart

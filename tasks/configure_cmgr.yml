@@ -1,0 +1,41 @@
+---
+- name: Cluster Manager
+  hosts: all
+  any_errors_fatal: true
+  become: yes
+  become_user: splunk
+  vars_files:
+    - ~/build/vars/test_vars.yml
+
+  tasks:  
+
+  - name: Upload folders
+    copy:
+      src: "{{ item }}"
+      dest: /opt/splunk/etc/apps
+      owner: splunk
+    loop:
+      - /home/ansible/build/files/spe_cluster_master_base
+      - /home/ansible/build/files/spe_cluster_forwarder_outputs
+      - /home/ansible/build/files/spe_master_deploymentclient
+    when: inventory_hostname == 'cm'
+
+  - name: Set variables
+    set_fact: 
+      varIdx1: "{{ hostvars['idx1']['ansible_default_ipv4']['address'] }}"
+      varIdx2: "{{ hostvars['idx2']['ansible_default_ipv4']['address'] }}"
+      varDeploy: "{{ hostvars['mc']['ansible_default_ipv4']['address'] }}"
+    
+  - name: Update files
+    lineinfile:
+      path:  /opt/splunk/etc/apps/spe_cluster_forwarder_outputs/local/outputs.conf
+      regexp: '^server = '
+      line: "server = {{ varIdx1 }}:9997, {{ varIdx2 }}:9997"
+    when: inventory_hostname == 'cm'
+
+  - lineinfile:
+      path: /opt/splunk/etc/apps/spe_master_deploymentclient/local/deploymentclient.conf
+      regexp: '^targetUri = '
+      line: "targetUri = {{ varDeploy }}:8089"
+    when: inventory_hostname == 'cm'
+

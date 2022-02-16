@@ -1,0 +1,38 @@
+---
+- name: Indexers
+  hosts: all
+  any_errors_fatal: true
+  become: yes
+  become_user: splunk
+  vars_files:
+    - ~/build/vars/test_vars.yml
+
+  tasks:
+
+  - name: Upload folders to apps
+    copy:
+      src: "{{ item }}"
+      dest: /opt/splunk/etc/apps
+      owner: splunk
+    loop:
+      - ~/build/files/spe_cluster_indexer_base
+    when: (inventory_hostname == 'idx1') or (inventory_hostname == 'idx2')
+
+  - name: Set variables
+    set_fact: 
+      varCMgr: "{{ hostvars['cm']['ansible_default_ipv4']['address'] }}"
+      varDeploy: "{{ hostvars['mc']['ansible_default_ipv4']['address'] }}"
+
+  - name: Update files in etc/apps
+    lineinfile:
+      path:  /opt/splunk/etc/apps/spe_cluster_indexer_base/local/server.conf
+      regexp: '^manager_uri'
+      line: "manager_uri = {{ varCMgr }}:8089"
+    when: (inventory_hostname == 'idx1') or (inventory_hostname == 'idx2')
+
+  - name: Update files in etc/apps
+    lineinfile:
+      path:  /opt/splunk/etc/apps/spe_cluster_indexer_base/local/server.conf
+      regexp: '^master_uri'
+      line: "master_uri = {{ varDeploy }}:8089"
+    when: (inventory_hostname == 'idx1') or (inventory_hostname == 'idx2')
