@@ -1,6 +1,6 @@
 ---
 - name: Monitoring Console
-  hosts: mc
+  hosts: MC
   any_errors_fatal: true
   become: yes
   become_user: splunk

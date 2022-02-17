@@ -1,6 +1,6 @@
 ---
 - name: Cluster Manager
-  hosts: cm
+  hosts: CM
   any_errors_fatal: true
   become: yes
   become_user: splunk

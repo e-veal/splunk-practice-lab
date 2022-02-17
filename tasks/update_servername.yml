@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- name: Update server names
+  hosts: "{{active_servers}}"
   gather_facts: no
   any_errors_fatal: true
   become: yes
@@ -12,4 +13,4 @@
   - name: Setting server name on all the hosts in the inventory
     command: "{{ item }}"
     loop:
-      - /opt/splunk/bin/splunk set servername {{ inventory_hostname }} -auth admin:splunk3du
+      - /opt/splunk/bin/splunk set servername {{ inventory_hostname }} -auth admin:{{adminPwd}}

@@ -1,6 +1,6 @@
 ---
 - name: Add search peers
-  hosts: all
+  hosts: "{{active_servers}}"
   any_errors_fatal: true
   become: yes
   become_user: splunk
@@ -11,12 +11,12 @@
 
   - name: Setting variables
     set_fact: 
-      varCMgr: "{{ hostvars['cm']['ansible_default_ipv4']['address'] }}"
-      varSH: "{{ hostvars['sh']['ansible_default_ipv4']['address'] }}"
+      varCMgr: "{{ hostvars['CM']['ansible_default_ipv4']['address'] }}"
+      varSH: "{{ hostvars['SH']['ansible_default_ipv4']['address'] }}"
 
   - name: Adding search peers
     command: "{{ item }}"
     loop:
-      - "/opt/splunk/bin/splunk add search-server https://{{ varSH }}:8089 -auth admin:splunk3du -remoteUsername admin -remotePassword splunk3du"
-      - "/opt/splunk/bin/splunk add search-server https://{{ varCMgr }}:8089 -auth admin:splunk3du -remoteUsername admin -remotePassword splunk3du"
-    when: inventory_hostname == 'mc'
+      - "/opt/splunk/bin/splunk add search-server https://{{ varSH }}:8089 -auth admin:{{adminPwd}} -remoteUsername admin -remotePassword {{adminPwd}}"
+      - "/opt/splunk/bin/splunk add search-server https://{{ varCMgr }}:8089 -auth admin:{{adminPwd}} -remoteUsername admin -remotePassword {{adminPwd}}"
+    when: inventory_hostname == 'MC'
