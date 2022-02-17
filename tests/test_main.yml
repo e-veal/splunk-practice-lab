@@ -2,8 +2,9 @@
 # tasks file for build
 # - import_playbook: ../tasks/update_base_configs.yml
 # - import_playbook: ../tasks/generate_wordplay.yml
-#  - import_playbook: ../tasks/configure_sh.yml
-#  - import_playbook: ../tasks/configure_cmgr.yml
- - import_playbook: ../tasks/configure_mc.yml
+# - import_playbook: ../tasks/configure_sh.yml
+# - import_playbook: ../tasks/configure_cmgr.yml
+# - import_playbook: ../tasks/configure_mc.yml
 # - import_playbook: ../tasks/configure_idx.yml
- - import_playbook: ../tasks/restart_splunk.yml
+# - import_playbook: ../tasks/restart_splunk.yml
+- import_playbook: ../tests/splunk_test.yml

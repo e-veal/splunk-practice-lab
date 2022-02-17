@@ -1,5 +1,6 @@
 ---
 # tasks file for build
+- import_playbook: clone_git.yml
 - import_playbook: install_splunk.yml
 - import_playbook: non_root.yml
 - import_playbook: update_servername.yml

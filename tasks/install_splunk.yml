@@ -26,9 +26,10 @@
     become: yes
     become_user: root
     unarchive:
-      src: ~/build/files/{{ splunk_pkg }}
+      src: {{ splunk_pkg }}
       dest: /opt
       owner: splunk
+      remote_src: yes
     when: not stat_result.stat.exists
   
   - name: Setting environment variables
@@ -40,10 +41,10 @@
     become: yes
     become_user: splunk
 
-  - name: Deleting installation file
-    file:
-      path: /home/ansible/{{ splunk_pkg }}
-      state: absent
+  # - name: Deleting installation file
+  #   file:
+  #     path: /home/ansible/{{ splunk_pkg }}
+  #     state: absent
   
   - name: Updating shell
     shell: source ~/.bashrc
