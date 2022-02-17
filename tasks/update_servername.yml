@@ -1,12 +1,12 @@
 ---
 - name: Update server names
   hosts: "{{active_servers}}"
-  gather_facts: no
   any_errors_fatal: true
+  gather_facts: no
   become: yes
   become_user: splunk
   vars_files:
-    - ~/build/vars/test_vars.yml
+    - ~/build/vars/main_vars.yml
 
   tasks:  
 
@@ -14,3 +14,4 @@
     command: "{{ item }}"
     loop:
       - /opt/splunk/bin/splunk set servername {{ inventory_hostname }} -auth admin:{{adminPwd}}
+      - /opt/splunk/bin/splunk restart

@@ -1,10 +1,11 @@
 - name: Restart splunk
   hosts: all
   any_errors_fatal: true
+  gather_facts: no
   become: yes
   become_user: splunk
   vars_files:
-    - ~/build/vars/test_vars.yml
+    - ~/build/vars/main_vars.yml
 
   tasks:
 

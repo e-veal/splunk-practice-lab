@@ -1,8 +1,8 @@
 ---
 - name: 'Configure non-root user'
   hosts: "{{active_servers}}"
-  gather_facts: no
   any_errors_fatal: true
+  gather_facts: no
   become: yes
   become_user: root
   vars_files:
@@ -34,25 +34,21 @@
       path: /etc/init.d/splunk
     register: init_file_result
 
+# file doesn't exist
   - name: Copy file over
     copy:
-      src: "{{ item }}"
+      src: ~/build/files/init_splunk_copy
       dest: /tmp
-    with_items:
-      - ~/build/files/init_splunk_copy
-
+    
   - name: Renaming file
     shell: mv /tmp/init_splunk_copy /etc/init.d/splunk
+    when: init_file_result.stat.exists == false
 
+# files does exist
   - name: Deleting text
     shell: sed -i -n -E '/case/,$ p' /etc/init.d/splunk
     when: init_file_result.stat.exists
 
   - name: Merging files
-    command: "{{ item }}"
-    loop:
-      - cat /etc/init.d/splunk >> /tmp/init_splunk_copy
-      - rm /etc/init.d/splunk
-      - mv /tmp/init_splunk_copy
-      - /etc/init.d/splunk
+    shell: echo /etc/init.d/splunk >> /tmp/init_splunk_copy && rm /etc/init.d/splunk && mv /tmp/init_splunk_copy /etc/init.d/splunk
     when: init_file_result.stat.exists

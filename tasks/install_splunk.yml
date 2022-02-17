@@ -23,7 +23,7 @@
       groups: 
       - splunk
       update_password: always
-      password: "{{ {{adminPwd}}|password_hash('sha512') }}"
+      password: "{{ splunk3du|password_hash('sha512') }}"
       state: present
     become: yes
     become_user: root

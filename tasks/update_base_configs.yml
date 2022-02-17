@@ -3,7 +3,7 @@
   hosts: "{{active_servers}}"
   any_errors_fatal: true
   vars_files:
-    - ~/build/vars/test_vars.yml
+    - ~/build/vars/main_vars.yml
 
   tasks:  
 
