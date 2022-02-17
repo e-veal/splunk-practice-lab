@@ -17,17 +17,6 @@
       state: latest
     when: "'wget' not in ansible_facts.packages"
 
-  - name: Creating splunk user
-    user:
-      name: splunk
-      groups: 
-      - splunk
-      update_password: always
-      password: "{{ splunk3du|password_hash('sha512') }}"
-      state: present
-    become: yes
-    become_user: root
-
   - name: Checking if Splunk is installed
     stat:
       path: /opt/splunk
