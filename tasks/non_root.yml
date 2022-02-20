@@ -6,7 +6,7 @@
   become: yes
   become_user: root
   vars_files:
-    - ~/build/vars/main_vars.yml
+    - /home/ansible/build/vars/main_vars.yml
 
   tasks:
   
@@ -37,7 +37,7 @@
 # file doesn't exist
   - name: Copy file over
     copy:
-      src: ~/build/files/init_splunk_copy
+      src: /home/ansible/build/files/init_splunk_copy
       dest: /tmp
     
   - name: Renaming file

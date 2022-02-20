@@ -14,7 +14,7 @@
       private: no
       
   vars_files:
-    - ~/build/vars/test_vars.yml
+    - /home/ansible/build/vars/test_vars.yml
 
   tasks:
 

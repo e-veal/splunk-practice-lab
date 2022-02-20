@@ -6,13 +6,13 @@
   become: yes
   become_user: splunk
   vars_files:
-    - ~/build/vars/main_vars.yml
+    - /home/ansible/build/vars/main_vars.yml
 
   tasks: 
 
   - name: Enabling CM server banner
     copy:
-      src: ~/build/files/spe_banners/cm-global-banner.conf
+      src: /home/ansible/build/files/spe_banners/cm-global-banner.conf
       dest: /opt/splunk/etc/system/local/global-banner.conf 
 
   - name: Uploading folders to apps on cluster manager

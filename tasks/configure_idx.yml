@@ -6,7 +6,7 @@
   become: yes
   become_user: splunk
   vars_files:
-    - ~/build/vars/main_vars.yml
+    - /home/ansible/build/vars/main_vars.yml
 
   tasks:
 
@@ -16,4 +16,4 @@
       dest: /opt/splunk/etc/apps
       owner: splunk
     loop:
-      - ~/build/files/spe_cluster_indexer_base
+      - /home/ansible/build/files/spe_cluster_indexer_base

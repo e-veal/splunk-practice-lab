@@ -6,13 +6,13 @@
   become: yes
   become_user: splunk
   vars_files:
-    - ~/build/vars/main_vars.yml
+    - /home/ansible/build/vars/main_vars.yml
 
   tasks:
 
   - name: Enabling MC server banner
     copy:
-      src: ~/build/files/spe_banners/mc-global-banner.conf
+      src: /home/ansible/build/files/spe_banners/mc-global-banner.conf
       dest: /opt/splunk/etc/system/local/global-banner.conf
       
   - name: Uploading folders to apps on monitoring console
@@ -21,8 +21,8 @@
       dest: /opt/splunk/etc/apps
       owner: splunk
     loop:
-      - ~/build/files/spe_cluster_search_base 
-      - ~/build/files/spe_cluster_forwarder_outputs
+      - /home/ansible/build/files/spe_cluster_search_base 
+      - /home/ansible/build/files/spe_cluster_forwarder_outputs
 
   - name: Uploading folders to deployment-apps on monitoring console
     copy:
@@ -30,8 +30,8 @@
       dest: /opt/splunk/etc/deployment-apps
       owner: splunk
     loop:
-      - ~/build/files/spe_search_volume_indexes
-      - ~/build/files/spe_indexer_volume_indexes
-      - ~/build/files/spe_cluster_indexer_base
-      - ~/build/files/spe_all_deploymentclient
-      - ~/build/files/spe_all_indexes
+      - /home/ansible/build/files/spe_search_volume_indexes
+      - /home/ansible/build/files/spe_indexer_volume_indexes
+      - /home/ansible/build/files/spe_cluster_indexer_base
+      - /home/ansible/build/files/spe_all_deploymentclient
+      - /home/ansible/build/files/spe_all_indexes

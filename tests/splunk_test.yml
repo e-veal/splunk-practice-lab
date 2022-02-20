@@ -1,38 +1,69 @@
 ---
-- name: Clone git
-  hosts: localhost
+- name: Build Splunk Forwarder
+  hosts: forwarders
   any_errors_fatal: true
   gather_facts: no
-  vars_prompt:
-
-    - name: git_username
-      prompt: Username for Git
-      private: no
-
-    - name: git_email
-      prompt: Email for Git
-      private: no
-      
   vars_files:
-    - ~/build/vars/test_vars.yml
+    - ~/build/vars/main_vars.yml
 
   tasks:
 
-  - name: Configuring git
-    command: "{{ item }} "
-    loop:
-      - git config --global user.email "{{ git_email }}"
-      - git config --global user.name "{{ git_username }}"
+  - name: Checking if wget package is installed
+    package_facts:
+      manager: "auto"
 
-  - name: Cloning a github repository
-    git:
-      repo: https://github.com/e-veal/splunk-practice-lab
-      dest: /home/ansible/build
-      clone: yes
-      update: yes
+  - name: Install wget
+    yum:
+      name: wget
+      state: latest
+    when: "'wget' not in ansible_facts.packages"
+
+  - name: Checking if Splunk Forwarder is installed
+    stat:
+      path: /opt/splunkforwarder
+    register: stat_result
+
+  - name: Installing Splunk, if not already installed
+    become: yes
+    become_user: root
+    unarchive:
+      src: "{{ splunkfwdr_pkg }}"
+      dest: /opt
+      owner: splunk
+      remote_src: yes
+    when: not stat_result.stat.exists
   
-  - name: Disconnecting git
-    command: "{{ item }}"
+  - name: Setting environment variables
+    lineinfile:
+      path: ~/.bashrc
+      insertafter: EOF
+      line: export SPLUNK_HOME=/opt/splunk/
+      create: yes
+    become: yes
+    become_user: splunk
+  
+  - name: Updating shell
+    shell: source ~/.bashrc
+    become: yes
+    become_user: splunk
+
+  - name: Starting Splunk Forwarder
+    command: '/opt/splunkforwarder/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
+    become: yes
+    become_user: splunk
+
+  - name: Configuring Forwarder
+    copy:
+      src: "{{ item }}"
+      dest: /opt/splunkforwarder/etc/apps
+      owner: splunk
+    become: yes
+    become_user: splunk
     loop:
-      - git remote rm main
-      - rm -rf .git
+      - /home/ansible/build/files/spe_cluster_forwarder_outputs
+      - /home/ansible/build/files/spe_master_deploymentclient
+
+  - name: Ensuring receiver is listening
+    command: /opt/splunkforwarder/bin/splunk enable listen 9997 -auth admin:{{adminPwd}}
+    become: yes
+    become_user: splunk

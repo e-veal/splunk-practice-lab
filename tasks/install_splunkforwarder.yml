@@ -1,12 +1,13 @@
 ---
-- name: Installs Splunk
-  hosts: "{{active_servers}}"
-  gather_facts: no
+- name: Build Splunk Forwarder
+  hosts: forwarders
   any_errors_fatal: true
+  gather_facts: no
   vars_files:
     - ~/build/vars/main_vars.yml
 
   tasks:
+
   - name: Checking if wget package is installed
     package_facts:
       manager: "auto"
@@ -17,16 +18,16 @@
       state: latest
     when: "'wget' not in ansible_facts.packages"
 
-  - name: Checking if Splunk is installed
+  - name: Checking if Splunk Forwarder is installed
     stat:
-      path: /opt/splunk
+      path: /opt/splunkforwarder
     register: stat_result
 
   - name: Installing Splunk, if not already installed
     become: yes
     become_user: root
     unarchive:
-      src: "{{ splunk_pkg.8_2_4 }}"
+      src: "{{ splunkfwdr_pkg }}"
       dest: /opt
       owner: splunk
       remote_src: yes
@@ -40,18 +41,13 @@
       create: yes
     become: yes
     become_user: splunk
-
-  # - name: Deleting installation file
-  #   file:
-  #     path: /home/ansible/{{ splunk_pkg }}
-  #     state: absent
   
   - name: Updating shell
     shell: source ~/.bashrc
     become: yes
     become_user: splunk
 
-  - name: Starting Splunk
-    command: '/opt/splunk/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
+  - name: Starting Splunk Forwarder
+    command: '/opt/splunkforwarder/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
     become: yes
     become_user: splunk

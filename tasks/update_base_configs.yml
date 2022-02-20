@@ -3,7 +3,7 @@
   hosts: "{{active_servers}}"
   any_errors_fatal: true
   vars_files:
-    - ~/build/vars/main_vars.yml
+    - /home/ansible/build/vars/main_vars.yml
 
   tasks:  
 
@@ -22,7 +22,7 @@
     delegate_to: localhost
 
   - lineinfile:
-      path: /home/ansible/build/files/spe_master_deploymentclient/local/deploymentclient.conf
+      path: "{{ item }}"
       regexp: '^targetUri = '
       line: "targetUri = {{ varDeploy }}:8089"
     delegate_to: localhost
