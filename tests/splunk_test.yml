@@ -1,69 +1,51 @@
 ---
-- name: Build Splunk Forwarder
-  hosts: forwarders
+- name: Testing Splunk Ansible Build
+  hosts: all
   any_errors_fatal: true
-  gather_facts: no
+#  gather_facts: no
   vars_files:
     - ~/build/vars/main_vars.yml
 
   tasks:
-
-  - name: Checking if wget package is installed
-    package_facts:
-      manager: "auto"
-
-  - name: Install wget
-    yum:
-      name: wget
-      state: latest
-    when: "'wget' not in ansible_facts.packages"
-
-  - name: Checking if Splunk Forwarder is installed
-    stat:
-      path: /opt/splunkforwarder
-    register: stat_result
-
-  - name: Installing Splunk, if not already installed
-    become: yes
-    become_user: root
-    unarchive:
-      src: "{{ splunkfwdr_pkg }}"
-      dest: /opt
-      owner: splunk
-      remote_src: yes
-    when: not stat_result.stat.exists
   
-  - name: Setting environment variables
-    lineinfile:
-      path: ~/.bashrc
-      insertafter: EOF
-      line: export SPLUNK_HOME=/opt/splunk/
-      create: yes
-    become: yes
-    become_user: splunk
-  
-  - name: Updating shell
-    shell: source ~/.bashrc
-    become: yes
-    become_user: splunk
+  - name: Setting variables
+    set_fact: 
+      varIdx1: "{{ hostvars['IDX1']['ansible_default_ipv4']['address'] }}"
+      varIdx2: "{{ hostvars['IDX2']['ansible_default_ipv4']['address'] }}"
+      varDeploy: "{{ hostvars['MC']['ansible_default_ipv4']['address'] }}"
+      varSh: "{{ hostvars['SH']['ansible_default_ipv4']['address'] }}"
+      varCMgr: "{{ hostvars['CM']['ansible_default_ipv4']['address'] }}"
+      varUf1: "{{ hostvars['UF1']['ansible_default_ipv4']['address'] }}"
+      varUf2: "{{ hostvars['UF2']['ansible_default_ipv4']['address'] }}"
 
-  - name: Starting Splunk Forwarder
-    command: '/opt/splunkforwarder/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
-    become: yes
-    become_user: splunk
+  # - lineinfile:
+  #     path:  /home/ansible/build/files/serverclass_test.conf
+  #     insertafter: ^\[serverClass:all_deploymentclients\]
+  #     line: "{{ item }}"
+  #   loop:
+  #     - "whitelist.0 = {{ varSh }}"
+  #     - "whitelist.1 = {{ varUf1 }}"
+  #     - "whitelist.2 = {{ varUf2 }}"
+  #   delegate_to: localhost
 
-  - name: Configuring Forwarder
-    copy:
-      src: "{{ item }}"
-      dest: /opt/splunkforwarder/etc/apps
-      owner: splunk
-    become: yes
-    become_user: splunk
-    loop:
-      - /home/ansible/build/files/spe_cluster_forwarder_outputs
-      - /home/ansible/build/files/spe_master_deploymentclient
+  # - lineinfile:
+  #     path:  /home/ansible/build/files/serverclass_test.conf
+  #     insertafter: ^\[serverClass:cluster_manager\]
+  #     line: "whitelist.0 = {{ varCMgr }}"
+  #   delegate_to: localhost
 
-  - name: Ensuring receiver is listening
-    command: /opt/splunkforwarder/bin/splunk enable listen 9997 -auth admin:{{adminPwd}}
-    become: yes
-    become_user: splunk
+  # - lineinfile:
+  #     path:  /home/ansible/build/files/serverclass_test.conf
+  #     insertafter: ^\[serverClass:forwarders\]
+  #     line: "{{ item }}"
+  #   loop:
+  #     - "whitelist.0 = {{ varUf1 }}"
+  #     - "whitelist.1 = {{ varUf2 }}"
+  #   delegate_to: localhost
+
+  - lineinfile:
+      path:  /home/ansible/build/files/serverclass_test.conf
+      insertafter: ^\[serverClass:search_head\]
+      line: "whitelist.0 = {{ varSh }}"
+      firstmatch: yes
+    delegate_to: localhost
