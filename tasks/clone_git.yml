@@ -30,7 +30,12 @@
       dest: /home/ansible/build
       clone: yes
       update: yes
-  
+
+  - name: Deleting test folder
+    file:
+      path: /home/ansible/build/tests
+      state: absent
+      
   - name: Disconnecting git
     command: "{{ item }}"
     loop:
