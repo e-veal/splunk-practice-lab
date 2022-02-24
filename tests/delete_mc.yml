@@ -1,0 +1,12 @@
+---
+- name: Remove MC
+  hosts: MC
+  any_errors_fatal: true
+  vars_files:
+    - ~/build/vars/main_vars.yml
+
+  tasks:
+  - name: Removing Monitoring Console
+    path: /opt/splunk
+    state: absent
+  

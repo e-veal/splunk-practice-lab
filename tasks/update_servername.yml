@@ -1,6 +1,6 @@
 ---
 - name: Update server names
-  hosts: non_forwarders
+  hosts: "{{active_servers}}"
   any_errors_fatal: true
   gather_facts: no
   become: yes

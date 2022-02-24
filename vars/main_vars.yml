@@ -1,7 +1,7 @@
 ---
 # vars file for build
 - ansible_python_interpreter: /usr/bin/python
-- active_servers: all
+- active_servers: gamora
 
 # Splunk Versions
 - splunk_pkg: 

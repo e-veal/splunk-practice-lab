@@ -41,11 +41,6 @@
     become: yes
     become_user: splunk
 
-  # - name: Deleting installation file
-  #   file:
-  #     path: /home/ansible/{{ splunk_pkg }}
-  #     state: absent
-  
   - name: Updating shell
     shell: source ~/.bashrc
     become: yes

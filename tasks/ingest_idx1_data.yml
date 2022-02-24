@@ -1,6 +1,5 @@
-# Add data to ingest
 ---
-- name: Testing Splunk Ansible Build
+- name: Add data to ingest
   hosts: IDX1
   any_errors_fatal: true
   gather_facts: no
