@@ -15,6 +15,5 @@
 - import_playbook: configure_uf.yml
 - import_playbook: restart_splunk.yml
 - import_playbook: add_search_peers.yml
-- import_playbook: add_data.yml
-- import_playbook: ingest_idx1_data.yml
-- import_playbook: ingest_idx2_data.yml
+- import_playbook: ingest_uf1_data.yml
+- import_playbook: ingest_uf2_data.yml
