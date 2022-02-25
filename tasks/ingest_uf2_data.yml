@@ -1,0 +1,33 @@
+---
+- name: Add data to ingest
+  hosts: IDX2
+  any_errors_fatal: true
+  gather_facts: no
+  become: yes
+  become_user: root
+  vars_files:
+    - ~/build/vars/main_vars.yml
+
+  tasks:
+  
+  - name: Pulling data
+    unarchive: 
+      src: 'http://log-sharing.dreamhosters.com/hnet-hon-var-log-02282006.tgz'
+      dest: /tmp
+      owner: root
+      group: root
+      remote_src: yes
+  
+  - command: find /tmp/var -type d -empty -delete
+
+  - name: Copying files to proper location
+    copy: 
+      src: /tmp/var/log
+      dest: /var/
+      remote_src: yes
+      owner: splunk
+      group: splunk
+
+  - file:
+      path: /tmp/var/
+      state: absent
