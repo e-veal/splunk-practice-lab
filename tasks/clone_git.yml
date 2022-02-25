@@ -31,7 +31,6 @@
       clone: yes
       update: yes
       version: gamora
-      single_branch: yes
 
   - name: Deleting test folder
     file:
