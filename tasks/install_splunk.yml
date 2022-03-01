@@ -11,27 +11,29 @@
   - name: Checking if wget package is installed
     package_facts:
       manager: "auto"
+    become: root
 
   - name: Install wget
     yum:
       name: wget
       state: latest
     when: "'wget' not in ansible_facts.packages"
+    become: root
 
   - name: Checking if Splunk is installed
     stat:
       path: /opt/splunk
     register: stat_result
+    become: root
 
   - name: Installing Splunk, if not already installed
-    become: yes
-    become_user: root
     unarchive:
       src: "{{ splunk_pkg.8_2_4 }}"
       dest: /opt
       owner: splunk
       remote_src: yes
     when: not stat_result.stat.exists
+    become: root
   
   - name: Setting environment variables
     lineinfile:
@@ -39,15 +41,12 @@
       insertafter: EOF
       line: export SPLUNK_HOME=/opt/splunk/
       create: yes
-    become: yes
     become_user: splunk
 
   - name: Updating shell
     shell: source ~/.bashrc
-    become: yes
     become_user: splunk
 
   - name: Starting Splunk
     command: '/opt/splunk/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
-    become: yes
     become_user: splunk
