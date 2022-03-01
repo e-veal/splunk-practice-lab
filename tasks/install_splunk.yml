@@ -2,6 +2,7 @@
 - name: Installs Splunk
   hosts: "{{active_servers}}"
   gather_facts: no
+  strategy: free
   become: yes
   any_errors_fatal: true
   vars_files:
@@ -12,6 +13,7 @@
     package_facts:
       manager: "auto"
     become: root
+    run_once: yes
 
   - name: Install wget
     yum:
