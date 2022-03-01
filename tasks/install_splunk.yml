@@ -2,6 +2,7 @@
 - name: Installs Splunk
   hosts: "{{active_servers}}"
   gather_facts: no
+  become: yes
   any_errors_fatal: true
   vars_files:
     - ~/build/vars/main_vars.yml
