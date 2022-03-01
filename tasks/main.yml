@@ -10,7 +10,6 @@
 - import_playbook: generate_wordplay.yml
 - import_playbook: configure_sh.yml
 - import_playbook: configure_cmgr.yml
-# - import_playbook: configure_mc.yml
 - import_playbook: configure_idx.yml
 - import_playbook: configure_uf.yml
 - import_playbook: restart_splunk.yml
