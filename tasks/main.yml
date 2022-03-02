@@ -2,10 +2,10 @@
 # tasks file for build
 #- import_playbook: clone_git.yml
 - import_playbook: install_splunk.yml
-- import_playbook: install_splunkforwarder.yml
+# - import_playbook: install_splunkforwarder.ymlx
 - import_playbook: non_root.yml
 - import_playbook: update_servername.yml
-- import_playbook: update_uf_servername.yml
+# - import_playbook: update_uf_servername.yml
 - import_playbook: update_base_configs.yml
 - import_playbook: generate_wordplay.yml
 - import_playbook: configure_sh.yml
@@ -13,7 +13,6 @@
 - import_playbook: configure_idx.yml
 - import_playbook: configure_uf.yml
 - import_playbook: restart_splunk.yml
-- import_playbook: restart_splunkforwarder.yml
 - import_playbook: add_search_peers.yml
 - import_playbook: ingest_uf1_data.yml
-- import_playbook: ingest_uf2_data.yml
+# - import_playbook: ingest_uf2_data.yml

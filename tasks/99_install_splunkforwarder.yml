@@ -37,7 +37,7 @@
     lineinfile:
       path: ~/.bashrc
       insertafter: EOF
-      line: export SPLUNK_HOME=/opt/splunk/
+      line: export SPLUNK_HOME=/opt/splunkforwarder/
       create: yes
     become: yes
     become_user: splunk

@@ -1,7 +1,6 @@
 - name: Restart splunk
-  hosts: "{{ active_servers }}"
+  hosts: all
   any_errors_fatal: true
-  gather_facts: no
   become: yes
   become_user: splunk
   vars_files:
@@ -11,3 +10,8 @@
 
   - name: Restarting splunk
     command: /opt/splunk/bin/splunk restart
+    when: inventory_hostname in groups['gamora']
+
+  - name: Restarting splunk
+    command: /opt/splunkforwarder/bin/splunk restart
+    when: inventory_hostname in groups['forwarders']

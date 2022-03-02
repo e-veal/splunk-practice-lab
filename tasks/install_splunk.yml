@@ -33,8 +33,16 @@
           dest: /opt
           owner: splunk
           remote_src: yes
-        when: not stat_result.stat.exists
+        when: not stat_result.stat.exists and inventory_hostname in groups['forwarders']
   
+      - name: Installing Splunk, if not already installed
+        unarchive:
+          src: "{{ splunkfwdr_pkg }}"
+          dest: /opt
+          owner: splunk
+          remote_src: yes
+        when: not stat_result.stat.exists and inventory_hostname in groups['gamora']
+      
   - name: Configuring Splunk
     block:
     - name: Setting environment variables
@@ -51,3 +59,22 @@
       command: '/opt/splunk/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
     become: yes
     become_user: splunk
+    when: inventory_hostname in groups['gamora']
+      
+  - name: Configuring Splunkforwaders
+    block:
+    - name: Setting environment variables
+      lineinfile:
+        path: ~/.bashrc
+        insertafter: EOF
+        line: export SPLUNK_HOME=/opt/splunkforwarder/
+        create: yes
+
+    - name: Updating shell
+      shell: source ~/.bashrc
+
+    - name: Starting Splunk Forwarder
+      command: '/opt/splunkforwarder/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
+    become: yes
+    become_user: splunk
+    when: inventory_hostname in groups['forwarders']

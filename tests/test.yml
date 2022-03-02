@@ -1,5 +1,13 @@
 ---
-- hosts: localhost
-  remote_user: root
-  roles:
-    - build
+- hosts: indexers
+  gather_facts: yes
+
+  tasks:
+  
+  - name: Here we are checking ansible_hostname
+    debug:
+      msg: "hostname is {{ ansible_hostname }}"
+  
+  - name: Here we are checking inventory_hostname
+    debug:
+      msg: "inventory is {{ inventory_hostname }}"
