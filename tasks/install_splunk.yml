@@ -3,52 +3,51 @@
   hosts: "{{active_servers}}"
   gather_facts: no
   strategy: free
-  become: yes
   any_errors_fatal: true
   vars_files:
     - ~/build/vars/main_vars.yml
 
   tasks:
-  - name: Checking if wget package is installed
-    package_facts:
-      manager: "auto"
-    become: root
-    run_once: yes
+  - name: Installing Splunk
+    block:
 
-  - name: Install wget
-    yum:
-      name: wget
-      state: latest
-    when: "'wget' not in ansible_facts.packages"
-    become: root
+      - name: Checking if wget package is installed
+        package_facts:
+          manager: "auto"
+        run_once: yes
 
-  - name: Checking if Splunk is installed
-    stat:
-      path: /opt/splunk
-    register: stat_result
-    become: root
+      - name: Install wget
+        yum:
+          name: wget
+          state: latest
+        when: "'wget' not in ansible_facts.packages"
 
-  - name: Installing Splunk, if not already installed
-    unarchive:
-      src: "{{ splunk_pkg.8_2_4 }}"
-      dest: /opt
-      owner: splunk
-      remote_src: yes
-    when: not stat_result.stat.exists
-    become: root
+      - name: Checking if Splunk is installed
+        stat:
+          path: /opt/splunk
+        register: stat_result
+
+      - name: Installing Splunk, if not already installed
+        unarchive:
+          src: "{{ splunk_pkg }}"
+          dest: /opt
+          owner: splunk
+          remote_src: yes
+        when: not stat_result.stat.exists
   
-  - name: Setting environment variables
-    lineinfile:
-      path: ~/.bashrc
-      insertafter: EOF
-      line: export SPLUNK_HOME=/opt/splunk/
-      create: yes
-    become_user: splunk
+  - name: Configuring Splunk
+    block:
+    - name: Setting environment variables
+      lineinfile:
+        path: ~/.bashrc
+        insertafter: EOF
+        line: export SPLUNK_HOME=/opt/splunk/
+        create: yes
 
-  - name: Updating shell
-    shell: source ~/.bashrc
-    become_user: splunk
+    - name: Updating shell
+      shell: source ~/.bashrc
 
-  - name: Starting Splunk
-    command: '/opt/splunk/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
+    - name: Starting Splunk
+      command: '/opt/splunk/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
+    become: yes
     become_user: splunk

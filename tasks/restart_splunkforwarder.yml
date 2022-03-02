@@ -1,5 +1,5 @@
-- name: Restart splunk
-  hosts: "{{ active_servers }}"
+- name: Restart splunkforwarders
+  hosts: forwarders
   any_errors_fatal: true
   gather_facts: no
   become: yes
@@ -10,4 +10,4 @@
   tasks:
 
   - name: Restarting splunk
-    command: /opt/splunk/bin/splunk restart
+    command: /opt/splunkforwarder/bin/splunk restart
