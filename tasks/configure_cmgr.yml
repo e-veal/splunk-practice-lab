@@ -24,3 +24,16 @@
       - /home/ansible/build/files/spe_cluster_master_base
       - /home/ansible/build/files/spe_cluster_forwarder_outputs
       - /home/ansible/build/files/spe_master_deploymentclient
+
+  - name: Uploading folders to master-apps on cluster manager
+    copy:
+      src: "{{ item }}"
+      dest: /opt/splunk/etc/master-apps
+      owner: splunk
+    loop:
+      - /home/ansible/build/files/spe_cluster_indexer_base
+      - /home/ansible/build/files/spe_all_indexes
+      - /home/ansible/build/files/spe_indexer_volume_indexes
+
+  - name: Pushing packages to indexers
+    command: /opt/splunk/bin/splunk apply cluster-bundle --answer-yes

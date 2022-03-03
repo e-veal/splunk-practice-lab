@@ -25,4 +25,4 @@
       - /home/ansible/build/files/spe_cluster_forwarder_outputs
       - /home/ansible/build/files/spe_all_deploymentclient
       - /home/ansible/build/files/spe_all_indexes
-      - /home/ansible/build/files/search_volume_indexes
+      - /home/ansible/build/files/spe_search_volume_indexes

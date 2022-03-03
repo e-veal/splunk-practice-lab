@@ -1,6 +1,6 @@
 ---
 - name: Update server names
-  hosts: non_forwarders
+  hosts: all
   any_errors_fatal: true
   gather_facts: no
   become: yes
@@ -15,3 +15,11 @@
     loop:
       - /opt/splunk/bin/splunk set servername {{ inventory_hostname }} -auth admin:{{adminPwd}}
       - /opt/splunk/bin/splunk restart
+    when: inventory_hostname in groups['main']
+
+  - name: Setting server name on all the hosts in the inventory
+    command: "{{ item }}"
+    loop:
+      - /opt/splunkforwarder/bin/splunk set servername {{ inventory_hostname }} -auth admin:{{adminPwd}}
+      - /opt/splunkforwarder/bin/splunk restart
+    when: inventory_hostname in groups['forwarders']

@@ -18,68 +18,61 @@
       varUf2: "{{ hostvars['UF2']['ansible_default_ipv4']['address'] }}"
 
   - name: Updating IPs in all files
-    lineinfile:
-      path:  /home/ansible/build/files/spe_cluster_forwarder_outputs/local/outputs.conf
-      regexp: '^server = '
-      line: "server = {{ varIdx1 }}:9997, {{ varIdx2 }}:9997"
-    delegate_to: localhost
+    block: 
+      - lineinfile:
+          path:  /home/ansible/build/files/spe_cluster_forwarder_outputs/local/outputs.conf
+          regexp: '^server = '
+          line: "server = {{ varIdx1 }}:9997, {{ varIdx2 }}:9997"
 
-  - lineinfile:
-      path: "{{ item }}"
-      regexp: '^targetUri = '
-      line: "targetUri = {{ varDeploy }}:8089"
-    delegate_to: localhost
-    loop:
-      - /home/ansible/build/files/spe_master_deploymentclient/local/deploymentclient.conf
-      - /home/ansible/build/files/spe_all_deploymentclient/local/deploymentclient.conf
+      - lineinfile:
+          path: "{{ item }}"
+          regexp: '^targetUri = '
+          line: "targetUri = {{ varDeploy }}:8089"
+        loop:
+          - /home/ansible/build/files/spe_master_deploymentclient/local/deploymentclient.conf
+          - /home/ansible/build/files/spe_all_deploymentclient/local/deploymentclient.conf
 
-  - lineinfile:
-      path:  /home/ansible/build/files/spe_cluster_search_base/local/server.conf
-      regexp: '(manager_uri){1}'
-      line: "manager_uri = https://{{ varCMgr }}:8089"
-    delegate_to: localhost
+      - lineinfile:
+          path:  /home/ansible/build/files/spe_cluster_search_base/local/server.conf
+          regexp: '(manager_uri){1}'
+          line: "manager_uri = https://{{ varCMgr }}:8089"
 
-  - lineinfile:
-      path:  /home/ansible/build/files/spe_cluster_indexer_base/local/server.conf
-      regexp: '^manager_uri'
-      line: "manager_uri = https://{{ varCMgr }}:8089"
-    delegate_to: localhost
+      - lineinfile:
+          path:  /home/ansible/build/files/spe_cluster_indexer_base/local/server.conf
+          regexp: '^manager_uri'
+          line: "manager_uri = https://{{ varCMgr }}:8089"
 
-  - lineinfile:
-      path:  /home/ansible/build/files/spe_cluster_indexer_base/local/server.conf
-      regexp: '^master_uri'
-      line: "master_uri = https://{{ varDeploy }}:8089"
-    delegate_to: localhost
+      - lineinfile:
+          path:  /home/ansible/build/files/spe_cluster_indexer_base/local/server.conf
+          regexp: '^master_uri'
+          line: "master_uri = https://{{ varDeploy }}:8089"
 
-  - name: Updating serverclass.conf
-    lineinfile:
-      path:  /home/ansible/build/files/serverclass.conf
-      insertafter: ^\[serverClass:all_deploymentclients\]
-      line: "{{ item }}"
-    loop:
-      - "whitelist.0 = {{ varSh }}"
-      - "whitelist.1 = {{ varUf1 }}"
-      - "whitelist.2 = {{ varUf2 }}"
-    delegate_to: localhost
+      - name: Updating serverclass.conf
+        lineinfile:
+          path:  /home/ansible/build/files/serverclass.conf
+          insertafter: ^\[serverClass:all_deploymentclients\]
+          line: "{{ item }}"
+        loop:
+          - "whitelist.2 = {{ varSh }}"
+          - "whitelist.1 = {{ varUf2 }}"
+          - "whitelist.0 = {{ varUf1 }}"
 
-  - lineinfile:
-      path:  /home/ansible/build/files/serverclass.conf
-      insertafter: ^\[serverClass:cluster_manager\]
-      line: "whitelist.0 = {{ varCMgr }}"
-    delegate_to: localhost
+      - lineinfile:
+          path:  /home/ansible/build/files/serverclass.conf
+          insertafter: ^\[serverClass:cluster_manager\]
+          line: "whitelist.0 = {{ varCMgr }}"
 
-  - lineinfile:
-      path:  /home/ansible/build/files/serverclass.conf
-      insertafter: ^\[serverClass:forwarders\]
-      line: "{{ item }}"
-    loop:
-      - "whitelist.0 = {{ varUf1 }}"
-      - "whitelist.1 = {{ varUf2 }}"
-    delegate_to: localhost
+      - lineinfile:
+          path:  /home/ansible/build/files/serverclass.conf
+          insertafter: ^\[serverClass:forwarders\]
+          line: "{{ item }}"
+        loop:
+          - "whitelist.1 = {{ varUf1 }}"
+          - "whitelist.0 = {{ varUf2 }}"
 
-  - lineinfile:
-      path:  /home/ansible/build/files/serverclass.conf
-      insertafter: ^\[serverClass:search_head\]
-      line: "whitelist.0 = {{ varSh }}"
-      firstmatch: yes
+      - lineinfile:
+          path:  /home/ansible/build/files/serverclass.conf
+          insertafter: ^\[serverClass:search_head\]
+          line: "whitelist.0 = {{ varSh }}"
+          firstmatch: yes
     delegate_to: localhost
