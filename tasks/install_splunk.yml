@@ -29,7 +29,7 @@
 
       - name: Installing Splunk, if not already installed
         unarchive:
-          src: "{{ splunk_pkg }}"
+          src: "{{ splunk_pkg.8_2_4 }}"
           dest: /opt
           owner: splunk
           remote_src: yes
