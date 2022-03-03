@@ -3,7 +3,26 @@
 This is the configuration for Core Implementation Lab 1
 > Note: Different OS version than actual
 
-## Instructions
+## Build Instructions
+- Build 7 EC2s with `1-basic-splunk-image.sh`
+    - must have public IPs
+    - at least 10GB for storage
+- Wait for all to state Running
+    - May need to refresh
+- Build Ansible instance with `2-ansible-image.sh`
+    - Wait for Ansible instance to be named **AnsibleServer** in AWS Mgmt Console (this will take a few minutes)
+- Using a terminal, log into ANSIBLE box with sccStudent
+    `ssh sccStudent@ANSIBLE_SERVER_PUBLIC_IP`
+- Switch to ansible user (ansible doesn't [and shouldn't] have pwd)
+    `sudo su - ansible`
+- A script was created to copy ssh keys to other instances
+    `bash ~/copy_key.sh`
+- Build splunk
+    `ansible-playbook ~/build/tasks/main.yml -i inventory -K`
+    - Respond to password prompt
+    - grab a cup of coffee; takes ~7 mins to complete (00:36-00:43)
+---
+## Lab Instructions
 1. Install splunk on your Monitoring Console node. Make sure not to start it.
 2. Use the same steps to install splunk as in the first practice lab.
 3. Copy the splunk.secret file from `$SPLUNK_HOME/etc/auth/` on your cluster master node and place it in the same location on your new Monitoring Console node.
