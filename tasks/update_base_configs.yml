@@ -41,9 +41,9 @@
       insertafter: ^\[serverClass:all_deploymentclients\]
       line: "{{ item }}"
     loop:
-      - "whitelist.0 = {{ varSh }}"
-      - "whitelist.1 = {{ varUf1 }}"
-      - "whitelist.2 = {{ varUf2 }}"
+      - "whitelist.2 = {{ varSh }}"
+      - "whitelist.1 = {{ varUf2 }}"
+      - "whitelist.0 = {{ varUf1 }}"
     delegate_to: localhost
 
   - lineinfile:
@@ -57,8 +57,8 @@
       insertafter: ^\[serverClass:forwarders\]
       line: "{{ item }}"
     loop:
-      - "whitelist.0 = {{ varUf1 }}"
-      - "whitelist.1 = {{ varUf2 }}"
+      - "whitelist.1 = {{ varUf1 }}"
+      - "whitelist.0 = {{ varUf2 }}"
     delegate_to: localhost
 
   - lineinfile:
