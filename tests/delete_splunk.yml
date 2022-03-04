@@ -1,0 +1,22 @@
+---
+- name: Delete Files
+  hosts: all
+  any_errors_fatal: true
+  become: yes
+  become_user: root
+  vars_files:
+    - ~/build/vars/main_vars.yml
+
+  tasks:  
+
+  - name: Delete installation file
+    file:
+      path: /opt/splunk
+      state: absent
+    when: inventory_hostname in groups['gamora']
+
+  - name: Delete installation file
+    file:
+      path: /opt/splunkforwarder
+      state: absent
+    when: inventory_hostname in groups['forwarders']
