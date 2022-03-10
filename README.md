@@ -22,8 +22,15 @@ This is the configuration for Core Implementation Lab 1
     - Respond to password prompt
     - grab a cup of coffee; takes ~7 mins to complete (00:36-00:43)
 ---
-## Lab Instructions
-1. Install splunk on your Monitoring Console node. Make sure not to start it.
+## Lab Goals
+1. Join Monitoring Console to Cluster Manager with same pass4Symm key
+2. Ensure data is ingested properly (should be 3 indexes: os, mail, network)
+3. Ensure Monitoring Console is monitoring all servers in the environment
+4. Ensure deployment server is configured properly
+
+## Instructions
+
+1. Install Splunk on your Monitoring Console node. Make sure not to start it.
 2. Use the same steps to install splunk as in the first practice lab.
 3. Copy the splunk.secret file from `$SPLUNK_HOME/etc/auth/` on your cluster master node and place it in the same location on your new Monitoring Console node.
 4. Once copied, start your new instance.
