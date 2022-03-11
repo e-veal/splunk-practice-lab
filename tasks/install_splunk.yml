@@ -1,6 +1,6 @@
 ---
 - name: Installs Splunk
-  hosts: "{{active_servers}}"
+  hosts: all
   gather_facts: no
   strategy: free
   any_errors_fatal: true
@@ -8,73 +8,91 @@
     - ~/build/vars/main_vars.yml
 
   tasks:
-  - name: Installing Splunk
-    block:
+    - name: Checking if wget package is installed
+      package_facts:
+        manager: "auto"
+      run_once: yes
 
-      - name: Checking if wget package is installed
-        package_facts:
-          manager: "auto"
-        run_once: yes
+    - name: Install wget
+      yum:
+        name: wget
+        state: latest
+      when: "'wget' not in ansible_facts.packages"
 
-      - name: Install wget
-        yum:
-          name: wget
-          state: latest
-        when: "'wget' not in ansible_facts.packages"
+    - name: Checking if Splunk is installed
+      stat:
+        path: /opt/splunk
+      register: stat_result
+      when: inventory_hostname in groups['main'] or inventory_hostname in groups['heavy_forwarder'] 
 
-      - name: Checking if Splunk is installed
-        stat:
-          path: /opt/splunk
-        register: stat_result
+    - name: Installing Splunk Enterprise
+      become: yes
+      unarchive:
+        src: "{{ splunk_pkg._8_2_4 }}"
+        dest: /opt
+        owner: splunk
+        group: splunk
+        remote_src: yes
+      when: (inventory_hostname in groups['main'] or inventory_hostname in groups['heavy_forwarder']) and not stat_result.stat.exists
 
-      - name: Installing Splunk, if not already installed
-        unarchive:
-          src: "{{ splunk_pkg.8_2_4 }}"
-          dest: /opt
-          owner: splunk
-          remote_src: yes
-        when: not stat_result.stat.exists and inventory_hostname in groups['forwarders']
-  
-      - name: Installing Splunk, if not already installed
-        unarchive:
-          src: "{{ splunkfwdr_pkg }}"
-          dest: /opt
-          owner: splunk
-          remote_src: yes
-        when: not stat_result.stat.exists and inventory_hostname in groups['main']
+    - name: Installing Splunk Enterprise on new indexers
+      become: yes
+      unarchive:
+        src: "{{ splunk_pkg._7_2_10 }}"
+        dest: /opt
+        owner: splunk
+        group: splunk
+        remote_src: yes
+      when: inventory_hostname in groups['new_indexers']
+
+    - name: Checking if Splunk Forwarder is installed
+      stat:
+        path: /opt/splunkforwarder
+      when: inventory_hostname in groups['forwarders']
+      register: stat_result
+
+    - name: Installing Splunkforwarder
+      become: yes
+      unarchive:
+        src: "{{ splunkfwdr_pkg }}"
+        dest: /opt
+        owner: splunk
+        group: splunk
+        remote_src: yes
+      when: inventory_hostname in groups['forwarders'] and not stat_result.stat.exists
       
-  - name: Configuring Splunk
-    block:
-    - name: Setting environment variables
-      lineinfile:
-        path: ~/.bashrc
-        insertafter: EOF
-        line: export SPLUNK_HOME=/opt/splunk/
-        create: yes
+    - name: Configuring Splunk
+      block:
+        - name: Setting environment variables
+          lineinfile:
+            path: ~/.bashrc
+            insertafter: EOF
+            line: export SPLUNK_HOME=/opt/splunk/
+            create: yes
 
-    - name: Updating shell
-      shell: source ~/.bashrc
+        - name: Updating shell
+          shell: source ~/.bashrc
 
-    - name: Starting Splunk
-      command: '/opt/splunk/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
-    become: yes
-    become_user: splunk
-    when: inventory_hostname in groups['main']
-      
-  - name: Configuring Splunkforwaders
-    block:
-    - name: Setting environment variables
-      lineinfile:
-        path: ~/.bashrc
-        insertafter: EOF
-        line: export SPLUNK_HOME=/opt/splunkforwarder/
-        create: yes
+        - name: Starting Splunk
+          command: '/opt/splunk/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
+      become: yes
+      become_user: splunk
+      when: inventory_hostname in groups['gamora']
+        
+    - name: Configuring Splunkforwaders
+      block:
+        - name: Setting environment variables
+          lineinfile:
+            path: ~/.bashrc
+            insertafter: EOF
+            line: export SPLUNK_HOME=/opt/splunkforwarder/
+            create: yes
 
-    - name: Updating shell
-      shell: source ~/.bashrc
+        - name: Updating shell
+          shell: source ~/.bashrc
 
-    - name: Starting Splunk Forwarder
-      command: '/opt/splunkforwarder/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
-    become: yes
-    become_user: splunk
-    when: inventory_hostname in groups['forwarders']
+        - name: Starting Splunk Forwarder
+          command: '/opt/splunkforwarder/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
+      become: yes
+      become_user: splunk
+      when: inventory_hostname in groups['forwarders']
