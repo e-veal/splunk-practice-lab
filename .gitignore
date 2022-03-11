@@ -7,3 +7,15 @@ Icon*
 #executables
 *.exe
 *.tgz
+
+#testing files
+change_password.yml
+delete_file.yml
+delete_mc.yml
+delete_splunk.yml
+inventory
+splunk_test.yml
+test_main.yml
+test.yml
+*.list
+*.sh
