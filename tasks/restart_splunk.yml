@@ -10,8 +10,12 @@
 
   - name: Restarting splunk
     command: /opt/splunk/bin/splunk restart
-    when: inventory_hostname in groups['main']
+    when: inventory_hostname in groups['ent']
 
-  - name: Restarting splunk
+  - name: Restarting forwarders
     command: /opt/splunkforwarder/bin/splunk restart
     when: inventory_hostname in groups['forwarders']
+  
+  - name: Pushing packages to indexers
+    command: /opt/splunk/bin/splunk apply cluster-bundle --answer-yes -auth admin:{{adminPwd}}
+    when: inventory_hostname == 'CM'
