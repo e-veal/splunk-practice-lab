@@ -77,7 +77,7 @@
           command: '/opt/splunk/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
       become: yes
       become_user: splunk
-      when: inventory_hostname in groups['gamora']
+      when: inventory_hostname in groups['main']
         
     - name: Configuring Splunkforwaders
       block:
