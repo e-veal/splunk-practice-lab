@@ -1,6 +1,6 @@
 ---
 - name: Forwarders
-  hosts: forwarders
+  hosts: heavy_forwarder
   any_errors_fatal: true
   gather_facts: no
   become: yes
@@ -18,13 +18,15 @@
     loop:
       - /home/ansible/build/files/spe_cluster_forwarder_outputs
       - /home/ansible/build/files/spe_master_deploymentclient
+      - /home/ansible/build/files/spe_uf_inputs
 
   - name: Ensuring receiver is listening
-    command: /opt/splunkforwarder/bin/splunk enable listen 9997 -auth admin:{{adminPwd}}
+    command: "{{ item }}"
+    loop:
+    - /opt/splunkforwarder/bin/splunk enable listen 9997 -auth admin:{{adminPwd}}
+    - /opt/splunkforwarder/bin/splunk enable listen 9998 -auth admin:{{adminPwd}}
 
   - name: Enabling heavy forwarding
     command: "{{ item }}"
     loop:
       - /opt/splunk/bin/splunk enable app SplunkForwarder -auth admin:{{adminPwd}}
-      - /opt/splunk/bin/splunk add forward-server -auth admin:{{adminPwd}} 
-    when: inventory_hostname in groups['heavy_forwarder']
