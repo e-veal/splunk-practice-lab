@@ -4,7 +4,7 @@
   any_errors_fatal: true
   gather_facts: no
   vars_files:
-    - ~/build/vars/main_vars.yml
+    - ~/build/vars/main.yml
 
   tasks:  
 
