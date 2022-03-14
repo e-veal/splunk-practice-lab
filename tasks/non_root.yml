@@ -6,7 +6,7 @@
   become: yes
   become_user: root
   vars_files:
-    - /home/ansible/build/vars/main_vars.yml
+    - /home/ansible/build/vars/main.yml
 
   tasks:
   

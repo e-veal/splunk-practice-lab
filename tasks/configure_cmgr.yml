@@ -6,7 +6,7 @@
   become: yes
   become_user: splunk
   vars_files:
-    - /home/ansible/build/vars/main_vars.yml
+    - /home/ansible/build/vars/main.yml
 
   tasks: 
 
