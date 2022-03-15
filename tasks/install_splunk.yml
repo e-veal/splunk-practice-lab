@@ -5,7 +5,7 @@
   strategy: free
   any_errors_fatal: true
   vars_files:
-    - ~/build/vars/main.yml
+    - /home/ansible/build/vars/main.yml
 
   tasks:
     - name: Checking if wget package is installed
