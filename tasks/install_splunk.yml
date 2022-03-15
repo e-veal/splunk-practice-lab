@@ -19,12 +19,6 @@
         state: latest
       when: "'wget' not in ansible_facts.packages"
 
-    - name: Checking if Splunk is installed
-      stat:
-        path: /opt/splunk
-      register: stat_result
-      when: inventory_hostname in groups['main'] or inventory_hostname in groups['heavy_forwarder'] 
-
     - name: Installing Splunk Enterprise
       become: yes
       unarchive:
@@ -33,7 +27,7 @@
         owner: splunk
         group: splunk
         remote_src: yes
-      when: (inventory_hostname in groups['main'] or inventory_hostname in groups['heavy_forwarder']) and not stat_result.stat.exists
+      when: inventory_hostname in groups['main'] or inventory_hostname in groups['heavy_forwarder'])
 
     - name: Installing Splunk Enterprise on new indexers
       become: yes
@@ -45,12 +39,6 @@
         remote_src: yes
       when: inventory_hostname in groups['new_indexers']
 
-    - name: Checking if Splunk Forwarder is installed
-      stat:
-        path: /opt/splunkforwarder
-      when: inventory_hostname in groups['forwarders']
-      register: stat_result
-
     - name: Installing Splunkforwarder
       become: yes
       unarchive:
@@ -59,7 +47,7 @@
         owner: splunk
         group: splunk
         remote_src: yes
-      when: inventory_hostname in groups['forwarders'] and not stat_result.stat.exists
+      when: inventory_hostname in groups['forwarders']
       
     - name: Configuring Splunk
       block:
@@ -77,7 +65,7 @@
           command: '/opt/splunk/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
       become: yes
       become_user: splunk
-      when: inventory_hostname in groups['main']
+      when: inventory_hostname not in groups['forwarders']
         
     - name: Configuring Splunkforwaders
       block:
