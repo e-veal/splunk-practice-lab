@@ -19,4 +19,4 @@ test.yml
 *.list
 *.sh
 inventory*
-/files/*
+files/
