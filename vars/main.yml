@@ -1,7 +1,7 @@
 ---
 # vars file for build
 ansible_python_interpreter: /usr/bin/python
-active_servers: main
+active_servers: wkabi
 
 # Splunk Versions
 splunk_pkg: 
