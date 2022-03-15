@@ -2,7 +2,7 @@
 - name: Installs Splunk
   hosts: all
   gather_facts: no
-  strategy: free
+  #strategy: free
   any_errors_fatal: true
   vars_files:
     - /home/ansible/build/vars/main.yml
