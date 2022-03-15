@@ -62,13 +62,13 @@
           insertafter: ^\[serverClass:cluster_manager\]
           line: "whitelist.0 = {{ varCM }}"
 
-      - lineinfile:
-          path:  /home/ansible/build/files/serverclass.conf
-          insertafter: ^\[serverClass:forwarders\]
-          line: "{{ item }}"
-        loop:
-          # - "whitelist.1 = {{ varUF1 }}"
-          # - "whitelist.0 = {{ varUF2 }}"
+      # - lineinfile:
+      #     path:  /home/ansible/build/files/serverclass.conf
+      #     insertafter: ^\[serverClass:forwarders\]
+      #     line: "{{ item }}"
+      #   loop:
+      #     - "whitelist.1 = {{ varUF1 }}"
+      #     - "whitelist.0 = {{ varUF2 }}"
 
       - lineinfile:
           path:  /home/ansible/build/files/serverclass.conf
