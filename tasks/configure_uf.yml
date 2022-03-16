@@ -16,7 +16,7 @@
       dest: /opt/splunkforwarder/etc/apps
       owner: splunk
     loop:
-      - /home/ansible/build/files/spe_cluster_forwarder_outputs
+      - /home/ansible/build/files/spe_universal_forwarder_outputs
       - /home/ansible/build/files/spe_master_deploymentclient
 
   - name: Ensuring receiver is listening

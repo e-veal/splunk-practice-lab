@@ -35,3 +35,8 @@
       - /home/ansible/build/files/spe_indexer_volume_indexes
       - /home/ansible/build/files/spe_cluster_indexer_base
       - /home/ansible/build/files/spe_all_deploymentclient
+  
+  - name: Install license
+    copy:
+      src: /home/ansible/build/files/Splunk_Enterprise_NFR_FY23.lic
+      dest: /opt/splunk/etc/licenses/enterprise

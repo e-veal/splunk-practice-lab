@@ -16,17 +16,8 @@
       dest: /opt/splunkforwarder/etc/apps
       owner: splunk
     loop:
-      - /home/ansible/build/files/spe_cluster_forwarder_outputs
       - /home/ansible/build/files/spe_master_deploymentclient
-      - /home/ansible/build/files/spe_uf_inputs
-
-  - name: Ensuring receiver is listening
-    command: "{{ item }}"
-    loop:
-    - /opt/splunkforwarder/bin/splunk enable listen 9997 -auth admin:{{adminPwd}}
-    - /opt/splunkforwarder/bin/splunk enable listen 9998 -auth admin:{{adminPwd}}
+      - /home/ansible/build/files/spe_heavy_forwarder_outputs
 
   - name: Enabling heavy forwarding
-    command: "{{ item }}"
-    loop:
-      - /opt/splunk/bin/splunk enable app SplunkForwarder -auth admin:{{adminPwd}}
+    command: /opt/splunk/bin/splunk enable app SplunkForwarder -auth admin:{{adminPwd}}
