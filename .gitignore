@@ -12,9 +12,5 @@ Icon*
 *.list
 *.sh
 inventory*
-deploymentclient.conf
-outputs.conf
-server.conf
-serverclass.conf
 tests/
 *.lic
