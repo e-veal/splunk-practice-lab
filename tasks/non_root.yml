@@ -1,6 +1,6 @@
 ---
 - name: 'Configure non-root user'
-  hosts: wkabi; new_indexers
+  hosts: wkabi:new_indexers
   any_errors_fatal: true
   gather_facts: no
   become: yes

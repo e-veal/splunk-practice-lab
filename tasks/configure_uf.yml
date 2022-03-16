@@ -1,5 +1,5 @@
 ---
-- name: Forwarders
+- name: Universal Forwarders
   hosts: forwarders
   any_errors_fatal: true
   gather_facts: no
@@ -21,10 +21,3 @@
 
   - name: Ensuring receiver is listening
     command: /opt/splunkforwarder/bin/splunk enable listen 9997 -auth admin:{{adminPwd}}
-
-  - name: Enabling heavy forwarding
-    command: "{{ item }}"
-    loop:
-      - /opt/splunk/bin/splunk enable app SplunkForwarder -auth admin:{{adminPwd}}
-      - /opt/splunk/bin/splunk add forward-server -auth admin:{{adminPwd}} 
-    when: inventory_hostname in groups['heavy_forwarder']
