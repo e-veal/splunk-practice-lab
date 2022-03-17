@@ -9,12 +9,8 @@ Icon*
 *.tgz
 
 #test files
-change_password.yml
-delete_file.yml
-delete_mc.yml
-delete_splunk.yml
-*test*.yml
+tests/
 inventory
 
-#list
 *.list
+*.lic

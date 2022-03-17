@@ -17,7 +17,7 @@
       owner: splunk
     loop:
       - /home/ansible/build/files/spe_cluster_forwarder_outputs
-      - /home/ansible/build/files/spe_master_deploymentclient
+      - /home/ansible/build/files/spe_all_deploymentclient
 
   - name: Ensuring receiver is listening
     command: /opt/splunkforwarder/bin/splunk enable listen 9997 -auth admin:{{adminPwd}}

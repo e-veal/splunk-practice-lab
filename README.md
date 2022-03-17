@@ -30,6 +30,13 @@ This is the configuration for Core Implementation Lab 1
 
 ## Instructions
 
+This Lab will take you through discovering the clustering key for an existing cluster so you can add a new monitoring console node to it. This method will allow you to recover an encrypted password from an existing server and join a cluster without resetting all of the Pass4SymmKey values or making any other live changes in an existing indexer cluster.
+
+| Host Name| Role |
+|------|------|
+| CM | Cluster Manager |
+| MC | Monitoring Console |
+
 1. Install Splunk on your Monitoring Console node. Make sure not to start it.
 2. Use the same steps to install splunk as in the first practice lab.
 3. Copy the splunk.secret file from `$SPLUNK_HOME/etc/auth/` on your cluster master node and place it in the same location on your new Monitoring Console node.
