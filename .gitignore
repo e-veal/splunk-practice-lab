@@ -16,10 +16,10 @@ tests/
 *.lic
 
 #base configs
-build/files/spe_all_deploymentclient/local/deploymentclient.conf
-build/files/spe_cluster_forwarder_outputs/local/outputs.conf
-build/files/spe_cluster_indexer_base/local/server.conf
-build/files/spe_cluster_master_base/local/server.conf
-build/files/spe_cluster_search_base/local/server.conf
-build/files/spe_master_deploymentclient/local/deploymentclient.conf
-build/files/serverclass.conf
+~/build/files/spe_all_deploymentclient/local/deploymentclient.conf
+~/build/files/spe_cluster_forwarder_outputs/local/outputs.conf
+~/build/files/spe_cluster_indexer_base/local/server.conf
+~/build/files/spe_cluster_master_base/local/server.conf
+~/build/files/spe_cluster_search_base/local/server.conf
+~/build/files/spe_master_deploymentclient/local/deploymentclient.conf
+~/build/files/serverclass.conf
