@@ -9,11 +9,6 @@
     - /home/ansible/build/vars/main.yml
 
   tasks:
-
-  - name: Setting default host name
-    copy:
-      src: /home/ansible/build/files/spe_servernames/hf-inputs.conf
-      dest: /opt/splunk/etc/system/local/inputs.conf
   
   - name: Uploading folders to apps
     copy:

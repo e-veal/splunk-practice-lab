@@ -19,11 +19,6 @@
     copy:
       src: /home/ansible/build/files/serverclass.conf
       dest: /opt/splunk/etc/system/local/serverclass.conf
-
-  - name: Setting default host name
-    copy:
-      src: /home/ansible/build/files/spe_servernames/mc-inputs.conf
-      dest: /opt/splunk/etc/system/local/inputs.conf 
       
   - name: Uploading folders to apps on monitoring console
     copy:
@@ -53,7 +48,7 @@
   - name: Uploading license
     copy:
       src: /home/ansible/build/files/Splunk_Enterprise_NFR_FY23.lic
-      dest: /opt/splunk/etc/licenses/enterprise
+      dest: /opt/splunk/etc/licenses/Splunk_Enterprise_NFR_FY23.lic
     
   - name: Install license
-    command: /opt/splunk/bin/splunk add licenses /opt/splunk/etc/licenses/enterprise/enterprise.lic 
+    command: /opt/splunk/bin/splunk add licenses /opt/splunk/etc/licenses/Splunk_Enterprise_NFR_FY23.lic -auth admin:{{adminPwd}}
