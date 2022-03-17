@@ -13,7 +13,7 @@
   - name: Uploading folders to apps on indexers
     copy:
       src: "{{ item }}"
-      dest: /opt/splunk/etc/apps
+      dest: /opt/splunk/etc/slave-apps
       owner: splunk
     loop:
       - /home/ansible/build/files/spe_cluster_indexer_base

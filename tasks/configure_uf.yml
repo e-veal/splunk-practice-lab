@@ -13,7 +13,7 @@
   - name: Setting default host name
     copy:
       src: /home/ansible/build/files/spe_servernames/uf-inputs.conf
-      dest: /opt/splunk/etc/system/local/inputs.conf 
+      dest: /opt/splunkforwarder/etc/system/local/inputs.conf 
   
   - name: Uploading folders to apps
     copy:
