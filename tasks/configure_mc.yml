@@ -15,6 +15,11 @@
       src: /home/ansible/build/files/spe_banners/mc-global-banner.conf
       dest: /opt/splunk/etc/system/local/global-banner.conf
 
+  - name: Configuring serverclasses
+    copy:
+      src: /home/ansible/build/files/serverclass.conf
+      dest: /opt/splunk/etc/system/local/serverclass.conf
+
   - name: Setting default host name
     copy:
       src: /home/ansible/build/files/spe_servernames/mc-inputs.conf

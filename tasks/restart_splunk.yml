@@ -1,6 +1,7 @@
 - name: Restart splunk
   hosts: all
   any_errors_fatal: true
+  gather_facts: no
   become: yes
   become_user: splunk
   vars_files:
@@ -10,7 +11,7 @@
 
   - name: Restarting splunk
     command: /opt/splunk/bin/splunk restart
-    when: inventory_hostname in groups['wkabi']
+    when: inventory_hostname in groups['ent'] or inventory_hostname in groups['heavy_forwarder']
 
   - name: Restarting forwarders
     command: /opt/splunkforwarder/bin/splunk restart

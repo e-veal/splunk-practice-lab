@@ -18,7 +18,7 @@
   - name: Uploading folders to apps
     copy:
       src: "{{ item }}"
-      dest: /opt/splunkforwarder/etc/apps
+      dest: /opt/splunk/etc/apps
       owner: splunk
     loop:
       - /home/ansible/build/files/spe_master_deploymentclient
