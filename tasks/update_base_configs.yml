@@ -59,6 +59,7 @@
           line: "{{ item }}"
         loop:
           - "whitelist.2 = {{ varSH }}"
+          - "whitelist.1 = {{ varHF }}"
           - "whitelist.0 = {{ varUF1 }}"
 
       - lineinfile:

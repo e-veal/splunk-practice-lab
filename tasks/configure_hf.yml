@@ -21,7 +21,7 @@
       dest: /opt/splunk/etc/apps
       owner: splunk
     loop:
-      - /home/ansible/build/files/spe_master_deploymentclient
+      - /home/ansible/build/files/spe_all_deploymentclient
       - /home/ansible/build/files/spe_heavy_forwarder_outputs
 
   - name: Setting default host name
