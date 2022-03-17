@@ -14,11 +14,6 @@
     copy:
       src: /home/ansible/build/files/spe_banners/cm-global-banner.conf
       dest: /opt/splunk/etc/system/local/global-banner.conf 
-
-  - name: Setting default host name
-    copy:
-      src: /home/ansible/build/files/spe_servernames/cm-inputs.conf
-      dest: /opt/splunk/etc/system/local/inputs.conf 
       
   - name: Uploading folders to apps on cluster manager
     copy:
