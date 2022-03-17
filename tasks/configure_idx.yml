@@ -17,3 +17,15 @@
       owner: splunk
     loop:
       - /home/ansible/build/files/spe_cluster_indexer_base
+
+  - name: Setting default host name
+    copy:
+      src: /home/ansible/build/files/spe_servernames/idx1-inputs.conf
+      dest: /opt/splunk/etc/system/local/inputs.conf 
+    when: inventory_hostname == 'IDX1'
+
+  - name: Setting default host name
+    copy:
+      src: /home/ansible/build/files/spe_servernames/idx2-inputs.conf
+      dest: /opt/splunk/etc/system/local/inputs.conf 
+    when: inventory_hostname == 'IDX2'
