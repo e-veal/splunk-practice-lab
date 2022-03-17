@@ -10,6 +10,11 @@
 
   tasks:
   
+  - name: Setting default host name
+    copy:
+      src: /home/ansible/build/files/spe_servernames/uf-inputs.conf
+      dest: /opt/splunkforwarder/etc/system/local/inputs.conf 
+  
   - name: Uploading folders to apps
     copy:
       src: "{{ item }}"
@@ -17,7 +22,7 @@
       owner: splunk
     loop:
       - /home/ansible/build/files/spe_cluster_forwarder_outputs
-      - /home/ansible/build/files/spe_master_deploymentclient
+      - /home/ansible/build/files/spe_all_deploymentclient
 
   - name: Ensuring receiver is listening
     command: /opt/splunkforwarder/bin/splunk enable listen 9997 -auth admin:{{adminPwd}}
