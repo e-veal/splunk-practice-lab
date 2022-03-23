@@ -19,13 +19,21 @@
           owner: root
           group: root
           remote_src: yes
+
+      # - name: Pulling data
+      #   unarchive: 
+      #     src: 'http://log-sharing.dreamhosters.com/hnet-hon-10122004-var.tar.bz2'
+      #     dest: /tmp
+      #     owner: root
+      #     group: root
+      #     remote_src: yes    
   
       - command: find /tmp/var -type d -empty -delete
 
       - name: Copying files to proper location
         copy: 
-          src: /tmp/var/log
-          dest: /var/
+          src: /tmp/var/
+          dest: /opt/
           remote_src: yes
           owner: splunk
           group: splunk
