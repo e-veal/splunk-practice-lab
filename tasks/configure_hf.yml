@@ -19,10 +19,5 @@
       - /home/ansible/build/files/spe_all_deploymentclient
       - /home/ansible/build/files/spe_heavy_forwarder_outputs
 
-  - name: Setting default host name
-    copy:
-      src: /home/ansible/build/files/spe_servernames/hf-inputs.conf
-      dest: /opt/splunk/etc/system/local/inputs.conf 
-
   - name: Enabling heavy forwarding
     command: /opt/splunk/bin/splunk enable app SplunkForwarder -auth admin:{{adminPwd}}
