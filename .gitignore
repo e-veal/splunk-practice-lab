@@ -17,4 +17,6 @@ tests/
 
 #base configs
 files/**/local/
-serverclass.conf
+!files/spe_inputs_*/*
+
+# serverclass.conf

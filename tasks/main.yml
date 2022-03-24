@@ -1,4 +1,5 @@
 ---
+# ansible-playbook ~/build/tasks/main.yml -i inventory -K
 # tasks file for build
 - import_playbook: install_splunk.yml
 - import_playbook: non_root.yml
