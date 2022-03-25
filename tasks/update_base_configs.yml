@@ -25,11 +25,6 @@
           line: "server = {{ varIDX1 }}:9997, {{ varIDX2 }}:9997"
 
       - lineinfile:
-          path:  /home/ansible/build/files/spe_heavy_forwarder_outputs/local/outputs.conf
-          regexp: '^server = '
-          line: "server = {{ varIDX1 }}:9997, {{ varIDX2 }}:9997"
-
-      - lineinfile:
           path:  /home/ansible/build/files/spe_universal_forwarder_outputs/local/outputs.conf
           regexp: '^server = '
           line: "server = {{ varHF1 }}:9997"

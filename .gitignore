@@ -19,4 +19,4 @@ tests/
 files/**/local/
 !files/spe_inputs_*/*
 
-# serverclass.conf
+serverclass.conf

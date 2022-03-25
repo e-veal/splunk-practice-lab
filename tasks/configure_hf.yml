@@ -17,7 +17,8 @@
       owner: splunk
     loop:
       - /home/ansible/build/files/spe_all_deploymentclient
-      - /home/ansible/build/files/spe_heavy_forwarder_outputs
+      - /home/ansible/build/files/spe_cluster_forwarder_outputs
+      - /home/ansible/build/files/spe_cluster_indexer_base
 
   - name: Enabling heavy forwarding
     command: /opt/splunk/bin/splunk enable app SplunkForwarder -auth admin:{{adminPwd}}
