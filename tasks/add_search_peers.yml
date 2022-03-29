@@ -1,6 +1,6 @@
 ---
 - name: Add search peers
-  hosts: "{{active_servers}}"
+  hosts: all
   any_errors_fatal: true
   become: yes
   become_user: splunk
