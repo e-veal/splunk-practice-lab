@@ -14,3 +14,5 @@ tests/
 *.list
 *.sh
 inventory
+serverclass.conf
+server.conf
