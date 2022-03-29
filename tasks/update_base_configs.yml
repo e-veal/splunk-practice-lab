@@ -1,6 +1,6 @@
 ---
 - name: Update IPs in base configs
-  hosts: "{{active_servers}}"
+  hosts: all
   any_errors_fatal: true
   vars_files:
     - /home/ansible/build/vars/main.yml
