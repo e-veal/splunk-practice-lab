@@ -13,3 +13,4 @@ tests/
 *.lic
 *.list
 *.sh
+inventory
