@@ -10,7 +10,7 @@
 
   tasks:
   
-  - name: Configuring UF1
+  - name: Configuring UF
     block:
       - name: Pulling data
         unarchive: 
@@ -19,14 +19,6 @@
           owner: root
           group: root
           remote_src: yes
-
-      # - name: Pulling data
-      #   unarchive: 
-      #     src: 'http://log-sharing.dreamhosters.com/hnet-hon-10122004-var.tar.bz2'
-      #     dest: /tmp
-      #     owner: root
-      #     group: root
-      #     remote_src: yes    
   
       - command: find /tmp/var -type d -empty -delete
 

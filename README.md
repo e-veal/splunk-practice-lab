@@ -37,8 +37,8 @@ This lab simulates a customer problem with data on-boarding.
 | IDX1 | Indexer |
 | IDX2 | Indexer |
 | CM | Cluster Master |
-| HF1 | Heavy Forwarder |
-| UF1 | Universal Forwarder |
+| HF | Heavy Forwarder |
+| UF | Universal Forwarder |
 
 You will need to ingest logs (contained within /var/log) and assign their sourcetypes as appropriate. The files in question are the maillog file(s) and the cloud-init.log. We would like them to be assigned as the maillog and cloud-init sourcetypes respectively.
 
