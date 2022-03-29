@@ -1,6 +1,6 @@
 ---
 - name: 'Configure non-root user'
-  hosts: wkabi
+  hosts: base:forwarders
   any_errors_fatal: true
   gather_facts: no
   become: yes
