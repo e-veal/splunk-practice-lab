@@ -38,15 +38,15 @@ For this lab, you will be performing a hardware replacement of your indexing tie
 | MC | Monitoring Console |
 | IDX1 | Indexer |
 | IDX2 | Indexer |
-| NEWIDX1 | Indexer |
-| NEWIDX2 | Indexer |
+| NEW1 | Indexer |
+| NEW2 | Indexer |
 | CM | Cluster Master |
-| HF1 | Heavy Forwarder |
-| UF1 | Universal Forwarder |
+| HF | Heavy Forwarder |
+| UF | Universal Forwarder |
 
 **Customer**: *Our indexing tier is having performance problems. Let's replace the indexers with new faster ones.*
 
-The first step is to add the new indexers newidx1 and NEWIDX2 (listed above) to your environment **mimicking exactly** the configuration of the existing indexers. This is **not solely** the cluster-bundle, you should look for existing apps that aren’t part of the base Splunk package. It's unclear if you're receiving brand new servers, or if you're re-using systems, so make sure to check.
+The first step is to add the new indexers NEW1 and NEW2 (listed above) to your environment **mimicking exactly** the configuration of the existing indexers. This is **not solely** the cluster-bundle, you should look for existing apps that aren’t part of the base Splunk package. It's unclear if you're receiving brand new servers, or if you're re-using systems, so make sure to check.
 
 Next, you will place your old indexers in detention (link to Da Xu’s talk below). Then, you will direct your legacy (IDX1, IDX2) indexers to `offline --enforce-counts` to shut them down gracefully, which will trigger the CM to *fix* these buckets over to the new hardware.
 

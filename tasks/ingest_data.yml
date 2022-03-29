@@ -10,7 +10,7 @@
 
   tasks:
   
-  - name: Configuring UF1
+  - name: Configuring UF
     block:
       - name: Pulling data
         unarchive: 
