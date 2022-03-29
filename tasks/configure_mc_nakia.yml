@@ -23,3 +23,7 @@
       - /home/ansible/build/files/spe_inputs_os
       - /home/ansible/build/files/spe_inputs_error
       - /home/ansible/build/files/spe_inputs_Splunk_TA_nix  
+  
+  - name: Reload deployment server
+    command: /opt/splunk/bin/splunk reload deploy-server
+    
