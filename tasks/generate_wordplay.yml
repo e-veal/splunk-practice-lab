@@ -1,4 +1,6 @@
 ---
+# ansible-playbook ~/build/tasks/generate_wordplay.yml -i inventory -K --check
+
 - name: Set Pass4SymmKey
   hosts: localhost
   any_errors_fatal: true

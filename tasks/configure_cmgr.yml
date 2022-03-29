@@ -1,4 +1,6 @@
 ---
+# ansible-playbook ~/build/tasks/configure_cmgr.yml -i inventory -K --check
+
 - name: Cluster Manager
   hosts: CM
   any_errors_fatal: true

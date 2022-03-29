@@ -1,4 +1,6 @@
 ---
+#ansible-playbook ~/build/tasks/install_splunk.yml -i inventory -K 
+
 - name: Installs Splunk
   hosts: all
   gather_facts: no
@@ -25,7 +27,7 @@
         owner: splunk
         group: splunk
         remote_src: yes
-      when: inventory_hostname in groups['base'] or inventory_hostname = 'HF'
+      when: inventory_hostname in groups['base'] or inventory_hostname == 'HF'
 
     - name: Installing Splunkforwarder
       become: yes
@@ -53,9 +55,9 @@
           command: '/opt/splunk/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
       become: yes
       become_user: splunk
-      when: inventory_hostname in groups['base']
+      when: inventory_hostname in groups['base'] or inventory_hostname == 'HF'
         
-    - name: Configuring Splunkforwaders
+    - name: Configuring Splunkforwarders
       block:
         - name: Setting environment variables
           lineinfile:

@@ -1,4 +1,6 @@
 ---
+# ansible-playbook ~/build/tasks/update_servername.yml -i inventory -K --check
+
 - name: Update server names
   hosts: all
   any_errors_fatal: true
@@ -15,7 +17,7 @@
     loop:
       - /opt/splunk/bin/splunk set servername {{ inventory_hostname }} -auth admin:{{adminPwd}}
       - /opt/splunk/bin/splunk restart
-    when: inventory_hostname in groups['base']
+    when: inventory_hostname in groups['base'] or inventory_hostname == 'HF'
 
   - name: Setting server name on all the hosts in the inventory
     command: "{{ item }}"

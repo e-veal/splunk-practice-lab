@@ -1,4 +1,6 @@
 ---
+# ansible-playbook ~/build/tasks/add_search_peers.yml -i inventory -K --check
+
 - name: Add search peers
   hosts: all
   any_errors_fatal: true

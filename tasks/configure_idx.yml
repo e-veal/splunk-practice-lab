@@ -1,4 +1,6 @@
 ---
+# ansible-playbook ~/build/tasks/configure_idx.yml -i inventory -K --check
+
 - name: Indexers
   hosts: indexers
   any_errors_fatal: true
