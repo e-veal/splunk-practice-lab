@@ -33,7 +33,7 @@
       - file:
           path: /tmp/var/
           state: absent
-    when: inventory_hostname == 'UF1'
+    when: inventory_hostname == 'HF'
 
   - name: Configuring UF2
     block:
@@ -58,4 +58,4 @@
       - file:
           path: /tmp/var/
           state: absent
-    when: inventory_hostname == 'UF2'
+    when: inventory_hostname == 'UF'

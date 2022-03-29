@@ -14,8 +14,8 @@
         varCM: "{{ hostvars['CM']['ansible_default_ipv4']['address'] }}"
         varIDX1: "{{ hostvars['IDX1']['ansible_default_ipv4']['address'] }}"
         varIDX2: "{{ hostvars['IDX2']['ansible_default_ipv4']['address'] }}"
-        varUF1: "{{ hostvars['UF1']['ansible_default_ipv4']['address'] }}"
-        varUF2: "{{ hostvars['UF2']['ansible_default_ipv4']['address'] }}"
+        varUF1: "{{ hostvars['HF']['ansible_default_ipv4']['address'] }}"
+        varUF2: "{{ hostvars['UF']['ansible_default_ipv4']['address'] }}"
 
 
     - name: Updating IPs in all files
