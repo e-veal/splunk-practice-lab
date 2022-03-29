@@ -6,7 +6,7 @@
   become: yes
   become_user: splunk
   vars_files:
-    - ~/build/vars/main.yml
+    - /home/ansible/build/vars/main.yml
 
   tasks:  
 
@@ -15,7 +15,7 @@
     loop:
       - /opt/splunk/bin/splunk set servername {{ inventory_hostname }} -auth admin:{{adminPwd}}
       - /opt/splunk/bin/splunk restart
-    when: inventory_hostname in groups['main']
+    when: inventory_hostname in groups['wkabi']
 
   - name: Setting server name on all the hosts in the inventory
     command: "{{ item }}"
