@@ -2,7 +2,6 @@
 - name: Installs Splunk
   hosts: all
   gather_facts: no
-  strategy: free
   any_errors_fatal: true
   vars_files:
     - ~/build/vars/main.yml
@@ -11,7 +10,6 @@
     - name: Checking if wget package is installed
       package_facts:
         manager: "auto"
-      run_once: yes
 
     - name: Install wget
       yum:
@@ -19,27 +17,15 @@
         state: latest
       when: "'wget' not in ansible_facts.packages"
 
-    - name: Checking if Splunk is installed
-      stat:
-        path: /opt/splunk
-      register: stat_result
-      when: inventory_hostname in groups['gamora']
-
     - name: Installing Splunk Enterprise
       become: yes
       unarchive:
-        src: "{{ splunk_pkg }}"
+        src: "{{ splunk_pkg._8_2_4 }}"
         dest: /opt
         owner: splunk
         group: splunk
         remote_src: yes
-      when: inventory_hostname in groups['gamora'] and not stat_result.stat.exists
-
-    - name: Checking if Splunk Forwarder is installed
-      stat:
-        path: /opt/splunkforwarder
-      when: inventory_hostname in groups['forwarders']
-      register: stat_result
+      when: inventory_hostname in groups['gamora']
 
     - name: Installing Splunkforwarder
       become: yes
@@ -49,7 +35,7 @@
         owner: splunk
         group: splunk
         remote_src: yes
-      when: inventory_hostname in groups['forwarders'] and not stat_result.stat.exists
+      when: inventory_hostname in groups['forwarders']
       
     - name: Configuring Splunk
       block:

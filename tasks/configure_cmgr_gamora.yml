@@ -1,0 +1,26 @@
+---
+- name: Cluster Manager
+  hosts: CM
+  any_errors_fatal: true
+  gather_facts: no
+  become: yes
+  become_user: splunk
+  vars_files:
+    - /home/ansible/build/vars/main.yml
+
+  tasks: 
+
+  - name: Uploading folders to master-apps on cluster manager
+    copy:
+      src: "{{ item }}"
+      dest: /opt/splunk/etc/master-apps
+      owner: splunk
+    loop:
+      - /home/ansible/build/files/spe_indexer_volume_indexes
+      - /home/ansible/build/files/spe_mail_inputs
+      - /home/ansible/build/files/spe_network_inputs
+      - /home/ansible/build/files/spe_os_inputs
+      - /home/ansible/build/files/Splunk_TA_nix  
+
+  - name: Pushing packages to indexers
+    command: /opt/splunk/bin/splunk apply cluster-bundle --answer-yes
