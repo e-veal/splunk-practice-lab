@@ -25,17 +25,7 @@
         owner: splunk
         group: splunk
         remote_src: yes
-      when: inventory_hostname in groups['wkabi']
-
-    - name: Installing Splunk Enterprise on new indexers
-      become: yes
-      unarchive:
-        src: "{{ splunk_pkg._7_2_10 }}"
-        dest: /opt
-        owner: splunk
-        group: splunk
-        remote_src: yes
-      when: inventory_hostname in groups['new_indexers']
+      when: inventory_hostname in groups['base'] and inventory_hostname = 'HF'
 
     - name: Installing Splunkforwarder
       become: yes
@@ -63,7 +53,7 @@
           command: '/opt/splunk/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
       become: yes
       become_user: splunk
-      when: inventory_hostname in groups['wkabi']
+      when: inventory_hostname in groups['base']
         
     - name: Configuring Splunkforwaders
       block:

@@ -11,7 +11,7 @@
 
   - name: Restarting splunk
     command: /opt/splunk/bin/splunk restart
-    when: inventory_hostname in groups['wkabi']
+    when: inventory_hostname in groups['base']
 
   - name: Restarting forwarders
     command: /opt/splunkforwarder/bin/splunk restart

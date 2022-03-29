@@ -27,10 +27,10 @@
           src: /tmp/var/
           dest: /opt/
           remote_src: yes
-          owner: splunk
-          group: splunk
+          # owner: splunk
+          # group: splunk
 
       - file:
           path: /tmp/var/
           state: absent
-    when: inventory_hostname == 'UF1'
+    when: inventory_hostname == 'UF'
