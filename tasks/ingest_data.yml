@@ -2,11 +2,10 @@
 # ansible-playbook ~/build/tasks/ingest_data.yml -i inventory -K --check
 
 - name: Add data to ingest
-  hosts: forwarders:heavy_forwarder
+  hosts: all
   any_errors_fatal: true
   gather_facts: no
   become: yes
-  become_user: root
   vars_files:
     - /home/ansible/build/vars/main.yml
 
@@ -23,11 +22,15 @@
       - copy: 
           src: "{{ item }}"
           dest: /opt/splunk/etc/apps/
-          owner: root
-          group: root
+          owner: splunk
+          group: splunk
         loop: 
           - /home/ansible/build/files/nakia_logs/spe_linux_maillog_props
-      - command: /opt/splunk/bin/splunk restart
+    become_user: root
+    when: inventory_hostname == 'HF'
+
+  - command: /opt/splunk/bin/splunk restart
+    become_user: splunk
     when: inventory_hostname == 'HF'
   
   - name: Configuring UF
@@ -46,10 +49,14 @@
       - copy: 
           src: "{{ item }}"
           dest: /opt/splunkforwarder/etc/apps/
-          owner: root
-          group: root
+          owner: splunk
+          group: splunk
         loop: 
           - /home/ansible/build/files/nakia_logs/spe_linux_maillog_inputs
           - /home/ansible/build/files/nakia_logs/spe_linux_maillog_props
-      - command: /opt/splunkforwarder/bin/splunk restart
+    become_user: root
+    when: inventory_hostname == 'UF'
+
+  - command: /opt/splunkforwarder/bin/splunk restart
+    become_user: splunk
     when: inventory_hostname == 'UF'
