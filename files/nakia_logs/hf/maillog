@@ -1,0 +1,4 @@
+Jan 18 13:22:48 ci3-1569ld597725-hf1 postfix/postfix-script[975]: starting the Postfix mail system
+Jan 18 13:22:48 ci3-1569ld597725-hf1 postfix/master[977]: daemon started -- version 2.10.1, configuration /etc/postfix
+Jan 18 13:39:12 ci3-1569ld597725-hf1 sendmail[12634]: alias database /etc/aliases rebuilt by root
+Jan 18 13:39:12 ci3-1569ld597725-hf1 sendmail[12634]: /etc/aliases: 76 aliases, longest 10 bytes, 771 bytes total

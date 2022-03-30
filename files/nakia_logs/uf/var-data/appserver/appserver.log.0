@@ -1,0 +1,726 @@
+ Using /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/logs/server1 as repository directory. 
+************ Start Display Current Environment ************
+WebSphere Platform 8.5.5.5 [BASE 8.5.5.5 cf051507.01] running with process name splunkNode01Cell\sh_node01\server1 and process id 14994
+Host Operating System is Linux, version 3.10.0-123.el7.x86_64
+Java version = 1.6.0, Java Compiler = j9jit26, Java VM name = IBM J9 VM
+was.install.root = /opt/IBM/WebSphere/AppServer
+user.install.root = /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2
+Java Home = /opt/IBM/WebSphere/AppServer/java/jre
+ws.ext.dirs = /opt/IBM/WebSphere/AppServer/java/lib:/opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/classes:/opt/IBM/WebSphere/AppServer/classes:/opt/IBM/WebSphere/AppServer/lib:/opt/IBM/WebSphere/AppServer/installedChannels:/opt/IBM/WebSphere/AppServer/lib/ext:/opt/IBM/WebSphere/AppServer/web/help:/opt/IBM/WebSphere/AppServer/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime
+Classpath = /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/properties:/opt/IBM/WebSphere/AppServer/properties:/opt/IBM/WebSphere/AppServer/lib/startup.jar:/opt/IBM/WebSphere/AppServer/lib/bootstrap.jar:/opt/IBM/WebSphere/AppServer/lib/jsf-nls.jar:/opt/IBM/WebSphere/AppServer/lib/lmproxy.jar:/opt/IBM/WebSphere/AppServer/lib/urlprotocols.jar:/opt/IBM/WebSphere/AppServer/deploytool/itp/batchboot.jar:/opt/IBM/WebSphere/AppServer/deploytool/itp/batch2.jar:/opt/IBM/WebSphere/AppServer/java/lib/tools.jar
+Java Library path = /opt/IBM/WebSphere/AppServer/lib/native/linux/x86_64/:/opt/IBM/WebSphere/AppServer/java/jre/lib/amd64/compressedrefs:/opt/IBM/WebSphere/AppServer/java/jre/lib/amd64:/opt/IBM/WebSphere/AppServer/bin:/opt/IBM/WebSphere/AppServer/nulldllsdir:/usr/lib:
+Orb Version = IBM Java ORB build orb626-20141203.00
+************* End Display Current Environment *************  
+ [17-01-22 19:08:45:683 CST] 00000001 ManagerAdmin  I   TRAS0017I: The startup trace state is *=info.  
+ [17-01-22 19:08:45:686 CST] 00000001 ManagerAdmin  I   TRAS0111I: The message IDs that are in use are deprecated  
+ [17-01-22 19:08:45:697 CST] 00000001 ProviderTrack I com.ibm.ffdc.osgi.ProviderTracker AddingService FFDC1007I: FFDC Provider Installed: com.ibm.ffdc.util.provider.FfdcOnDirProvider@69e67a55  
+ [17-01-22 19:08:45:745 CST] 00000001 ModelMgr      I   WSVR0800I: Initializing core configuration models  
+ [17-01-22 19:08:45:982 CST] 00000001 ComponentMeta I   WSVR0179I: The runtime provisioning feature is disabled. All components will be started.  
+ [17-01-22 19:08:46:029 CST] 00000001 ProviderTrack I com.ibm.ffdc.osgi.ProviderTracker AddingService FFDC1007I: FFDC Provider Installed: com.ibm.ws.ffdc.impl.FfdcProvider@467a96ed  
+ [17-01-22 19:08:46:166 CST] 00000001 AdminInitiali A   ADMN0015I: The administration service is initialized.  
+ [17-01-22 19:08:46:576 CST] 00000001 PluginConfigS I   PLGC0057I: The plug-in configuration service started successfully.  
+ [17-01-22 19:08:46:622 CST] 00000001 SSLComponentI I   CWPKI0001I: SSL service is initializing the configuration  
+ [17-01-22 19:08:46:628 CST] 00000001 FIPSManager   I   CWPKI0044I: FIPS security mode is : No FIPS property found.   
+ [17-01-22 19:08:46:630 CST] 00000001 WSKeyStore    W   CWPKI0041W: One or more key stores are using the default password.  
+ [17-01-22 19:08:46:664 CST] 00000001 SSLConfigMana I   CWPKI0027I: Disabling default hostname verification for HTTPS URL connections.  
+ [17-01-22 19:08:46:689 CST] 00000001 SSLDiagnostic I   CWPKI0014I: The SSL component's FFDC Diagnostic Module com.ibm.ws.ssl.core.SSLDiagnosticModule registered successfully: true.  
+ [17-01-22 19:08:46:690 CST] 00000001 SSLComponentI I   CWPKI0002I: SSL service initialization completed successfully  
+ [17-01-22 19:08:46:693 CST] 00000001 DiagnosticCon I com.ibm.wsspi.rasdiag.DiagnosticConfigHome setStateCollectionSpec RASD0012I: Updating State Collection Spec from Uninitialized Value to .*:.*=0  
+ [17-01-22 19:08:46:694 CST] 00000001 PMIImpl       A   CWPMI1001I: PMI is enabled  
+ [17-01-22 19:08:47:041 CST] 00000001 GAPAgentCompo I   CWLRS6000I: GAP (Grid Application Placement) Component has initialized successfully on process UnManagedProcess.  
+ [17-01-22 19:08:47:094 CST] 00000001 SibMessage    I   [:] CWSIU0000I: Release: WAS855.SIB Level: cf051507.01  
+ [17-01-22 19:08:47:205 CST] 00000001 SecurityDM    I   SECJ0231I: The Security component's FFDC Diagnostic Module com.ibm.ws.security.core.SecurityDM registered successfully: true.  
+ [17-01-22 19:08:47:311 CST] 00000001 UserRegistryI A   SECJ0136I: Custom Registry:com.ibm.ws.security.registry.unix.UnixRegistryImpl has been initialized  
+ [17-01-22 19:08:47:322 CST] 00000001 distSecurityC I   SECJ6004I: Security Auditing is disabled.   
+ [17-01-22 19:08:47:323 CST] 00000001 distSecurityC I   SECJ0309I: Java 2 Security is disabled.  
+ [17-01-22 19:08:47:323 CST] 00000001 Configuration A   SECJ0215I: Successfully set JAAS login provider configuration class to com.ibm.ws.security.auth.login.Configuration.  
+ Using /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/logs/server1 as repository directory. 
+************ Start Display Current Environment ************
+WebSphere Platform 8.5.5.5 [BASE 8.5.5.5 cf051507.01] running with process name splunkNode01Cell\sh_node01\server1 and process id 14994
+Host Operating System is Linux, version 3.10.0-123.el7.x86_64
+Java version = 1.6.0, Java Compiler = j9jit26, Java VM name = IBM J9 VM
+was.install.root = /opt/IBM/WebSphere/AppServer
+user.install.root = /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2
+Java Home = /opt/IBM/WebSphere/AppServer/java/jre
+ws.ext.dirs = /opt/IBM/WebSphere/AppServer/java/lib:/opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/classes:/opt/IBM/WebSphere/AppServer/classes:/opt/IBM/WebSphere/AppServer/lib:/opt/IBM/WebSphere/AppServer/installedChannels:/opt/IBM/WebSphere/AppServer/lib/ext:/opt/IBM/WebSphere/AppServer/web/help:/opt/IBM/WebSphere/AppServer/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime
+Classpath = /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/properties:/opt/IBM/WebSphere/AppServer/properties:/opt/IBM/WebSphere/AppServer/lib/startup.jar:/opt/IBM/WebSphere/AppServer/lib/bootstrap.jar:/opt/IBM/WebSphere/AppServer/lib/jsf-nls.jar:/opt/IBM/WebSphere/AppServer/lib/lmproxy.jar:/opt/IBM/WebSphere/AppServer/lib/urlprotocols.jar:/opt/IBM/WebSphere/AppServer/deploytool/itp/batchboot.jar:/opt/IBM/WebSphere/AppServer/deploytool/itp/batch2.jar:/opt/IBM/WebSphere/AppServer/java/lib/tools.jar
+Java Library path = /opt/IBM/WebSphere/AppServer/lib/native/linux/x86_64/:/opt/IBM/WebSphere/AppServer/java/jre/lib/amd64/compressedrefs:/opt/IBM/WebSphere/AppServer/java/jre/lib/amd64:/opt/IBM/WebSphere/AppServer/bin:/opt/IBM/WebSphere/AppServer/nulldllsdir:/usr/lib:
+Orb Version = IBM Java ORB build orb626-20141203.00
+************* End Display Current Environment *************  
+ [17-01-22 19:08:48:069 CST] 00000001 JAASLoginConf I   SECJ0212I: WCCM JAAS configuration information successfully pushed to login provider class.  
+ [17-01-22 19:08:48:072 CST] 00000001 J2EEServiceMa I   ASYN0059I: Work Manager service initialized successfully.  
+ [17-01-22 19:08:48:152 CST] 00000001 CScopeCompone I   CSCP0002I: Compensation service is disabled.  
+ [17-01-22 19:08:48:228 CST] 00000001 SibMessage    I   [:] CWSID0006I: The SIB service was not enabled and will not be started.  
+ [17-01-22 19:08:48:230 CST] 00000001 ActivitySessi I   WACS0045I: ActivitySession service is disabled.  
+ [17-01-22 19:08:48:234 CST] 00000001 AppProfileCom I   ACIN0030I: Application Profiling service is disabled.  
+ [17-01-22 19:08:48:293 CST] 00000001 SOAPContainer I   WSWS1062I: The SOAP Container service has been initialized.  
+ [17-01-22 19:08:48:700 CST] 00000001 SchedulerServ I   SCHD0036I: The Scheduler Service is initializing.  
+ [17-01-22 19:08:48:714 CST] 00000001 SchedulerServ I   SCHD0037I: The Scheduler Service has been initialized.  
+ [17-01-22 19:08:48:716 CST] 00000001 JPAComponentI I   CWWJP0026I: The Java Persistence API (JPA) component is initializing.  
+ [17-01-22 19:08:48:720 CST] 00000001 AbstractJPACo I   CWWJP0006I: The com.ibm.websphere.persistence.PersistenceProviderImpl class is loaded as the default Java Persistence API (JPA) provider.  
+ [17-01-22 19:08:48:721 CST] 00000001 JPAComponentI I   CWWJP0027I: The Java Persistence API (JPA) component has initialized.  
+ [17-01-22 19:08:48:881 CST] 00000001 ApplicationRe I ApplicationRepositoryFactory  CWSCT0405I: The application router is configured to select applications by the weight.  
+ [17-01-22 19:08:48:882 CST] 00000001 ApplicationRe I ApplicationRepositoryFactory  CWSCT0415I: Loading default application router, weight strategy.  
+ [17-01-22 19:08:48:882 CST] 00000001 DefaultApplic I DefaultApplicationRouter  CWSCT0401I: Default application router has been initialized.  
+ [17-01-22 19:08:48:884 CST] 00000001 WebsphereComm I WebsphereCommonLauncher  CWSCT0332I: SIP Container was launched successfully but will only be initialized when first SIP application is loaded.  
+ [17-01-22 19:08:49:066 CST] 00000001 StartUpServic I   STUP0008I: The Startup Beans service is disabled.  
+ [17-01-22 19:08:49:079 CST] 00000001 I18nService   I   I18N0010I: The Internationalization service is created on server1.  
+ [17-01-22 19:08:49:080 CST] 00000001 I18nServiceSe I   I18N0010I: The Internationalization service is disabled on server1.  
+ [17-01-22 19:08:49:125 CST] 00000001 GridConfigura I   CWLRB5871I: The GridConfigurator initialized successfully.  
+ [17-01-22 19:08:49:136 CST] 00000001 GridDBConfigu I   CWLRB5874I: The GridDBConfigurator initialized successfully.  
+ [17-01-22 19:08:49:137 CST] 00000001 BatchSensorCo I   CWLRB5902I: BatchSensorComponent initializing.  
+ [17-01-22 19:08:49:137 CST] 00000001 BatchSensorCo I   CWLRB5903I: BatchSensorComponent initialized successfully.  
+ [17-01-22 19:08:49:201 CST] 00000001 SchedulerComp I   CWLRB5856I: The RUN_IN_MIXED_MODE property has a value of false.  
+ [17-01-22 19:08:49:292 CST] 00000001 SSLComponentI I   CWPKI0003I: SSL service is starting  
+ [17-01-22 19:08:49:299 CST] 00000001 SSLComponentI I   CWPKI0004I: SSL service started successfully  
+ [17-01-22 19:08:49:409 CST] 00000001 CoordinatorIm I   HMGR0206I: The Coordinator is an Active Coordinator for core group DefaultCoreGroup. The active coordinator set is [splunkNode01Cell\sh_node01\server1].  
+ [17-01-22 19:08:49:419 CST] 00000001 DCSPluginSing I   HMGR0005I: The Single Server DCS Core Stack transport has been started for core group DefaultCoreGroup.  
+ [17-01-22 19:08:49:437 CST] 00000001 CoordinatorCo I   HMGR0011I: The High Availability Manager is configured to be the bulletin board provider.   
+ [17-01-22 19:08:49:450 CST] 00000001 DragDropDeplo I   CWLDD0103I: Monitored directory application deployment service has been configured to be off.  
+ [17-01-22 19:08:49:500 CST] 00000001 NameServerImp A   NMSV0018I: Name server available on bootstrap port 2809.  
+ [17-01-22 19:08:49:646 CST] 00000001 JMSRegistrati A   WMSG1611I: The installed level of the WebSphere MQ messaging provider is 7.1.0.5.  
+ [17-01-22 19:08:49:651 CST] 00000001 JMSRegistrati I   WMSG1703I: RAR implementation version 7.1.0.5-k710-005-140520  
+ [17-01-22 19:08:49:730 CST] 00000001 ObjectPoolSer I   OBPL0010I: The Object Pool service started successfully.  
+ [17-01-22 19:08:50:292 CST] 00000001 JMXSoapAdapte A   ADMC0013I: The SOAP connector is available at port 8880  
+ [17-01-22 19:08:50:350 CST] 00000001 TCPChannel    I   TCPC0001I: TCP Channel TCPInboundChannel_ipcc.Default_IPC_Connector_Name is listening on host localhost  (IPv4: 127.0.0.1) port 9633.  
+ [17-01-22 19:08:50:351 CST] 00000001 WSChannelFram A   CHFW0019I: The Transport Channel Service has started chain IPCCInboundChain.Default_IPC_Connector_Name.  
+ [17-01-22 19:08:50:352 CST] 00000001 IPCConnectorS I   ADMC0070I: The IPC connector is available at port 9633  
+ [17-01-22 19:08:50:354 CST] 00000001 distSecurityC I   securityServiceStarted is true  
+ [17-01-22 19:08:50:354 CST] 00000001 distSecurityC I   SECJ0243I: Security service started successfully  
+ [17-01-22 19:08:50:355 CST] 00000001 distSecurityC I   SECJ0210I: Security enabled false  
+ [17-01-22 19:08:50:360 CST] 00000001 J2EEServiceMa I   ASYN0055I: The Work Manager service started successfully.  
+ [17-01-22 19:08:50:594 CST] 00000001 RecoveryDirec I   CWRLS0010I: Performing recovery processing for local WebSphere server (splunkNode01Cell\sh_node01\server1).  
+ [17-01-22 19:08:50:605 CST] 00000001 RecoveryDirec I   CWRLS0012I: All persistent services have been directed to perform recovery processing for this WebSphere server (splunkNode01Cell\sh_node01\server1).  
+ [17-01-22 19:08:50:758 CST] 00000043 RecoveryManag A   WTRN0132I: Transaction recovery for splunkNode01Cell\sh_node01\server1 initiated with server uuid 9bf83bec1a2748fa839110d943c100c7f71914b4 and restart epoch 0  
+ [17-01-22 19:08:50:759 CST] 00000043 RecoveryManag I   WTRN0135I: Transaction service recovering no transactions.  
+ [17-01-22 19:08:50:760 CST] 00000043 RecoveryManag A   WTRN0134I: Recovering 0 XA resource manager(s) from the transaction partner logs  
+ [17-01-22 19:08:50:782 CST] 00000043 RecoveryManag A   WTRN0133I: Transaction recovery processing for this server is complete  
+ [17-01-22 19:08:50:912 CST] 00000001 ResourceMgrIm I   WSVR0049I: Binding AsyncRequestDispatcherWorkManager as wm/ard  
+ [17-01-22 19:08:51:009 CST] 00000001 ResourceMgrIm I   WSVR0049I: Binding DefaultEJBTimerDataSource as jdbc/DefaultEJBTimerDataSource  
+ [17-01-22 19:08:51:024 CST] 00000001 ResourceMgrIm I   WSVR0049I: Binding Default_CF as eis/DefaultDatasource_CMP  
+ [17-01-22 19:08:51:047 CST] 00000001 ResourceMgrIm I   WSVR0049I: Binding Default Datasource as DefaultDatasource  
+ [17-01-22 19:08:51:077 CST] 00000001 ResourceMgrIm I   WSVR0049I: Binding DefaultWorkManager as wm/default  
+ [17-01-22 19:08:51:079 CST] 00000001 ResourceMgrIm I   WSVR0049I: Binding DefaultTimerManager as tm/default  
+ [17-01-22 19:08:51:086 CST] 00000001 WorkAreaServi A   ACWA0002I: WorkArea service not enabled on server1.  
+ [17-01-22 19:08:51:095 CST] 00000001 SOAPAcceptorC I   WSSC1019I: The SOAP Acceptor Channel has been configured.  
+ [17-01-22 19:08:51:105 CST] 00000001 CacheServiceI I   DYNA1054I: Dynamic Cache (core cache) initialized successfully.  
+ [17-01-22 19:08:51:110 CST] 00000001 ObjectCacheSe I   DYNA1056I: Dynamic Cache (object cache) initialized successfully.  
+ [17-01-22 19:08:51:131 CST] 00000001 WebContainer  I com.ibm.ws.webcontainer.internal.WebContainer addExtensionFactory SRVE0239I: Extension Factory [class com.ibm.ws.websvcs.extension.WASAxis2ExtensionFactory] was registered successfully.  
+ [17-01-22 19:08:51:132 CST] 00000001 WebContainer  I com.ibm.ws.webcontainer.internal.WebContainer addExtensionFactory SRVE0240I: Extension Factory [class com.ibm.ws.websvcs.extension.WASAxis2ExtensionFactory] has been associated with patterns [].  
+ [17-01-22 19:08:51:132 CST] 00000001 WebContainer  I com.ibm.ws.webcontainer.internal.WebContainer addExtensionFactory SRVE0239I: Extension Factory [class com.ibm.ws.websvcs.extension.AsyncServletExtensionFactory] was registered successfully.  
+ [17-01-22 19:08:51:132 CST] 00000001 WebContainer  I com.ibm.ws.webcontainer.internal.WebContainer addExtensionFactory SRVE0240I: Extension Factory [class com.ibm.ws.websvcs.extension.AsyncServletExtensionFactory] has been associated with patterns [].  
+ [17-01-22 19:08:51:136 CST] 00000001 WASAxis2Compo I   WSWS7001I: The Axis2 service has been started.  
+ [17-01-22 19:08:51:184 CST] 00000001 SchedulerServ I   SCHD0031I: The Scheduler Service is starting.  
+ [17-01-22 19:08:51:185 CST] 00000001 SchedulerServ I   SCHD0001I: The Scheduler Service has started.  
+ [17-01-22 19:08:51:186 CST] 00000001 JPAComponentI I   CWWJP0028I: The Java Persistence API (JPA) component is starting.  
+ [17-01-22 19:08:51:186 CST] 00000001 JPAComponentI I   CWWJP0017I: The Java Persistence API (JPA) component has started.  
+ [17-01-22 19:08:51:304 CST] 00000001 ServerCache   I   DYNA1001I: WebSphere Dynamic Cache instance named ws/com.ibm.ws.wssecurity.sctClientCacheMap initialized successfully.  
+ [17-01-22 19:08:51:305 CST] 00000001 ServerCache   I   DYNA1071I: The cache provider "default" is being used.  
+ [17-01-22 19:08:51:306 CST] 00000001 ServerCache   I   DYNA1001I: WebSphere Dynamic Cache instance named ws/com.ibm.ws.wssecurity.sctServiceCacheMap initialized successfully.  
+ [17-01-22 19:08:51:307 CST] 00000001 ServerCache   I   DYNA1071I: The cache provider "default" is being used.  
+ [17-01-22 19:08:51:413 CST] 00000001 RegistryConfi I   CWXRS0017I: Extension Registry objects storage: /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/temp/sh_node01/server1/_extensionregistry  
+ [17-01-22 19:08:51:419 CST] 00000001 ServerCache   I   DYNA1001I: WebSphere Dynamic Cache instance named ws/com.ibm.workplace/ExtensionRegistryCache initialized successfully.  
+ [17-01-22 19:08:51:419 CST] 00000001 ServerCache   I   DYNA1071I: The cache provider "default" is being used.  
+ [17-01-22 19:08:51:420 CST] 00000001 RegistryCache I   CWXRS0002I: DynaCache instance for Extension Registry created with CACHE_SIZE: 5000  
+ [17-01-22 19:08:51:834 CST] 00000001 WebContainer  I com.ibm.ws.webcontainer.internal.WebContainer addExtensionFactory SRVE0239I: Extension Factory [class com.ibm.ws.container.binding.http.HTTPExtensionFactory] was registered successfully.  
+ [17-01-22 19:08:51:860 CST] 00000001 WebContainer  I com.ibm.ws.webcontainer.internal.WebContainer addExtensionFactory SRVE0240I: Extension Factory [class com.ibm.ws.container.binding.http.HTTPExtensionFactory] has been associated with patterns [].  
+ [17-01-22 19:08:51:862 CST] 00000001 WebContainer  I com.ibm.ws.webcontainer.internal.WebContainer addExtensionFactory SRVE0239I: Extension Factory [class com.ibm.ws.jsf.extprocessor.JSFExtensionFactory] was registered successfully.  
+ [17-01-22 19:08:51:862 CST] 00000001 WebContainer  I com.ibm.ws.webcontainer.internal.WebContainer addExtensionFactory SRVE0240I: Extension Factory [class com.ibm.ws.jsf.extprocessor.JSFExtensionFactory] has been associated with patterns [].  
+ [17-01-22 19:08:51:908 CST] 00000001 WebContainer  I com.ibm.ws.webcontainer.internal.WebContainer addExtensionFactory SRVE0239I: Extension Factory [class com.ibm.ws.portletcontainer.webextension.PortletExtensionFactory] was registered successfully.  
+ [17-01-22 19:08:51:909 CST] 00000001 WebContainer  I com.ibm.ws.webcontainer.internal.WebContainer addExtensionFactory SRVE0240I: Extension Factory [class com.ibm.ws.portletcontainer.webextension.PortletExtensionFactory] has been associated with patterns [].  
+ [17-01-22 19:08:51:909 CST] 00000001 WebContainer  I com.ibm.ws.webcontainer.internal.WebContainer addExtensionFactory SRVE0239I: Extension Factory [class com.ibm.ws.portletcontainer.portletserving.PortletServingExtensionFactory] was registered successfully.  
+ [17-01-22 19:08:51:909 CST] 00000001 WebContainer  I com.ibm.ws.webcontainer.internal.WebContainer addExtensionFactory SRVE0240I: Extension Factory [class com.ibm.ws.portletcontainer.portletserving.PortletServingExtensionFactory] has been associated with patterns [].  
+ [17-01-22 19:08:51:911 CST] 00000001 WebContainer  I com.ibm.ws.webcontainer.internal.WebContainer addExtensionFactory SRVE0239I: Extension Factory [class com.ibm.ws.jsp.webcontainerext.ws.WASJSPExtensionFactory] was registered successfully.  
+ [17-01-22 19:08:51:911 CST] 00000001 WebContainer  I com.ibm.ws.webcontainer.internal.WebContainer addExtensionFactory SRVE0240I: Extension Factory [class com.ibm.ws.jsp.webcontainerext.ws.WASJSPExtensionFactory] has been associated with patterns [*.jsp *.jspx *.jsw *.jsv ].  
+ [17-01-22 19:08:52:188 CST] 00000001 WebContainer  I com.ibm.ws.webcontainer.internal.WebContainer addExtensionFactory SRVE0239I: Extension Factory [class com.ibm.ws.ard.extension.ARDExtensionFactory] was registered successfully.  
+ [17-01-22 19:08:52:189 CST] 00000001 WebContainer  I com.ibm.ws.webcontainer.internal.WebContainer addExtensionFactory SRVE0240I: Extension Factory [class com.ibm.ws.ard.extension.ARDExtensionFactory] has been associated with patterns [].  
+ [17-01-22 19:08:52:512 CST] 00000001 OAuth20Provid I   CWOAU0001I: Initializing OAuth 20 providers.  
+ [17-01-22 19:08:52:855 CST] 00000001 ThreadPool    I   WSVR0629I: The request buffer for thread pool "server.startup" has reached its capacity.  
+ [17-01-22 19:08:52:857 CST] 0000004c ApplicationMg A   WSVR0200I: Starting application: ManagementEJB  
+ [17-01-22 19:08:52:857 CST] 0000004c ApplicationMg A   WSVR0204I: Application: ManagementEJB  Application build level: Unknown  
+ [17-01-22 19:08:52:878 CST] 0000004a ApplicationMg A   WSVR0200I: Starting application: filetransferSecured  
+ [17-01-22 19:08:52:879 CST] 0000004a ApplicationMg A   WSVR0204I: Application: filetransferSecured  Application build level: Unknown  
+ [17-01-22 19:08:52:935 CST] 0000004b ApplicationMg A   WSVR0200I: Starting application: SchedulerCalendars  
+ [17-01-22 19:08:52:935 CST] 0000004b ApplicationMg A   WSVR0204I: Application: SchedulerCalendars  Application build level: Unknown  
+ [17-01-22 19:08:53:607 CST] 0000004c SharedEJBRunt I   WSVR0037I: Starting EJB jar: mejb.jar  
+ [17-01-22 19:08:53:610 CST] 0000004b SharedEJBRunt I   WSVR0037I: Starting EJB jar: Calendars.jar  
+ [17-01-22 19:08:53:650 CST] 0000004a webcontainer  I com.ibm.ws.webcontainer.WSWebContainer initialize SRVE0161I: IBM WebSphere Application Server - Web Container.  Copyright IBM Corp. 1998-2012  
+ [17-01-22 19:08:53:650 CST] 0000004a webcontainer  I com.ibm.ws.webcontainer.WSWebContainer initialize SRVE0162I: Servlet Specification Level: 3.0  
+ [17-01-22 19:08:53:651 CST] 0000004a webcontainer  I com.ibm.ws.webcontainer.WSWebContainer initialize SRVE0163I: Supported JSP Specification Level: 2.2  
+ [17-01-22 19:08:53:650 CST] 0000004c WASNameSpaceB I   CNTR0167I: The server is binding the javax.management.j2ee.ManagementHome interface of the Management enterprise bean in the mejb.jar module of the ManagementEJB application.  The binding location is: ejb/mgmt/MEJB  
+ [17-01-22 19:08:53:697 CST] 0000004c AbstractEJBRu I   CNTR0167I: The server is binding the javax.management.j2ee.ManagementHome interface of the Management enterprise bean in the mejb.jar module of the ManagementEJB application.  The binding location is: java:global/ManagementEJB/mejb/Management!javax.management.j2ee.ManagementHome  
+ [17-01-22 19:08:53:755 CST] 0000004a webcontainer  I com.ibm.ws.webcontainer.WSWebContainer addVirtualHostExtensionFactory SRVE0239I: Extension Factory [class com.ibm.ws.webcontainer.extension.ExtHandshakeVHostExtensionFactory] was registered successfully.  
+ [17-01-22 19:08:53:755 CST] 0000004a webcontainer  I com.ibm.ws.webcontainer.WSWebContainer addVirtualHostExtensionFactory SRVE0240I: Extension Factory [class com.ibm.ws.webcontainer.extension.ExtHandshakeVHostExtensionFactory] has been associated with patterns [VH:_WS_EH* ].  
+ [17-01-22 19:08:53:760 CST] 0000004a webapp        I com.ibm.ws.webcontainer.webapp.WebGroupImpl WebGroup SRVE0169I: Loading Web Module: WebSphere Admin File Transfer Application.  
+ [17-01-22 19:08:53:790 CST] 0000004c SharedEJBRunt I   WSVR0057I: EJB jar started: mejb.jar  
+ [17-01-22 19:08:53:803 CST] 0000004b WASNameSpaceB I   CNTR0167I: The server is binding the com.ibm.websphere.scheduler.UserCalendarHome interface of the DefaultUserCalendar enterprise bean in the Calendars.jar module of the SchedulerCalendars application.  The binding location is: com/ibm/websphere/scheduler/calendar/DefaultUserCalendarHome  
+ [17-01-22 19:08:53:804 CST] 0000004b AbstractEJBRu I   CNTR0167I: The server is binding the com.ibm.websphere.scheduler.UserCalendarHome interface of the DefaultUserCalendar enterprise bean in the Calendars.jar module of the SchedulerCalendars application.  The binding location is: java:global/SchedulerCalendars/Calendars/DefaultUserCalendar!com.ibm.websphere.scheduler.UserCalendarHome  
+ [17-01-22 19:08:53:870 CST] 0000004b SharedEJBRunt I   WSVR0057I: EJB jar started: Calendars.jar  
+ [17-01-22 19:08:53:925 CST] 0000004a WASSessionCor I SessionContextRegistry getSessionContext SESN0176I: Will create a new session context for application key admin_host/FileTransfer  
+ [17-01-22 19:08:53:940 CST] 0000004c ApplicationMg A   WSVR0221I: Application started: ManagementEJB  
+ [17-01-22 19:08:53:941 CST] 0000004c CompositionUn A   WSVR0190I: Starting composition unit WebSphere:cuname=DefaultApplication in BLA WebSphere:blaname=DefaultApplication.  
+ [17-01-22 19:08:53:978 CST] 0000004b ApplicationMg A   WSVR0221I: Application started: SchedulerCalendars  
+ [17-01-22 19:08:53:978 CST] 0000004b CompositionUn A   WSVR0190I: Starting composition unit WebSphere:cuname=ivtApp in BLA WebSphere:blaname=ivtApp.  
+ [17-01-22 19:08:54:215 CST] 0000004a ServletWrappe I com.ibm.ws.webcontainer.servlet.ServletWrapper init SRVE0242I: [filetransferSecured] [/FileTransfer] [transfer]: Initialization successful.  
+ [17-01-22 19:08:54:219 CST] 0000004a webcontainer  I com.ibm.ws.webcontainer.VirtualHostImpl addWebApplication SRVE0250I: Web Module WebSphere Admin File Transfer Application has been bound to admin_host[*:9060,*:9043].  
+ [17-01-22 19:08:54:302 CST] 0000004c ApplicationMg A   WSVR0200I: Starting application: DefaultApplication  
+ [17-01-22 19:08:54:303 CST] 0000004c ApplicationMg A   WSVR0204I: Application: DefaultApplication  Application build level: Unknown  
+ [17-01-22 19:08:54:332 CST] 0000004a ApplicationMg A   WSVR0221I: Application started: filetransferSecured  
+ [17-01-22 19:08:54:332 CST] 0000004a CompositionUn A   WSVR0190I: Starting composition unit WebSphere:cuname=query in BLA WebSphere:blaname=query.  
+ [17-01-22 19:08:54:382 CST] 0000004b ApplicationMg A   WSVR0200I: Starting application: ivtApp  
+ [17-01-22 19:08:54:383 CST] 0000004b ApplicationMg A   WSVR0203I: Application: ivtApp  Application build level: WASX.SERV1 [qq0723.30]  
+ [17-01-22 19:08:54:464 CST] 0000004a ApplicationMg A   WSVR0200I: Starting application: query  
+ [17-01-22 19:08:54:464 CST] 0000004a ApplicationMg A   WSVR0204I: Application: query  Application build level: Unknown  
+ [17-01-22 19:08:54:896 CST] 0000004b SharedEJBRunt I   WSVR0037I: Starting EJB jar: ivtEJB.jar  
+ [17-01-22 19:08:54:900 CST] 0000004b WASNameSpaceB I   CNTR0167I: The server is binding the com.ibm.websphere.ivt.ivtEJB.ivtEJBHome interface of the ivtEJBObject enterprise bean in the ivtEJB.jar module of the ivtApp application.  The binding location is: ejb/ivtEJBObject  
+ [17-01-22 19:08:54:900 CST] 0000004b AbstractEJBRu I   CNTR0167I: The server is binding the com.ibm.websphere.ivt.ivtEJB.ivtEJBHome interface of the ivtEJBObject enterprise bean in the ivtEJB.jar module of the ivtApp application.  The binding location is: java:global/ivtApp/ivtEJB/ivtEJBObject!com.ibm.websphere.ivt.ivtEJB.ivtEJBHome  
+ [17-01-22 19:08:54:916 CST] 0000004c SharedEJBRunt I   WSVR0037I: Starting EJB jar: Increment.jar  
+ [17-01-22 19:08:54:919 CST] 0000004a SharedEJBRunt I   WSVR0037I: Starting EJB jar: querybean.jar  
+ [17-01-22 19:08:54:937 CST] 0000004b SharedEJBRunt I   WSVR0057I: EJB jar started: ivtEJB.jar  
+ [17-01-22 19:08:54:943 CST] 0000004c WASNameSpaceB I   CNTR0167I: The server is binding the com.ibm.defaultapplication.IncrementHome interface of the Increment enterprise bean in the Increment.jar module of the DefaultApplication application.  The binding location is: Increment  
+ [17-01-22 19:08:54:947 CST] 0000004c SharedEJBRunt I   WSVR0057I: EJB jar started: Increment.jar  
+ [17-01-22 19:08:54:952 CST] 0000004a WASNameSpaceB I   CNTR0167I: The server is binding the com.ibm.websphere.ejbquery.QueryHome interface of the Query enterprise bean in the querybean.jar module of the query application.  The binding location is: com/ibm/websphere/ejbquery/Query  
+ [17-01-22 19:08:54:980 CST] 0000004a AbstractEJBRu I   CNTR0167I: The server is binding the com.ibm.websphere.ejbquery.QueryHome interface of the Query enterprise bean in the querybean.jar module of the query application.  The binding location is: java:global/query/querybean/Query!com.ibm.websphere.ejbquery.QueryHome  
+ [17-01-22 19:08:54:982 CST] 0000004a WASNameSpaceB I   CNTR0167I: The server is binding the com.ibm.websphere.ejbquery.QueryLocalHome interface of the Query enterprise bean in the querybean.jar module of the query application.  The binding location is: ejblocal:com/ibm/websphere/ejbquery/Query  
+ [17-01-22 19:08:54:983 CST] 0000004a AbstractEJBRu I   CNTR0167I: The server is binding the com.ibm.websphere.ejbquery.QueryLocalHome interface of the Query enterprise bean in the querybean.jar module of the query application.  The binding location is: java:global/query/querybean/Query!com.ibm.websphere.ejbquery.QueryLocalHome  
+ [17-01-22 19:08:54:990 CST] 0000004b webapp        I com.ibm.ws.webcontainer.webapp.WebGroupImpl WebGroup SRVE0169I: Loading Web Module: IVT Application.  
+ [17-01-22 19:08:55:012 CST] 0000004b WASSessionCor I SessionContextRegistry getSessionContext SESN0176I: Will create a new session context for application key default_host/ivt  
+ [17-01-22 19:08:55:053 CST] 0000004a SharedEJBRunt I   WSVR0057I: EJB jar started: querybean.jar  
+ [17-01-22 19:08:55:062 CST] 0000004b webcontainer  I com.ibm.ws.webcontainer.VirtualHostImpl addWebApplication SRVE0250I: Web Module IVT Application has been bound to default_host[*:9080,*:80,*:9443,*:5060,*:5061,*:443].  
+ [17-01-22 19:08:55:067 CST] 0000004a ApplicationMg A   WSVR0221I: Application started: query  
+ [17-01-22 19:08:55:067 CST] 0000004a CompositionUn A   WSVR0191I: Composition unit WebSphere:cuname=query in BLA WebSphere:blaname=query started.  
+ [17-01-22 19:08:55:070 CST] 0000004a CompositionUn A   WSVR0190I: Starting composition unit WebSphere:cuname=ibmasyncrsp in BLA WebSphere:blaname=ibmasyncrsp.  
+ [17-01-22 19:08:55:070 CST] 0000004c webapp        I com.ibm.ws.webcontainer.webapp.WebGroupImpl WebGroup SRVE0169I: Loading Web Module: Default Web Application.  
+ [17-01-22 19:08:55:077 CST] 0000004b ApplicationMg A   WSVR0221I: Application started: ivtApp  
+ [17-01-22 19:08:55:077 CST] 0000004b CompositionUn A   WSVR0191I: Composition unit WebSphere:cuname=ivtApp in BLA WebSphere:blaname=ivtApp started.  
+ [17-01-22 19:08:55:080 CST] 0000004b CompositionUn A   WSVR0190I: Starting composition unit WebSphere:cuname=isclite in BLA WebSphere:blaname=isclite.  
+ [17-01-22 19:08:55:086 CST] 0000004c WASSessionCor I SessionContextRegistry getSessionContext SESN0176I: Will create a new session context for application key default_host/  
+ [17-01-22 19:08:55:117 CST] 0000004a ApplicationMg A   WSVR0200I: Starting application: ibmasyncrsp  
+ [17-01-22 19:08:55:117 CST] 0000004a ApplicationMg A   WSVR0203I: Application: ibmasyncrsp  Application build level: 1 [3]  
+ [17-01-22 19:08:55:136 CST] 0000004c ServletWrappe I com.ibm.ws.webcontainer.servlet.ServletWrapper init SRVE0242I: [DefaultApplication] [/] [Hello Pervasive Servlet]: Initialization successful.  
+ [17-01-22 19:08:55:137 CST] 0000004c ServletWrappe I com.ibm.ws.webcontainer.servlet.ServletWrapper init SRVE0242I: [DefaultApplication] [/] [Hit Count Servlet]: Initialization successful.  
+ [17-01-22 19:08:55:138 CST] 0000004c ServletWrappe I com.ibm.ws.webcontainer.servlet.ServletWrapper init SRVE0242I: [DefaultApplication] [/] [Snoop Servlet]: Initialization successful.  
+ [17-01-22 19:08:55:139 CST] 0000004c webcontainer  I com.ibm.ws.webcontainer.VirtualHostImpl addWebApplication SRVE0250I: Web Module Default Web Application has been bound to default_host[*:9080,*:80,*:9443,*:5060,*:5061,*:443].  
+ [17-01-22 19:08:55:155 CST] 0000004a webapp        I com.ibm.ws.webcontainer.webapp.WebGroupImpl WebGroup SRVE0169I: Loading Web Module: WebSphere ASYNC Response Servlet Application.  
+ [17-01-22 19:08:55:221 CST] 0000004c ApplicationMg A   WSVR0221I: Application started: DefaultApplication  
+ [17-01-22 19:08:55:221 CST] 0000004c CompositionUn A   WSVR0191I: Composition unit WebSphere:cuname=DefaultApplication in BLA WebSphere:blaname=DefaultApplication started.  
+ [17-01-22 19:08:55:230 CST] 0000004a WASSessionCor I SessionContextRegistry getSessionContext SESN0176I: Will create a new session context for application key default_host/IBM_WS_SYS_RESPONSESERVLET  
+ [17-01-22 19:08:55:292 CST] 0000004a ServletWrappe I com.ibm.ws.webcontainer.servlet.ServletWrapper init SRVE0242I: [ibmasyncrsp] [/IBM_WS_SYS_RESPONSESERVLET] [rspservlet]: Initialization successful.  
+ [17-01-22 19:08:55:293 CST] 0000004a webcontainer  I com.ibm.ws.webcontainer.VirtualHostImpl addWebApplication SRVE0250I: Web Module WebSphere ASYNC Response Servlet Application has been bound to default_host[*:9080,*:80,*:9443,*:5060,*:5061,*:443].  
+ [17-01-22 19:08:55:340 CST] 0000004a ApplicationMg A   WSVR0221I: Application started: ibmasyncrsp  
+ [17-01-22 19:08:55:341 CST] 0000004a CompositionUn A   WSVR0191I: Composition unit WebSphere:cuname=ibmasyncrsp in BLA WebSphere:blaname=ibmasyncrsp started.  
+ [17-01-22 19:08:55:584 CST] 0000004b ApplicationMg A   WSVR0200I: Starting application: isclite  
+ [17-01-22 19:08:55:584 CST] 0000004b ApplicationMg A   WSVR0203I: Application: isclite  Application build level: WAS855.IM [cf051507.01]  
+ [17-01-22 19:08:57:950 CST] 0000004b webapp        I com.ibm.ws.webcontainer.webapp.WebGroupImpl WebGroup SRVE0169I: Loading Web Module: isclite.  
+ [17-01-22 19:08:58:025 CST] 0000004b WASSessionCor I SessionContextRegistry getSessionContext SESN0176I: Will create a new session context for application key admin_host/ibm/console  
+ [17-01-22 19:08:59:055 CST] 0000004b ServletWrappe I com.ibm.ws.webcontainer.servlet.ServletWrapper init SRVE0242I: [isclite] [/ibm/console] [EventInitializer]: Initialization successful.  
+ [17-01-22 19:08:59:055 CST] 0000004b webcontainer  I com.ibm.ws.webcontainer.VirtualHostImpl addWebApplication SRVE0250I: Web Module isclite has been bound to admin_host[*:9060,*:9043].  
+ [17-01-22 19:08:59:072 CST] 0000004b webapp        I com.ibm.ws.webcontainer.webapp.WebGroupImpl WebGroup SRVE0169I: Loading Web Module: adminconsole redirector.  
+ [17-01-22 19:08:59:141 CST] 0000004b WASSessionCor I SessionContextRegistry getSessionContext SESN0176I: Will create a new session context for application key admin_host/admin  
+ [17-01-22 19:08:59:167 CST] 0000004b webcontainer  I com.ibm.ws.webcontainer.VirtualHostImpl addWebApplication SRVE0250I: Web Module adminconsole redirector has been bound to admin_host[*:9060,*:9043].  
+ [17-01-22 19:08:59:222 CST] 0000004b webapp        I com.ibm.ws.webcontainer.webapp.WebGroupImpl WebGroup SRVE0169I: Loading Web Module: iehs.war.  
+ [17-01-22 19:08:59:229 CST] 0000004b WASSessionCor I SessionContextRegistry getSessionContext SESN0176I: Will create a new session context for application key admin_host/ibm/help  
+ [17-01-22 19:08:59:275 CST] 0000004b webcontainer  I com.ibm.ws.webcontainer.VirtualHostImpl addWebApplication SRVE0250I: Web Module null has been bound to admin_host[*:9060,*:9043].  
+ [17-01-22 19:08:59:739 CST] 0000004b webapp        I com.ibm.ws.webcontainer.webapp.WebGroupImpl WebGroup SRVE0169I: Loading Web Module: Integrated Solutions Console.  
+ [17-01-22 19:08:59:744 CST] 0000004b WASSessionCor I SessionContextRegistry getSessionContext SESN0176I: Will create a new session context for application key admin_host/ISCAdminPortlet  
+ [17-01-22 19:08:59:823 CST] 0000004b MBeanDescript I   ADMN1216I: One or more methods in Portlet mbean is excluded from access check.  
+ [17-01-22 19:08:59:861 CST] 0000004b MBeanDescript I   ADMN1216I: One or more methods in PortletApplication mbean is excluded from access check.  
+ [17-01-22 19:08:59:890 CST] 0000004b webcontainer  I com.ibm.ws.webcontainer.VirtualHostImpl addWebApplication SRVE0250I: Web Module Integrated Solutions Console has been bound to admin_host[*:9060,*:9043].  
+ [17-01-22 19:08:59:977 CST] 0000004b webapp        I com.ibm.ws.webcontainer.webapp.WebGroupImpl WebGroup SRVE0169I: Loading Web Module: WIM.  
+ [17-01-22 19:09:00:000 CST] 0000004b WASSessionCor I SessionContextRegistry getSessionContext SESN0176I: Will create a new session context for application key admin_host/wim  
+ [17-01-22 19:09:00:093 CST] 0000004b webcontainer  I com.ibm.ws.webcontainer.VirtualHostImpl addWebApplication SRVE0250I: Web Module WIM has been bound to admin_host[*:9060,*:9043].  
+ [17-01-22 19:09:00:144 CST] 0000004b webapp        I com.ibm.ws.webcontainer.webapp.WebGroupImpl WebGroup SRVE0169I: Loading Web Module: WebSphere Application Server.  
+ [17-01-22 19:09:00:151 CST] 0000004b WASSessionCor I SessionContextRegistry getSessionContext SESN0176I: Will create a new session context for application key admin_host/wasportlet  
+ [17-01-22 19:09:00:184 CST] 0000004b webcontainer  I com.ibm.ws.webcontainer.VirtualHostImpl addWebApplication SRVE0250I: Web Module WebSphere Application Server has been bound to admin_host[*:9060,*:9043].  
+ [17-01-22 19:09:00:191 CST] 0000004b ApplicationMg A   WSVR0221I: Application started: isclite  
+ [17-01-22 19:09:00:192 CST] 0000004b CompositionUn A   WSVR0191I: Composition unit WebSphere:cuname=isclite in BLA WebSphere:blaname=isclite started.  
+ [17-01-22 19:09:00:269 CST] 00000001 TCPChannel    I   TCPC0001I: TCP Channel TCP_1 is listening on host *  (IPv6) port 9060.  
+ [17-01-22 19:09:00:274 CST] 00000001 WSChannelFram A   CHFW0019I: The Transport Channel Service has started chain WCInboundAdmin.  
+ [17-01-22 19:09:00:284 CST] 00000001 TCPChannel    I   TCPC0001I: TCP Channel TCP_2 is listening on host *  (IPv6) port 9080.  
+ [17-01-22 19:09:00:286 CST] 00000001 WSChannelFram A   CHFW0019I: The Transport Channel Service has started chain WCInboundDefault.  
+ [17-01-22 19:09:00:288 CST] 00000001 WSChannelFram A   CHFW0019I: The Transport Channel Service has started chain HttpQueueInboundDefault.  
+ [17-01-22 19:09:00:291 CST] 00000001 TCPChannel    I   TCPC0001I: TCP Channel TCP_4 is listening on host *  (IPv6) port 9443.  
+ [17-01-22 19:09:00:293 CST] 00000001 WSChannelFram A   CHFW0019I: The Transport Channel Service has started chain HttpQueueInboundDefaultSecure.  
+ [17-01-22 19:09:00:308 CST] 00000001 TCPChannel    I   TCPC0001I: TCP Channel TCP_3 is listening on host *  (IPv6) port 9043.  
+ [17-01-22 19:09:00:310 CST] 00000001 WSChannelFram A   CHFW0019I: The Transport Channel Service has started chain WCInboundAdminSecure.  
+ [17-01-22 19:09:00:312 CST] 00000001 WSChannelFram A   CHFW0019I: The Transport Channel Service has started chain WCInboundDefaultSecure.  
+ [17-01-22 19:09:00:312 CST] 00000001 WSChannelFram A   CHFW0019I: The Transport Channel Service has started chain SOAPAcceptorChain1.  
+ [17-01-22 19:09:00:313 CST] 00000001 WSChannelFram A   CHFW0019I: The Transport Channel Service has started chain SOAPAcceptorChain2.  
+ [17-01-22 19:09:00:313 CST] 00000001 WSChannelFram A   CHFW0019I: The Transport Channel Service has started chain SOAPAcceptorChain3.  
+ [17-01-22 19:09:00:313 CST] 00000001 WSChannelFram A   CHFW0019I: The Transport Channel Service has started chain SOAPAcceptorChain4.  
+ [17-01-22 19:09:00:314 CST] 00000001 WSChannelFram A   CHFW0019I: The Transport Channel Service has started chain SOAPAcceptorChain5.  
+ [17-01-22 19:09:00:314 CST] 00000001 WSChannelFram A   CHFW0019I: The Transport Channel Service has started chain SOAPAcceptorChain6.  
+ [17-01-22 19:09:00:315 CST] 00000001 webcontainer  I com.ibm.ws.webcontainer.WSWebContainer startChains SRVE0323I: The Asynchronous Request Dispatcher is not enabled. Requests sent through either the HttpQueueInboundDefault or the HttpQueueInboundDefaultSecure chain might not be properly handled.  
+ [17-01-22 19:09:00:320 CST] 0000004c SchedulerServ I   SCHD0077I: The Scheduler Service is starting the Schedulers.  
+ [17-01-22 19:09:00:320 CST] 0000004c SchedulerServ I   SCHD0078I: The Scheduler Service has completed starting the Schedulers.  
+ [17-01-22 19:09:00:404 CST] 00000001 GridConfigura I   CWLRB5873I: The GridConfiguratorMBean was activated successfully.  
+ [17-01-22 19:09:00:420 CST] 00000001 BatchSensorCo I   CWLRB5904I: BatchSensorComponent starting...  
+ [17-01-22 19:09:00:451 CST] 00000001 BatchSensorCo I   CWLRB5905I: Successfully activated GridEndpointSensorMBean.  
+ [17-01-22 19:09:00:476 CST] 00000001 RMIConnectorC A   ADMC0026I: The RMI Connector is available at port 2809  
+ [17-01-22 19:09:00:483 CST] 00000001 JMXConnectors I   ADMC0058I: The JMX JSR160RMI connector is available at port 2809  
+ Using /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/logs/server1 as repository directory. 
+************ Start Display Current Environment ************
+WebSphere Platform 8.5.5.5 [BASE 8.5.5.5 cf051507.01] running with process name splunkNode01Cell\sh_node01\server1 and process id 14994
+Host Operating System is Linux, version 3.10.0-123.el7.x86_64
+Java version = 1.6.0, Java Compiler = j9jit26, Java VM name = IBM J9 VM
+was.install.root = /opt/IBM/WebSphere/AppServer
+user.install.root = /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2
+Java Home = /opt/IBM/WebSphere/AppServer/java/jre
+ws.ext.dirs = /opt/IBM/WebSphere/AppServer/java/lib:/opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/classes:/opt/IBM/WebSphere/AppServer/classes:/opt/IBM/WebSphere/AppServer/lib:/opt/IBM/WebSphere/AppServer/installedChannels:/opt/IBM/WebSphere/AppServer/lib/ext:/opt/IBM/WebSphere/AppServer/web/help:/opt/IBM/WebSphere/AppServer/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime
+Classpath = /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/properties:/opt/IBM/WebSphere/AppServer/properties:/opt/IBM/WebSphere/AppServer/lib/startup.jar:/opt/IBM/WebSphere/AppServer/lib/bootstrap.jar:/opt/IBM/WebSphere/AppServer/lib/jsf-nls.jar:/opt/IBM/WebSphere/AppServer/lib/lmproxy.jar:/opt/IBM/WebSphere/AppServer/lib/urlprotocols.jar:/opt/IBM/WebSphere/AppServer/deploytool/itp/batchboot.jar:/opt/IBM/WebSphere/AppServer/deploytool/itp/batch2.jar:/opt/IBM/WebSphere/AppServer/java/lib/tools.jar
+Java Library path = /opt/IBM/WebSphere/AppServer/lib/native/linux/x86_64/:/opt/IBM/WebSphere/AppServer/java/jre/lib/amd64/compressedrefs:/opt/IBM/WebSphere/AppServer/java/jre/lib/amd64:/opt/IBM/WebSphere/AppServer/bin:/opt/IBM/WebSphere/AppServer/nulldllsdir:/usr/lib:
+Orb Version = IBM Java ORB build orb626-20141203.00
+************* End Display Current Environment *************  
+ [17-01-22 19:35:06:752 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:06:781 CST] 0000008b DMAdapter     I com.ibm.ws.ffdc.impl.DMAdapter getAnalysisEngine FFDC1009I: Analysis Engine using data base: /opt/IBM/WebSphere/AppServer/properties/logbr/ffdc/adv/ffdcdb.xml  
+ [17-01-22 19:35:06:958 CST] 0000008b FfdcProvider  W com.ibm.ws.ffdc.impl.FfdcProvider logIncident FFDC1003I: FFDC Incident emitted on /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/logs/ffdc/server1_36fd9473_15.06.13_19.35.06.7682734112488294829165.txt com.ibm.ws.management.AdminServiceImpl.checkForAttrDeprecation 1308  
+ [17-01-22 19:35:06:962 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:07:075 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:07:077 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:07:199 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:07:220 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:07:709 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:07:711 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:08:019 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:08:031 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:08:211 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:08:215 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:08:319 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:08:322 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:08:500 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:08:509 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:08:825 CST] 0000008b FfdcProvider  W com.ibm.ws.ffdc.impl.FfdcProvider logIncident FFDC1003I: FFDC Incident emitted on /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/logs/ffdc/server1_36fd9473_15.06.13_19.35.08.8244119873067018679012.txt com.ibm.ws.management.AdminServiceImpl.invoke 408  
+ [17-01-22 19:35:09:952 CST] 0000008b MBeans        E   DYNA1059W: Dynamic Cache instance named baseCache cannot be used because the Dynamic Servlet cache service has not been started.  
+ [17-01-22 19:35:11:531 CST] 0000008a InternalGener I   DSRA8225I: DataSource JNDI name : jdbc/DefaultEJBTimerDataSource  
+ [17-01-22 19:35:11:539 CST] 0000008a InternalGener I   DSRA8203I: Database product name : Apache Derby  
+ [17-01-22 19:35:11:539 CST] 0000008a InternalGener I   DSRA8204I: Database product version : 10.8.3.1 - (1452645)  
+ [17-01-22 19:35:11:539 CST] 0000008a InternalGener I   DSRA8205I: JDBC driver name  : Apache Derby Embedded JDBC Driver  
+ [17-01-22 19:35:11:540 CST] 0000008a InternalGener I   DSRA8206I: JDBC driver version  : 10.8.3.1 - (1452645)  
+ [17-01-22 19:35:11:540 CST] 0000008a InternalGener I   DSRA8218I: JDBC driver specification level  : 4.0  
+ [17-01-22 19:35:11:928 CST] 0000008a WASSchedulerC I   SCHD0100I: Scheduler tables verified successfully.  
+ [17-01-22 19:35:11:952 CST] 0000008a SchedulerImpl I   SCHD0032I: The Scheduler WebSphere_EJB_Timer_Service is initializing.  
+ [17-01-22 19:35:11:995 CST] 0000008a SchedulerImpl I   SCHD0033I: The Scheduler WebSphere_EJB_Timer_Service has initialized.  
+ [17-01-22 19:35:12:008 CST] 0000008a SchedulerDaem I   SCHD0038I: The Scheduler Daemon for instance WebSphere_EJB_Timer_Service has started.  
+ [17-01-22 19:35:12:091 CST] 0000008b AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:12:094 CST] 00000088 LeaseAlarm    I   SCHD0133I: Scheduler WebSphere_EJB_Timer_Service (WebSphere_EJB_Timer_Service) has acquired the lease and will run all tasks on this application server.  
+ [17-01-22 19:35:12:112 CST] 0000008b AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:12:232 CST] 0000008a AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:12:235 CST] 0000008a AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:12:345 CST] 0000008a AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:12:354 CST] 0000008a AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:12:442 CST] 0000008a AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:12:445 CST] 0000008a AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:12:518 CST] 0000008a AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:12:528 CST] 0000008a AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:230 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:231 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:240 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:241 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:317 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:318 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:328 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:329 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:415 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:416 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:418 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:418 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:489 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:490 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:496 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:496 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:563 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:564 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:572 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:573 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:651 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:652 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:658 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:659 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:736 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:737 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:739 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:739 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:916 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:916 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:919 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:13:920 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:15:948 CST] 0000008b RasLoggingSer I com.ibm.ws.runtime.mbean.RasLoggingServiceMBeanShadow getMessageFilterLevel TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:35:16:499 CST] 0000008b TraceServiceM I com.ibm.ws.runtime.mbean.TraceServiceMBeanShadow getRingBufferSize TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:35:16:501 CST] 0000008b TraceServiceM I com.ibm.ws.runtime.mbean.TraceServiceMBeanShadow getTraceSpecification TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:35:16:503 CST] 0000008a TraceServiceM I com.ibm.ws.runtime.mbean.TraceServiceMBeanShadow getEffectiveTraceSpecification TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:35:16:504 CST] 0000008b TraceServiceM I com.ibm.ws.runtime.mbean.TraceServiceMBeanShadow getTraceFileName TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:35:16:506 CST] 0000008a TraceServiceM I com.ibm.ws.runtime.mbean.TraceServiceMBeanShadow getTraceRuntimeConfig TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:35:16:543 CST] 0000008a AdminServiceI W   ADMN0036W: The TransactionService attribute "maximumTransactionTimeout" is deprecated. As of version 7,0, this attribute is deprecated.  
+ [17-01-22 19:35:16:695 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:16:733 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:16:849 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:16:851 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:16:896 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:16:901 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:16:990 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:17:003 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:17:171 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:17:182 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:17:377 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:17:383 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:17:431 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:17:432 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:17:513 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:17:515 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:17:598 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:17:604 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:35:17:639 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ Using /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/logs/server1 as repository directory. 
+************ Start Display Current Environment ************
+WebSphere Platform 8.5.5.5 [BASE 8.5.5.5 cf051507.01] running with process name splunkNode01Cell\sh_node01\server1 and process id 14994
+Host Operating System is Linux, version 3.10.0-123.el7.x86_64
+Java version = 1.6.0, Java Compiler = j9jit26, Java VM name = IBM J9 VM
+was.install.root = /opt/IBM/WebSphere/AppServer
+user.install.root = /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2
+Java Home = /opt/IBM/WebSphere/AppServer/java/jre
+ws.ext.dirs = /opt/IBM/WebSphere/AppServer/java/lib:/opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/classes:/opt/IBM/WebSphere/AppServer/classes:/opt/IBM/WebSphere/AppServer/lib:/opt/IBM/WebSphere/AppServer/installedChannels:/opt/IBM/WebSphere/AppServer/lib/ext:/opt/IBM/WebSphere/AppServer/web/help:/opt/IBM/WebSphere/AppServer/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime
+Classpath = /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/properties:/opt/IBM/WebSphere/AppServer/properties:/opt/IBM/WebSphere/AppServer/lib/startup.jar:/opt/IBM/WebSphere/AppServer/lib/bootstrap.jar:/opt/IBM/WebSphere/AppServer/lib/jsf-nls.jar:/opt/IBM/WebSphere/AppServer/lib/lmproxy.jar:/opt/IBM/WebSphere/AppServer/lib/urlprotocols.jar:/opt/IBM/WebSphere/AppServer/deploytool/itp/batchboot.jar:/opt/IBM/WebSphere/AppServer/deploytool/itp/batch2.jar:/opt/IBM/WebSphere/AppServer/java/lib/tools.jar
+Java Library path = /opt/IBM/WebSphere/AppServer/lib/native/linux/x86_64/:/opt/IBM/WebSphere/AppServer/java/jre/lib/amd64/compressedrefs:/opt/IBM/WebSphere/AppServer/java/jre/lib/amd64:/opt/IBM/WebSphere/AppServer/bin:/opt/IBM/WebSphere/AppServer/nulldllsdir:/usr/lib:
+Orb Version = IBM Java ORB build orb626-20141203.00
+************* End Display Current Environment *************  
+ [17-01-22 19:36:05:418 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:05:423 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:05:472 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:05:476 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:05:508 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:05:509 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:05:632 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:05:636 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:05:671 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:05:673 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:05:707 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:05:711 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:05:734 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:05:738 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:05:764 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:05:769 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:05:942 CST] 00000099 MBeans        E   DYNA1059W: Dynamic Cache instance named baseCache cannot be used because the Dynamic Servlet cache service has not been started.  
+ [17-01-22 19:36:05:979 CST] 00000099 AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:05:980 CST] 0000008a AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:018 CST] 0000008b AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:020 CST] 00000099 AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:044 CST] 00000099 AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:048 CST] 00000099 AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:095 CST] 00000099 AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:096 CST] 0000008b AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:127 CST] 0000008a AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:128 CST] 0000008b AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:399 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:399 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:405 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:406 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:433 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:434 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:436 CST] 00000099 AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:437 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:472 CST] 00000099 AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:473 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:474 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:474 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:507 CST] 00000099 AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:508 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:509 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:510 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:609 CST] 00000099 AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:610 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:611 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:612 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:634 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:634 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:637 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:637 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:659 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:660 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:661 CST] 00000099 AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:662 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:692 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:692 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:698 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:06:698 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:07:227 CST] 00000099 RasLoggingSer I com.ibm.ws.runtime.mbean.RasLoggingServiceMBeanShadow getMessageFilterLevel TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:36:07:507 CST] 0000008b TraceServiceM I com.ibm.ws.runtime.mbean.TraceServiceMBeanShadow getRingBufferSize TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:36:07:509 CST] 0000008a TraceServiceM I com.ibm.ws.runtime.mbean.TraceServiceMBeanShadow getTraceSpecification TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:36:07:510 CST] 0000008b TraceServiceM I com.ibm.ws.runtime.mbean.TraceServiceMBeanShadow getEffectiveTraceSpecification TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:36:07:513 CST] 0000008a TraceServiceM I com.ibm.ws.runtime.mbean.TraceServiceMBeanShadow getTraceFileName TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:36:07:514 CST] 0000008b TraceServiceM I com.ibm.ws.runtime.mbean.TraceServiceMBeanShadow getTraceRuntimeConfig TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:36:07:525 CST] 0000008a AdminServiceI W   ADMN0036W: The TransactionService attribute "maximumTransactionTimeout" is deprecated. As of version 7,0, this attribute is deprecated.  
+ [17-01-22 19:36:07:599 CST] 00000099 AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:07:601 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:07:657 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:07:659 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:07:699 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:07:700 CST] 00000099 AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:07:762 CST] 00000099 AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:07:763 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:07:783 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:07:784 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:07:875 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:07:877 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:07:897 CST] 00000099 AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:07:898 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:07:950 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:07:951 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:08:033 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:08:035 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:36:08:135 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ Using /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/logs/server1 as repository directory. 
+************ Start Display Current Environment ************
+WebSphere Platform 8.5.5.5 [BASE 8.5.5.5 cf051507.01] running with process name splunkNode01Cell\sh_node01\server1 and process id 14994
+Host Operating System is Linux, version 3.10.0-123.el7.x86_64
+Java version = 1.6.0, Java Compiler = j9jit26, Java VM name = IBM J9 VM
+was.install.root = /opt/IBM/WebSphere/AppServer
+user.install.root = /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2
+Java Home = /opt/IBM/WebSphere/AppServer/java/jre
+ws.ext.dirs = /opt/IBM/WebSphere/AppServer/java/lib:/opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/classes:/opt/IBM/WebSphere/AppServer/classes:/opt/IBM/WebSphere/AppServer/lib:/opt/IBM/WebSphere/AppServer/installedChannels:/opt/IBM/WebSphere/AppServer/lib/ext:/opt/IBM/WebSphere/AppServer/web/help:/opt/IBM/WebSphere/AppServer/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime
+Classpath = /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/properties:/opt/IBM/WebSphere/AppServer/properties:/opt/IBM/WebSphere/AppServer/lib/startup.jar:/opt/IBM/WebSphere/AppServer/lib/bootstrap.jar:/opt/IBM/WebSphere/AppServer/lib/jsf-nls.jar:/opt/IBM/WebSphere/AppServer/lib/lmproxy.jar:/opt/IBM/WebSphere/AppServer/lib/urlprotocols.jar:/opt/IBM/WebSphere/AppServer/deploytool/itp/batchboot.jar:/opt/IBM/WebSphere/AppServer/deploytool/itp/batch2.jar:/opt/IBM/WebSphere/AppServer/java/lib/tools.jar
+Java Library path = /opt/IBM/WebSphere/AppServer/lib/native/linux/x86_64/:/opt/IBM/WebSphere/AppServer/java/jre/lib/amd64/compressedrefs:/opt/IBM/WebSphere/AppServer/java/jre/lib/amd64:/opt/IBM/WebSphere/AppServer/bin:/opt/IBM/WebSphere/AppServer/nulldllsdir:/usr/lib:
+Orb Version = IBM Java ORB build orb626-20141203.00
+************* End Display Current Environment *************  
+ [17-01-22 19:37:05:391 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:393 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:410 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:413 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:432 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:433 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:474 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:475 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:496 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:497 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:516 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:519 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:536 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:537 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:555 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:556 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:684 CST] 0000008b MBeans        E   DYNA1059W: Dynamic Cache instance named baseCache cannot be used because the Dynamic Servlet cache service has not been started.  
+ [17-01-22 19:37:05:710 CST] 00000099 AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:711 CST] 0000008a AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:736 CST] 0000008a AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:739 CST] 0000008a AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:758 CST] 0000008b AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:759 CST] 00000099 AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:804 CST] 0000008a AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:805 CST] 00000099 AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:836 CST] 0000008b AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:837 CST] 00000099 AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:05:999 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:000 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:004 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:004 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:022 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:023 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:024 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:024 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:042 CST] 00000099 AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:043 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:044 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:044 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:064 CST] 00000099 AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:064 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:065 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:065 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:080 CST] 00000099 AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:080 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:081 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:081 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:096 CST] 00000099 AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:097 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:098 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:099 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:119 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:120 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:123 CST] 00000099 AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:123 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:151 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:151 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:152 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:152 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:544 CST] 0000008a RasLoggingSer I com.ibm.ws.runtime.mbean.RasLoggingServiceMBeanShadow getMessageFilterLevel TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:37:06:758 CST] 0000008b TraceServiceM I com.ibm.ws.runtime.mbean.TraceServiceMBeanShadow getRingBufferSize TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:37:06:761 CST] 0000008b TraceServiceM I com.ibm.ws.runtime.mbean.TraceServiceMBeanShadow getTraceSpecification TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:37:06:762 CST] 0000008a TraceServiceM I com.ibm.ws.runtime.mbean.TraceServiceMBeanShadow getEffectiveTraceSpecification TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:37:06:763 CST] 0000008b TraceServiceM I com.ibm.ws.runtime.mbean.TraceServiceMBeanShadow getTraceFileName TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:37:06:778 CST] 0000008b TraceServiceM I com.ibm.ws.runtime.mbean.TraceServiceMBeanShadow getTraceRuntimeConfig TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:37:06:822 CST] 00000099 AdminServiceI W   ADMN0036W: The TransactionService attribute "maximumTransactionTimeout" is deprecated. As of version 7,0, this attribute is deprecated.  
+ [17-01-22 19:37:06:900 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:901 CST] 00000099 AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:966 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:06:967 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:07:014 CST] 00000099 AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:07:015 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:07:094 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:07:101 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:07:161 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:07:162 CST] 00000099 AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:07:211 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:07:212 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:07:226 CST] 00000099 AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:07:226 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:07:275 CST] 00000099 AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:07:276 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:07:315 CST] 00000099 AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:07:316 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:37:07:345 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ Using /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/logs/server1 as repository directory. 
+************ Start Display Current Environment ************
+WebSphere Platform 8.5.5.5 [BASE 8.5.5.5 cf051507.01] running with process name splunkNode01Cell\sh_node01\server1 and process id 14994
+Host Operating System is Linux, version 3.10.0-123.el7.x86_64
+Java version = 1.6.0, Java Compiler = j9jit26, Java VM name = IBM J9 VM
+was.install.root = /opt/IBM/WebSphere/AppServer
+user.install.root = /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2
+Java Home = /opt/IBM/WebSphere/AppServer/java/jre
+ws.ext.dirs = /opt/IBM/WebSphere/AppServer/java/lib:/opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/classes:/opt/IBM/WebSphere/AppServer/classes:/opt/IBM/WebSphere/AppServer/lib:/opt/IBM/WebSphere/AppServer/installedChannels:/opt/IBM/WebSphere/AppServer/lib/ext:/opt/IBM/WebSphere/AppServer/web/help:/opt/IBM/WebSphere/AppServer/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime
+Classpath = /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/properties:/opt/IBM/WebSphere/AppServer/properties:/opt/IBM/WebSphere/AppServer/lib/startup.jar:/opt/IBM/WebSphere/AppServer/lib/bootstrap.jar:/opt/IBM/WebSphere/AppServer/lib/jsf-nls.jar:/opt/IBM/WebSphere/AppServer/lib/lmproxy.jar:/opt/IBM/WebSphere/AppServer/lib/urlprotocols.jar:/opt/IBM/WebSphere/AppServer/deploytool/itp/batchboot.jar:/opt/IBM/WebSphere/AppServer/deploytool/itp/batch2.jar:/opt/IBM/WebSphere/AppServer/java/lib/tools.jar
+Java Library path = /opt/IBM/WebSphere/AppServer/lib/native/linux/x86_64/:/opt/IBM/WebSphere/AppServer/java/jre/lib/amd64/compressedrefs:/opt/IBM/WebSphere/AppServer/java/jre/lib/amd64:/opt/IBM/WebSphere/AppServer/bin:/opt/IBM/WebSphere/AppServer/nulldllsdir:/usr/lib:
+Orb Version = IBM Java ORB build orb626-20141203.00
+************* End Display Current Environment *************  
+ [17-01-22 19:38:05:413 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:415 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:431 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:435 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:455 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:456 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:525 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:526 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:564 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:567 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:581 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:582 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:599 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:600 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:630 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:633 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:749 CST] 0000008b MBeans        E   DYNA1059W: Dynamic Cache instance named baseCache cannot be used because the Dynamic Servlet cache service has not been started.  
+ [17-01-22 19:38:05:782 CST] 0000008a AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:782 CST] 0000008b AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:817 CST] 00000099 AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:820 CST] 00000099 AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:838 CST] 0000008a AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:839 CST] 0000008b AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:860 CST] 0000008a AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:861 CST] 00000099 AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:882 CST] 0000008b AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:05:883 CST] 0000008a AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:014 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:014 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:025 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:025 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:038 CST] 00000099 AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:039 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:040 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:040 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:061 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:061 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:064 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:065 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:077 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:078 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:079 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:079 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:094 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:095 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:095 CST] 00000099 AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:096 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:110 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:110 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:111 CST] 00000099 AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:112 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:129 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:129 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:132 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:133 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:146 CST] 00000099 AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:147 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:149 CST] 00000099 AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:150 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:517 CST] 0000008b RasLoggingSer I com.ibm.ws.runtime.mbean.RasLoggingServiceMBeanShadow getMessageFilterLevel TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:38:06:736 CST] 00000099 TraceServiceM I com.ibm.ws.runtime.mbean.TraceServiceMBeanShadow getRingBufferSize TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:38:06:738 CST] 00000099 TraceServiceM I com.ibm.ws.runtime.mbean.TraceServiceMBeanShadow getTraceSpecification TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:38:06:740 CST] 00000099 TraceServiceM I com.ibm.ws.runtime.mbean.TraceServiceMBeanShadow getEffectiveTraceSpecification TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:38:06:742 CST] 00000099 TraceServiceM I com.ibm.ws.runtime.mbean.TraceServiceMBeanShadow getTraceFileName TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:38:06:744 CST] 0000008a TraceServiceM I com.ibm.ws.runtime.mbean.TraceServiceMBeanShadow getTraceRuntimeConfig TRAS0113I: This MBean Operation should not be used when High Performance Logging is enabled. Function will be forwarded to proper MBean  
+ [17-01-22 19:38:06:754 CST] 00000099 AdminServiceI W   ADMN0036W: The TransactionService attribute "maximumTransactionTimeout" is deprecated. As of version 7,0, this attribute is deprecated.  
+ [17-01-22 19:38:06:807 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:808 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:838 CST] 00000099 AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:840 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:860 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:861 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:890 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:893 CST] 00000099 AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:912 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:914 CST] 00000099 AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:960 CST] 00000099 AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:961 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:976 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:06:976 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:07:015 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:07:016 CST] 00000099 AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:07:054 CST] 0000008a AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:07:055 CST] 00000099 AdminServiceI W   ADMN0036W: The WebModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:38:07:074 CST] 0000008b AdminServiceI W   ADMN0036W: The WebModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ Using /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/logs/server1 as repository directory. 
+************ Start Display Current Environment ************
+WebSphere Platform 8.5.5.5 [BASE 8.5.5.5 cf051507.01] running with process name splunkNode01Cell\sh_node01\server1 and process id 14994
+Host Operating System is Linux, version 3.10.0-123.el7.x86_64
+Java version = 1.6.0, Java Compiler = j9jit26, Java VM name = IBM J9 VM
+was.install.root = /opt/IBM/WebSphere/AppServer
+user.install.root = /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2
+Java Home = /opt/IBM/WebSphere/AppServer/java/jre
+ws.ext.dirs = /opt/IBM/WebSphere/AppServer/java/lib:/opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/classes:/opt/IBM/WebSphere/AppServer/classes:/opt/IBM/WebSphere/AppServer/lib:/opt/IBM/WebSphere/AppServer/installedChannels:/opt/IBM/WebSphere/AppServer/lib/ext:/opt/IBM/WebSphere/AppServer/web/help:/opt/IBM/WebSphere/AppServer/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime
+Classpath = /opt/IBM/WebSphere/AppServer/profiles/ShanghaiTest2/properties:/opt/IBM/WebSphere/AppServer/properties:/opt/IBM/WebSphere/AppServer/lib/startup.jar:/opt/IBM/WebSphere/AppServer/lib/bootstrap.jar:/opt/IBM/WebSphere/AppServer/lib/jsf-nls.jar:/opt/IBM/WebSphere/AppServer/lib/lmproxy.jar:/opt/IBM/WebSphere/AppServer/lib/urlprotocols.jar:/opt/IBM/WebSphere/AppServer/deploytool/itp/batchboot.jar:/opt/IBM/WebSphere/AppServer/deploytool/itp/batch2.jar:/opt/IBM/WebSphere/AppServer/java/lib/tools.jar
+Java Library path = /opt/IBM/WebSphere/AppServer/lib/native/linux/x86_64/:/opt/IBM/WebSphere/AppServer/java/jre/lib/amd64/compressedrefs:/opt/IBM/WebSphere/AppServer/java/jre/lib/amd64:/opt/IBM/WebSphere/AppServer/bin:/opt/IBM/WebSphere/AppServer/nulldllsdir:/usr/lib:
+Orb Version = IBM Java ORB build orb626-20141203.00
+************* End Display Current Environment *************  
+ [17-01-22 19:39:05:430 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:431 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:455 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:456 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:477 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:478 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:527 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:528 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:555 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:556 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:572 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:573 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:586 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:587 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:602 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:603 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:705 CST] 0000008b MBeans        E   DYNA1059W: Dynamic Cache instance named baseCache cannot be used because the Dynamic Servlet cache service has not been started.  
+ [17-01-22 19:39:05:727 CST] 0000008b AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:728 CST] 00000099 AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:742 CST] 0000008a AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:745 CST] 0000008a AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:763 CST] 0000008a AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:766 CST] 0000008a AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:790 CST] 00000099 AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:791 CST] 0000008b AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:828 CST] 0000008a AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:829 CST] 00000099 AdminServiceI W   ADMN0036W: The EJBModule attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:982 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:983 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:984 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:984 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:997 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:998 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:998 CST] 0000008a AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:05:999 CST] 0000008a AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:06:016 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:06:016 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:06:017 CST] 00000099 AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:06:018 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:06:032 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:06:033 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:06:036 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:06:036 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:06:055 CST] 00000099 AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:06:055 CST] 00000099 AdminServiceI W   ADMN0036W: The Application attribute "javaVersion" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:06:056 CST] 0000008b AdminServiceI W   ADMN0036W: The J2EEApplication attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
+ [17-01-22 19:39:06:056 CST] 0000008b AdminServiceI W   ADMN0036W: The Application attribute "javaVendor" is deprecated. As of version 6.0.  Use the javaVersion attribute on the JVM MBean.  
