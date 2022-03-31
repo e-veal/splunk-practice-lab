@@ -53,7 +53,6 @@
           group: splunk
         loop: 
           - /home/ansible/build/files/nakia_logs/spe_linux_maillog_inputs
-          - /home/ansible/build/files/nakia_logs/spe_linux_maillog_props
     become_user: root
     when: inventory_hostname == 'UF'
 
