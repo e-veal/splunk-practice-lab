@@ -1,9 +1,9 @@
-# NAKIA
+# OKOYE
 This is the configuration for Core Implementation Lab 3
 > Note: Different OS version than actual
 
 ## Build Instructions
-- Build 9 EC2s with `1-basic-splunk-image.sh`
+- Build 7 EC2s with `1-basic-splunk-image.sh`
     - must have public IPs
     - at least 10GB for storage
 - Wait for all to state Running
@@ -40,9 +40,9 @@ This lab simulates a customer problem with data on-boarding.
 | HF | Heavy Forwarder |
 | UF | Universal Forwarder |
 
-You will need to ingest logs (contained within /var/log) and assign their sourcetypes as appropriate. The files in question are the maillog file(s) and the cloud-init.log. We would like them to be assigned as the maillog and cloud-init sourcetypes respectively.
+For this lab, the problem statement is as follows:
+We used to have an input to read in data from /var/data/syslog. We want the default syslog sourcetype behavior to fire, where the ‘host’ field in Splunk is set to the hostname represented in the events themselves. For this customer, the event data shows the device name is combo, so if you see this as your host, your events are correct.
 
-They would also like you to onboard appserver logs from /var/data/appserver into Splunk. They should show up as the sourcetype **appserver**. Please make sure your configuration continues to work when the logs are rolled on a daily basis.
+In addition, we want a custom indexed field to be created called ‘splunk_orig_fwd’ to indicate the hostname of the forwarder that passed us the data. We set up the TRANSFORMS on the indexer, but couldn’t get it working. We've disabled the input.
 
-The document here ([Fishbucket_Use_Cases.pdf](https://pslearning.splunkoxygen.com/en-US/static/app/overlord/lab_docs/Fishbucket_Use_Cases.pdf)) may help you with troubleshooting any issues that may arise. This REST document [Foundational_Concepts_FDC0004_REST.pdf](https://pslearning.splunkoxygen.com/en-US/static/app/overlord/lab_docs/Foundational_Concepts_FDC0004_REST.pdf) may also help here (in particular the TailingProcessor). The built-in command **splunk list inputstatus** may also provide some clues.
-As an added note, the files might not be readable by the splunk user, so you will need to address this appropriately.
+Here success will be measured by your ability to meet the customer's request. The information contained here (docs:[indexed field extractions](https://docs.splunk.com/Documentation/Splunk/latest/Data/Aboutindexedfieldextraction)) may help you with meeting the customer request

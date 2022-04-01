@@ -11,49 +11,35 @@
 
   tasks:
 
-  - name: Configuring HF
+  - name: Configuring IDX
     block:
-      - name: Adding data to HF
+      - name: Adding data to IDX
         copy: 
-          src: /home/ansible/build/files/nakia_logs/hf/
-          dest: /var/log/
-          owner: root
-          group: root
-      - copy: 
-          src: "{{ item }}"
+          src: /home/ansible/build/files/okoye_logs/spe_indexer_orig_fwd_props
           dest: /opt/splunk/etc/apps/
           owner: splunk
           group: splunk
-        loop: 
-          - /home/ansible/build/files/nakia_logs/spe_linux_maillog_props
     become_user: root
-    when: inventory_hostname == 'HF'
-
-  - command: /opt/splunk/bin/splunk restart
-    become_user: splunk
-    when: inventory_hostname == 'HF'
+    when: inventory_hostname == 'CM'
+  
+  - name: Pushing packages to indexers
+    command: /opt/splunk/bin/splunk apply cluster-bundle --answer-yes -auth admin:{{adminPwd}}
+    when: inventory_hostname == 'CM'
   
   - name: Configuring UF
     block:
       - name: Adding data to UF
         copy: 
-          src: /home/ansible/build/files/nakia_logs/uf/var-log/
-          dest: /var/log/
-          owner: root
-          group: root
-      - copy: 
-          src: /home/ansible/build/files/nakia_logs/uf/var-data/
+          src: /home/ansible/build/files/okoye_logs/uf/var-data/
           dest: /var/data/
           owner: root
           group: root
-      - copy: 
-          src: "{{ item }}"
-          dest: /opt/splunkforwarder/etc/apps/
+        copy: 
+          src: /home/ansible/build/files/okoye_logs/spe_linux_syslog_inputs
+          dest: /opt/splunk/etc/apps/
           owner: splunk
           group: splunk
-        loop: 
-          - /home/ansible/build/files/nakia_logs/spe_linux_maillog_inputs
-    become_user: root
+    become_user: splunk
     when: inventory_hostname == 'UF'
 
   - command: /opt/splunkforwarder/bin/splunk restart
