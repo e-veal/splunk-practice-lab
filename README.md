@@ -3,7 +3,7 @@ This is the configuration for Core Implementation Lab 3
 > Note: Different OS version than actual
 
 ## Build Instructions
-- Build 9 EC2s with `1-basic-splunk-image.sh`
+- Build 7 EC2s with `1-basic-splunk-image.sh`
     - must have public IPs
     - at least 10GB for storage
 - Wait for all to state Running
