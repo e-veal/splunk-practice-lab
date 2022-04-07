@@ -32,7 +32,7 @@
     - name: Installing Splunkforwarder
       become: yes
       unarchive:
-        src: "{{ splunkfwdr_pkg }}"
+        src: "{{ splunkfwdr_pkg._8_2_4 }}"
         dest: /opt
         owner: splunk
         group: splunk
