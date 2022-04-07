@@ -1,5 +1,5 @@
 # OKOYE
-This is the configuration for Core Implementation Lab 3
+This is the configuration for Core Implementation Lab 4
 > Note: Different OS version than actual
 
 ## Build Instructions
@@ -24,6 +24,7 @@ This is the configuration for Core Implementation Lab 3
 ---
 ## Lab Goals
 1. Fix data ingestion issues
+1. Ability to search on original forwarder
 1. Ensure Monitoring Console is monitoring active servers
 1. Ensure deployment server is configured properly
 
@@ -41,8 +42,8 @@ This lab simulates a customer problem with data on-boarding.
 | UF | Universal Forwarder |
 
 For this lab, the problem statement is as follows:
-We used to have an input to read in data from /var/data/syslog. We want the default syslog sourcetype behavior to fire, where the ‘host’ field in Splunk is set to the hostname represented in the events themselves. For this customer, the event data shows the device name is combo, so if you see this as your host, your events are correct.
+We used to have an input to read in data from `/var/data/syslog`. We want the default **syslog** sourcetype behavior to fire, where the ‘host’ field in Splunk is set to the hostname represented in the events themselves. For this customer, the event data shows the device name is **combo**, so if you see this as your host, your events are correct.
 
-In addition, we want a custom indexed field to be created called ‘splunk_orig_fwd’ to indicate the hostname of the forwarder that passed us the data. We set up the TRANSFORMS on the indexer, but couldn’t get it working. We've disabled the input.
+In addition, we want a custom indexed field to be created called `splunk_orig_fwd` to indicate the hostname of the forwarder that passed us the data. We set up the TRANSFORMS on the indexer, but couldn’t get it working. We've disabled the input.
 
 Here success will be measured by your ability to meet the customer's request. The information contained here (docs:[indexed field extractions](https://docs.splunk.com/Documentation/Splunk/latest/Data/Aboutindexedfieldextraction)) may help you with meeting the customer request
