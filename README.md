@@ -24,6 +24,7 @@ This is the configuration for Core Implementation Lab 3
 ---
 ## Lab Goals
 1. Fix data ingestion issues
+1. Ensure all appserver logs are being ingested
 1. Ensure Monitoring Console is monitoring active servers
 1. Ensure deployment server is configured properly
 
