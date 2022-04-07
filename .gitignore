@@ -8,6 +8,9 @@ Icon*
 *.exe
 *.tgz
 
+#ansible
+.travis.yml
+
 #testing files
 tests/
 *.lic
