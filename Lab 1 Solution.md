@@ -37,19 +37,26 @@
 
     - Create base app called `ci1_unhash_app` with a file called `passwords.conf`
     
-            [credential::test:]<br/>password = (pass4Symmkey)
+        ```
+        [credential::test:]
+        password = (pass4Symmkey)
+        ```
 
     - Add app to MC (in new terminal)
     
-        `cd "/Users/eveal/Downloads/Splunk/Practice Ansible Environment/labs/Lab 1"`
+        ```
+        cd "/Users/eveal/Downloads/Splunk/Practice Ansible Environment/labs/Lab 1"
 
-        `rsync -r ci1_unhash_app --exclude 'Icon*' --exclude '.DS_Store' splunk@{{IP_of_MC}}:/opt/splunk/etc/apps/`
+        rsync -r ci1_unhash_app --exclude 'Icon*' --exclude '.DS_Store' splunk@{{IP_of_MC}}:/opt/splunk/etc/apps/
+        ```
     
-   -  Restart Splunk or refresh http://{{IP_of_MC}}:8000/en-US/debug/refresh 
+   -  Restart Splunk or refresh `http://{{IP_of_MC}}:8000/en-US/debug/refresh `
 
     - Test for connection
         
-        `/opt/splunk/bin/splunk _internal call /storage/passwords/test | grep clear`
+        ```
+        /opt/splunk/bin/splunk _internal call /storage/passwords/test | grep clear
+        ```
     
 1. Join MC to CM
 
@@ -57,7 +64,9 @@
     
     - Copy search_output
     
+       ```
        rsync -r spe_cluster_search_base --exclude 'Icon*' --exclude '.DS_Store' splunk@4{{IP_of_CM}}:/opt/splunk/etc/apps/
+       ```
 
 1. Remove hash app
     
@@ -76,7 +85,8 @@
 1. Fix data ingest issue
     
     - Update path in indexes_volume on CM
-        /opt/splunk/var/lib/splunk
+
+        `/opt/splunk/var/lib/splunk`
     
     - Push update to IDXs
     
@@ -90,17 +100,18 @@
     - Clear indexed data
     
         - put CM in maintenance mode
-            /opt/splunk/bin/splunk enable maintenance-mode --answer-yes
+            `/opt/splunk/bin/splunk enable maintenance-mode --answer-yes`
         - stop forwarders
-            /opt/splunkforwarder/bin/splunk stop
+            `/opt/splunkforwarder/bin/splunk stop`
         - stop indexers
-            /opt/splunk/bin/splunk stop
+            `/opt/splunk/bin/splunk stop`
         - clear data in a single index on indexers
-            /opt/splunk/bin/splunk clean eventdata -index os -f  
-        - clear fishbucket on forwarders
-            rm -r /opt/splunkforwarder/var/lib/splunk/fishbucket && cd /opt/splunkforwarder/bin/
+            
+            `/opt/splunk/bin/splunk clean eventdata -index os -f ` 
+        - clear fishbucket on forwarders 
+            `rm -r /opt/splunkforwarder/var/lib/splunk fishbucket && cd /opt/splunkforwarder/bin/`
         - start everything
-            /opt/splunkforwarder/bin/splunk start
-            /opt/splunk/bin/splunk start
+            `/opt/splunkforwarder/bin/splunk start
+            /opt/splunk/bin/splunk start`
         - take CM out of maintenance mode
-            /opt/splunk/bin/splunk disable maintenance-mode
+            `/opt/splunk/bin/splunk disable maintenance-mode`

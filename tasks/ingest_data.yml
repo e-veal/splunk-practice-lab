@@ -1,3 +1,4 @@
+# ansible-playbook ~/build/tasks/ingest_data.yml -i inventory -K
 ---
 - name: Add data to ingest
   hosts: forwarders

@@ -1,10 +1,12 @@
 ---
+#ansible-playbook ~/build/tasks/install_splunk.yml -i inventory -K 
+
 - name: Installs Splunk
   hosts: all
   gather_facts: no
   any_errors_fatal: true
   vars_files:
-    - ~/build/vars/main.yml
+    - /home/ansible/build/vars/main.yml
 
   tasks:
     - name: Checking if wget package is installed
@@ -55,7 +57,7 @@
       become_user: splunk
       when: inventory_hostname in groups['gamora']
         
-    - name: Configuring Splunkforwaders
+    - name: Configuring Splunk forwarders
       block:
         - name: Setting environment variables
           lineinfile:

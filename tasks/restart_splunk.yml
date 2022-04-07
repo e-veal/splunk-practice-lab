@@ -1,3 +1,5 @@
+# ansible-playbook ~/build/tasks/restart_splunk.yml -i inventory -K
+---
 - name: Restart splunk
   hosts: all
   any_errors_fatal: true

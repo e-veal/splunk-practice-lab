@@ -34,6 +34,3 @@
       - /home/ansible/build/files/spe_cluster_indexer_base
       - /home/ansible/build/files/spe_all_indexes
       - /home/ansible/build/files/spe_indexer_volume_indexes
-
-  # - name: Pushing packages to indexers
-  #   command: /opt/splunk/bin/splunk apply cluster-bundle --answer-yes

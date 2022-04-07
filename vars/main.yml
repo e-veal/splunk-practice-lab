@@ -1,19 +1,17 @@
 ---
 # vars file for build
-- ansible_python_interpreter: /usr/bin/python
-- active_servers: gamora
+ansible_python_interpreter: /usr/bin/python
+active_servers: gamora
 
 # Splunk Versions
-# - splunk_pkg: 
-#   - 7_2_1: https://download.splunk.com/products/splunk/releases/7.2.1/linux/splunk-7.2.1-be11b2c46e23-Linux-x86_64.tgz
-#   - 7_2_10: https://download.splunk.com/products/splunk/releases/7.2.10/linux/splunk-7.2.10-a6dfcc62f450-Linux-x86_64.tgz
-#   - 8_1_0: https://download.splunk.com/products/splunk/releases/8.1.0/linux/splunk-8.1.0-f57c09e87251-Linux-x86_64.tgz
-#   - 8_2_4: https://download.splunk.com/products/splunk/releases/8.2.4/linux/splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz
-- splunk_pkg: https://download.splunk.com/products/splunk/releases/8.2.4/linux/splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz
-
-
+splunk_pkg: 
+  _7_2_1: https://download.splunk.com/products/splunk/releases/7.2.1/linux/splunk-7.2.1-be11b2c46e23-Linux-x86_64.tgz
+  _7_2_10: https://download.splunk.com/products/splunk/releases/7.2.10/linux/splunk-7.2.10-a6dfcc62f450-Linux-x86_64.tgz
+  _8_1_0: https://download.splunk.com/products/splunk/releases/8.1.0/linux/splunk-8.1.0-f57c09e87251-Linux-x86_64.tgz
+  _8_2_4: https://download.splunk.com/products/splunk/releases/8.2.4/linux/splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz
+  
 # Splunk Forwarder
-- splunkfwdr_pkg: https://download.splunk.com/products/universalforwarder/releases/8.2.3/linux/splunkforwarder-8.2.3-cd0848707637-Linux-x86_64.tgz
+splunkfwdr_pkg: https://download.splunk.com/products/universalforwarder/releases/8.2.3/linux/splunkforwarder-8.2.3-cd0848707637-Linux-x86_64.tgz
 
 # Words
-- adminPwd: splunk3du
+adminPwd: splunk3du

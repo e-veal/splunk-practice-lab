@@ -1,3 +1,4 @@
+# ansible-playbook ~/build/tasks/configure_cmgr_gamora.yml -i inventory -K
 ---
 - name: Cluster Manager
   hosts: CM

@@ -1,3 +1,4 @@
+# ansible-playbook ~/build/tasks/non_root.yml -i inventory -K
 ---
 - name: 'Configure non-root user'
   hosts: base:forwarders
