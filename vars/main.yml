@@ -1,17 +1,22 @@
 ---
 # vars file for build
 ansible_python_interpreter: /usr/bin/python
-active_servers: wkabi
+active_servers: all
 
 # Splunk Versions
 splunk_pkg: 
   _7_2_1: https://download.splunk.com/products/splunk/releases/7.2.1/linux/splunk-7.2.1-be11b2c46e23-Linux-x86_64.tgz
-  _7_2_10: https://download.splunk.com/products/splunk/releases/7.2.10/linux/splunk-7.2.10-a6dfcc62f450-Linux-x86_64.tgz
   _8_1_0: https://download.splunk.com/products/splunk/releases/8.1.0/linux/splunk-8.1.0-f57c09e87251-Linux-x86_64.tgz
+  _8_0_5: https://download.splunk.com/products/splunk/releases/8.0.5/linux/splunk-8.0.5-a1a6394cc5ae-Linux-x86_64.tgz
   _8_2_4: https://download.splunk.com/products/splunk/releases/8.2.4/linux/splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz
+  _8_2_6: https://download.splunk.com/products/splunk/releases/8.2.6/linux/splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz
   
 # Splunk Forwarder
-splunkfwdr_pkg: https://download.splunk.com/products/universalforwarder/releases/8.2.3/linux/splunkforwarder-8.2.3-cd0848707637-Linux-x86_64.tgz
+splunkfwdr_pkg:
+  _8_0_5: https://download.splunk.com/products/universalforwarder/releases/8.0.5.1/linux/splunkforwarder-8.0.5.1-6f82b306c04f-Linux-x86_64.tgz
+  _8_2_3: https://download.splunk.com/products/universalforwarder/releases/8.2.3/linux/splunkforwarder-8.2.3-cd0848707637-Linux-x86_64.tgz
+  _8_2_4: https://download.splunk.com/products/universalforwarder/releases/8.2.4/linux/splunkforwarder-8.2.4-87e2dda940d1-Linux-x86_64.tgz
+  _8_2_6: https://download.splunk.com/products/universalforwarder/releases/8.2.6/linux/splunkforwarder-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz 
 
 # Words
 adminPwd: splunk3du
