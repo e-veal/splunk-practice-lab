@@ -23,3 +23,10 @@ inventory
 **/files/spe_cluster_master_base/local/server.conf
 **/files/spe_master_deploymentclient/local/deploymentclient.conf
 **/files/serverclass.conf
+
+#tchalla
+**/files/tchalla/spe_cluster_forwarder/local/outputs.conf
+**/files/tchalla/spe_cluster_indexer_base/local/server.conf
+**/files/tchalla/spe_cluster_search_base/local/server.conf
+**/files/tchalla/spe_cluster_master_base/local/server.conf
+**/files/tchalla/spe_master_deploymentclient/local/deploymentclient.conf
