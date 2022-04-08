@@ -1,4 +1,4 @@
-# Lab 4 Solution
+# Okoye Solution
 
 1. Move props off indexers
 
