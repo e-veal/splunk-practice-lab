@@ -1,0 +1,74 @@
+---
+- name: Installs Splunk
+  hosts: all
+  gather_facts: no
+  any_errors_fatal: true
+  vars_files:
+    - /home/ansible/build/vars/main.yml
+
+  tasks:
+    - name: Checking if wget package is installed
+      package_facts:
+        manager: "auto"
+
+    - name: Install wget
+      yum:
+        name: wget
+        state: latest
+      when: "'wget' not in ansible_facts.packages"
+
+    - name: Installing Splunk Enterprise
+      become: yes
+      unarchive:
+        src: "{{ splunk_pkg._8_2_4 }}"
+        dest: /opt
+        owner: splunk
+        group: splunk
+        remote_src: yes
+      when: inventory_hostname not in groups['forwarders']
+
+    - name: Installing Splunkforwarder
+      become: yes
+      unarchive:
+        src: "{{ splunkfwdr_pkg._8_2_4 }}"
+        dest: /opt
+        owner: splunk
+        group: splunk
+        remote_src: yes
+      when: inventory_hostname in groups['forwarders']
+      
+    - name: Configuring Splunk
+      block:
+        - name: Setting environment variables
+          lineinfile:
+            path: ~/.bashrc
+            insertafter: EOF
+            line: export SPLUNK_HOME=/opt/splunk/
+            create: yes
+
+        - name: Updating shell
+          shell: source ~/.bashrc
+
+        - name: Starting Splunk
+          command: '/opt/splunk/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
+      become: yes
+      become_user: splunk
+      when: inventory_hostname in groups['wkabi']
+        
+    - name: Configuring Splunkforwaders
+      block:
+        - name: Setting environment variables
+          lineinfile:
+            path: ~/.bashrc
+            insertafter: EOF
+            line: export SPLUNK_HOME=/opt/splunkforwarder/
+            create: yes
+
+        - name: Updating shell
+          shell: source ~/.bashrc
+
+        - name: Starting Splunk Forwarder
+          command: '/opt/splunkforwarder/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
+      become: yes
+      become_user: splunk
+      when: inventory_hostname in groups['forwarders']

@@ -1,0 +1,25 @@
+---
+- name: Monitoring Console
+  hosts: MC
+  any_errors_fatal: true
+  gather_facts: no
+  become: yes
+  become_user: splunk
+  vars_files:
+    - /home/ansible/build/vars/main.yml
+
+  tasks:
+
+  - name: Enabling MC server banner
+    copy:
+      src: /home/ansible/build/files/spe_banners/mc-global-banner.conf
+      dest: /opt/splunk/etc/system/local/global-banner.conf
+      
+  - name: Uploading folders to apps on monitoring console
+    copy:
+      src: "{{ item }}"
+      dest: /opt/splunk/etc/apps
+      owner: splunk
+    loop:
+      - /home/ansible/build/files/spe_cluster_search_base 
+      - /home/ansible/build/files/spe_cluster_forwarder_outputs
