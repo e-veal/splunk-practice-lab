@@ -1,0 +1,29 @@
+# ansible-playbook ~/build/tasks/configure_generate.yml -i inventory -K
+---
+- name: Set Pass4SymmKey
+  hosts: localhost
+  any_errors_fatal: true
+  gather_facts: no
+  vars_files:
+    - /home/ansible/build/vars/main.yml
+
+  tasks:  
+
+  - name: Generating key
+    set_fact: 
+      clusterKey: "{{ lookup('password', '/tmp/wordplay chars=ascii_lowercase,ascii_uppercase,digits length=64') }}"
+  
+  - name: Set key
+    lineinfile:
+      path:  "{{ item }}"
+      regexp: '^pass4SymmKey = '
+      line: "pass4SymmKey = {{ clusterKey }}"
+    loop:
+      - /home/ansible/build/files/tchalla/spe_cluster_indexer_base/local/server.conf
+      - /home/ansible/build/files/tchalla/spe_cluster_master_base/local/server.conf
+      - /home/ansible/build/files/tchalla/spe_cluster_search_base/local/server.conf
+
+  - name: Deleting key file
+    file:
+      path: /tmp/wordplay
+      state: absent
