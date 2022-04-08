@@ -17,6 +17,9 @@ tests/
 *.list
 *.sh
 inventory
-serverclass.conf
-server.conf
-!*/tchalla/**/*
+**/files/spe_cluster_forwarder/local/outputs.conf
+**/files/spe_cluster_indexer_base/local/server.conf
+**/files/spe_cluster_search_base/local/server.conf
+**/files/spe_cluster_master_base/local/server.conf
+**/files/spe_master_deploymentclient/local/deploymentclient.conf
+**/files/serverclass.conf
