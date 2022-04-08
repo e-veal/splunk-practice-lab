@@ -1,4 +1,4 @@
-# Lab 3 Solution
+# Nakia Solution
 
 1. Missing data
     - Check IDX to see where log files are going. On UF, look for what directories are being monitored in inputs.conf
