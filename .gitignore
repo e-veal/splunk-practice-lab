@@ -8,8 +8,15 @@ Icon*
 *.exe
 *.tgz
 
+#ansible
+.travis.yml
+
 #testing files
 tests/
 *.lic
 *.list
 *.sh
+inventory
+serverclass.conf
+server.conf
+!*/tchalla/**/*

@@ -34,17 +34,17 @@
           - /home/ansible/build/files/spe_all_deploymentclient/local/deploymentclient.conf
 
       - lineinfile:
-          path:  /home/ansible/build/files/spe_cluster_search_base/local/server.conf
-          regexp: '(manager_uri){1}'
-          line: "manager_uri = https://{{ varCM }}:8089"
+          path:  /home/ansible/build/files/tchalla/spe_cluster_search_base/local/server.conf
+          regexp: '(master_uri){1}'
+          line: "master_uri = https://{{ varCM }}:8089"
 
       - lineinfile:
-          path:  /home/ansible/build/files/spe_cluster_indexer_base/local/server.conf
-          regexp: '^manager_uri'
-          line: "manager_uri = https://{{ varCM }}:8089"
+          path:  /home/ansible/build/files/tchalla/spe_cluster_indexer_base/local/server.conf
+          regexp: '^master_uri'
+          line: "master_uri = https://{{ varCM }}:8089"
 
       - lineinfile:
-          path:  /home/ansible/build/files/spe_cluster_indexer_base/local/server.conf
+          path:  /home/ansible/build/files/tchalla/spe_cluster_indexer_base/local/server.conf
           regexp: '^master_uri'
           line: "master_uri = https://{{ varMC }}:8089"
 

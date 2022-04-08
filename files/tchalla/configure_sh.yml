@@ -10,11 +10,6 @@
     - /home/ansible/build/vars/main.yml
 
   tasks:
-
-  - name: Enabling SH server banner
-    copy:
-      src: /home/ansible/build/files/spe_banners/sh-global-banner.conf
-      dest: /opt/splunk/etc/system/local/global-banner.conf
       
   - name: Uploading folders to apps
     copy:
@@ -22,7 +17,7 @@
       dest: /opt/splunk/etc/apps
       owner: splunk
     loop:
-      - /home/ansible/build/files/spe_cluster_search_base
+      - /home/ansible/build/files/tchalla/spe_cluster_search_base
       - /home/ansible/build/files/spe_cluster_forwarder_outputs
       - /home/ansible/build/files/spe_all_deploymentclient
       - /home/ansible/build/files/spe_all_indexes

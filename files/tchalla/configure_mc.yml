@@ -10,11 +10,6 @@
     - /home/ansible/build/vars/main.yml
 
   tasks:
-
-  - name: Enabling MC server banner
-    copy:
-      src: /home/ansible/build/files/spe_banners/mc-global-banner.conf
-      dest: /opt/splunk/etc/system/local/global-banner.conf
       
   - name: Configuring serverclasses
     copy:
@@ -27,7 +22,7 @@
       dest: /opt/splunk/etc/apps
       owner: splunk
     loop:
-      - /home/ansible/build/files/spe_cluster_search_base 
+      - /home/ansible/build/files/tchalla/spe_cluster_search_base 
       - /home/ansible/build/files/spe_cluster_forwarder_outputs
 
   - name: Uploading folders to deployment-apps on monitoring console
@@ -39,6 +34,6 @@
       - /home/ansible/build/files/spe_all_indexes
       - /home/ansible/build/files/spe_search_volume_indexes
       - /home/ansible/build/files/spe_indexer_volume_indexes
-      - /home/ansible/build/files/spe_cluster_indexer_base
+      - /home/ansible/build/files/tchalla/spe_cluster_indexer_base
       - /home/ansible/build/files/spe_all_deploymentclient
       - /home/ansible/build/files/spe_cluster_forwarder_outputs

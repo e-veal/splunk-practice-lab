@@ -17,4 +17,4 @@
       dest: /opt/splunk/etc/slave-apps
       owner: splunk
     loop:
-      - /home/ansible/build/files/spe_cluster_indexer_base
+      - /home/ansible/build/files/tchalla/spe_cluster_indexer_base

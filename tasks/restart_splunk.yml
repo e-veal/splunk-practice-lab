@@ -1,5 +1,8 @@
+# ansible-playbook ~/build/tasks/restart_splunk.yml -i inventory -K
+---
 - name: Restart splunk
   hosts: all
+  gather_facts: no
   any_errors_fatal: true
   become: yes
   become_user: splunk

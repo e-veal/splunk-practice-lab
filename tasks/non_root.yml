@@ -1,3 +1,4 @@
+# ansible-playbook ~/build/tasks/non-root.yml -i inventory -K --check
 ---
 - name: 'Configure non-root user'
   hosts: base:forwarders
@@ -9,32 +10,63 @@
     - /home/ansible/build/vars/main.yml
 
   tasks:
-  
-  - name: Checking if boot-start is already configured
-    stat:
-      path: /etc/systemd/system/multi-user.target.wants/Splunkd.service
-    register: boot_result
-  
-  - name: Enabling boot-start
-    shell: /opt/splunk/bin/splunk enable boot-start -user splunk
-    become: yes
-    become_user: root
-    when: not boot_result.stat.exists
-  
-  - name: Changing owner to splunk
-    file:
-      path: /opt/splunk
-      state: directory
-      recurse: yes
-      owner: splunk
-      group: splunk
+      
+  - name: For Enterprise
+    block:
+    - name: Checking if boot-start is already configured
+      stat:
+        path: /etc/systemd/system/multi-user.target.wants/Splunkd.service
+      register: boot_result
+    
+    - name: Enabling boot-start on enterprise
+      shell: /opt/splunk/bin/splunk enable boot-start -user splunk
+      become: yes
+      become_user: root
+      when: not boot_result.stat.exists
+
+    - name: Changing owner to splunk
+      file:
+        path: /opt/splunk
+        state: directory
+        recurse: yes
+        owner: splunk
+        group: splunk
+    when: inventory_hostname not in groups['forwarders']
+
+  - name: For Forwarders
+    block:
+    - name: Checking if boot-start is already configured
+      stat:
+        path: /etc/systemd/system/multi-user.target.wants/Splunkd.service
+      register: boot_result
+      
+    - name: Enabling boot-start
+      shell: /opt/splunkforwarder/bin/splunk enable boot-start -user splunk
+      become: yes
+      become_user: root
+      when: not boot_result.stat.exists 
+
+    - name: Changing owner to splunk
+      file:
+        path: /opt/splunkforwarder
+        state: directory
+        recurse: yes
+        owner: splunk
+        group: splunk
+    when: inventory_hostname in groups['forwarders']
 
   - name: Checking if init files is exists
     stat:
       path: /etc/init.d/splunk
     register: init_file_result
 
-# file doesn't exist
+# if file exists delete it
+  - name: Delete file
+    file:
+      path: /etc/init.d/splunk
+      state: absent
+    when: init_file_result.stat.exists == true
+
   - name: Copy file over
     copy:
       src: /home/ansible/build/files/init_splunk_copy
@@ -42,13 +74,3 @@
     
   - name: Renaming file
     shell: mv /tmp/init_splunk_copy /etc/init.d/splunk
-    when: init_file_result.stat.exists == false
-
-# files does exist
-  - name: Deleting text
-    shell: sed -i -n -E '/case/,$ p' /etc/init.d/splunk
-    when: init_file_result.stat.exists
-
-  - name: Merging files
-    shell: echo /etc/init.d/splunk >> /tmp/init_splunk_copy && rm /etc/init.d/splunk && mv /tmp/init_splunk_copy /etc/init.d/splunk
-    when: init_file_result.stat.exists
