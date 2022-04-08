@@ -1,4 +1,4 @@
-# Lab 1 Solution
+# Gamora Solution
 
 1. Using sccStudent, install MC
     
