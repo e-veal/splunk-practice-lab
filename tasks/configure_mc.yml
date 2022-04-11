@@ -41,8 +41,9 @@
       - /home/ansible/build/files/spe_indexer_volume_indexes
       - /home/ansible/build/files/spe_cluster_indexer_base
       - /home/ansible/build/files/spe_all_deploymentclient
-      - /home/ansible/build/files/spe_mail_inputs
-      - /home/ansible/build/files/spe_network_inputs
-      - /home/ansible/build/files/spe_os_inputs
-      - /home/ansible/build/files/Splunk_TA_nix
+      - /home/ansible/build/files/spe_inputs_mail
+      - /home/ansible/build/files/spe_inputs_network
+      - /home/ansible/build/files/spe_inputs_os
+      - /home/ansible/build/files/spe_inputs_error
+      - /home/ansible/build/files/spe_inputs_Splunk_TA_nix  
       - /home/ansible/build/files/spe_cluster_forwarder_outputs
