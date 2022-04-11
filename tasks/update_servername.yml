@@ -1,3 +1,4 @@
+# ansible-playbook ~/build/tasks/update_servername.yml -i inventory -K --check
 ---
 - name: Update server names
   hosts: all

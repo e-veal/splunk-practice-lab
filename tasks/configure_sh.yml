@@ -1,3 +1,4 @@
+# ansible-playbook ~/build/tasks/configure_sh.yml -i inventory -K --check
 ---
 - name: Search Head
   hosts: SH

@@ -1,3 +1,4 @@
+# ansible-playbook ~/build/tasks/update_base_configs.yml -i inventory -K --check
 ---
 - name: Update IPs in base configs
   hosts: all
