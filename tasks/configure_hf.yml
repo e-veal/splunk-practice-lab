@@ -1,3 +1,4 @@
+# ansible-playbook ~/build/tasks/configure_hf.yml -i inventory -K
 ---
 - name: Forwarders
   hosts: heavy_forwarder
