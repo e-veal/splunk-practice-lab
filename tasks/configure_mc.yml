@@ -45,3 +45,4 @@
       - /home/ansible/build/files/spe_network_inputs
       - /home/ansible/build/files/spe_os_inputs
       - /home/ansible/build/files/Splunk_TA_nix
+      - /home/ansible/build/files/spe_cluster_forwarder_outputs

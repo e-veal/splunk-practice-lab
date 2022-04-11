@@ -11,7 +11,7 @@
 
   tasks:
   
-  - name: Configuring UF1
+  - name: Configuring HF
     block:
       - name: Pulling data
         unarchive: 
@@ -36,7 +36,7 @@
           state: absent
     when: inventory_hostname == 'HF'
 
-  - name: Configuring UF2
+  - name: Configuring UF
     block:
       - name: Pulling data
         unarchive: 
