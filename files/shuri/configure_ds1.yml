@@ -1,6 +1,7 @@
+# ansible-playbook ~/build/files/shuri/configure_ds1.yml -i inventory -K
 ---
 - name: Deployment Server
-  hosts: DS
+  hosts: DS1
   any_errors_fatal: true
   gather_facts: no
   become: yes
@@ -12,7 +13,7 @@
 
   - name: Enabling DS server banner
     copy:
-      src: /home/ansible/build/files/shuri/ds-global-banner.conf
+      src: /home/ansible/build/files/shuri/ds1-global-banner.conf
       dest: /opt/splunk/etc/system/local/global-banner.conf
 
   - name: Configuring serverclasses

@@ -9,7 +9,8 @@
 - import_playbook: configure_cmgr.yml
 - import_playbook: configure_idx.yml
 - import_playbook: ../files/shuri/configure_mc.yml
-- import_playbook: ../files/shuri/configure_ds.yml
+- import_playbook: ../files/shuri/configure_ds1.yml
+- import_playbook: ../files/shuri/configure_ds2.yml
 - import_playbook: configure_sh.yml
 - import_playbook: configure_hf.yml
 - import_playbook: configure_uf.yml

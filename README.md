@@ -1,56 +1,38 @@
-# Shuri
-This is the configuration for Core Implementation Lab 5
-> Note: Different OS version than actual
+Role Name
+=========
 
-## Build Instructions
-- Build 9 EC2s with `1-basic-splunk-image.sh`
-    - must have public IPs
-    - at least 10GB for storage
-- Wait for all to state Running
-    - May need to refresh
-- Build Ansible instance with `2-ansible-image.sh`
-    - Wait for Ansible instance to be named **AnsibleServer** in AWS Mgmt Console (this will take a few minutes)
-- Using a terminal, log into ANSIBLE box with sccStudent
-    `ssh sccStudent@ANSIBLE_SERVER_PUBLIC_IP`
-- Switch to ansible user (ansible doesn't [and shouldn't] have pwd)
-    `sudo su - ansible`
-- A script was created to copy ssh keys to other instances
-    `bash ~/copy_key.sh`
-- Build splunk
-    `ansible-playbook ~/build/tasks/main.yml -i inventory -K`
-    - Respond to password prompt
-    - grab a cup of coffee; takes ~7 mins to complete (00:36-00:43)
+A brief description of the role goes here.
 
----
-## Lab Goals
-1. Add new indexers to cluster
-1. Remove old peers
-1. Ensure data is forwarding to new peers
-1. Ensure Monitoring Console is monitoring active servers
-1. Ensure deployment server is configured properly
+Requirements
+------------
 
-## Instructions
-Deployment Server scaling in practice.
+Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
 
-| Host Name| Role |
-|------|------|
-| SH | Search Head |
-| MC | Monitoring Console |
-| IDX1 | Indexer |
-| IDX2 | Indexer |
-| CM | Cluster Master |
-| HF | Heavy Forwarder |
-| UF | Universal Forwarder |
-| DS1 | Deployment Server 1 |
-| DS2 | Deployment Server 2 |
+Role Variables
+--------------
 
-## Configure your DS for scaling/failover
+A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 
-The DS1 instance shown above is your "original" DS instance. It's got a bunch of apps on it, ready for deployment. Unfortunately the serverclass.conf was accidentally deleted, so class mappings to apps are gone. You'll need to recreate one in addition to whatever else you may need to do.
+Dependencies
+------------
 
-You'll want to synchronize the deployment apps to the DS2 instance, **without manually copying** them over. This needs to be an automated process, where the "master copy" remains on DS1. Your goal is to make sure that a DS client phoning home to either DS would get the **same** content, and has the **same** checksum. We will be checking for the existence of certain apps on your DS instances, and that they return the same checksum.
+A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
-In a real production environment, you would additionally need to solve the load balancer layer, but for this lab we will skip that step. We have also purposefully ignored the synchronization of the serverclass.conf (once you rebuild it) and left that as a take home exercise. For the lab, this is the one element you are allowed to manually copy.
-Finally, this REST endpoint (when run against each DS) may help you verify if the synchronization was done correctly
+Example Playbook
+----------------
 
-[deployment/server/application](https://docs.splunk.com/Documentation/Splunk/latest/RESTREF/RESTdeploy#deployment.2Fserver.2Fapplications)
+Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+
+    - hosts: servers
+      roles:
+         - { role: username.rolename, x: 42 }
+
+License
+-------
+
+BSD
+
+Author Information
+------------------
+
+An optional section for the role authors to include contact information, or a website (HTML is not allowed).
