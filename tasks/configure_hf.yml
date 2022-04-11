@@ -1,3 +1,4 @@
+# ansible-playbook ~/build/tasks/configure_hf.yml -i inventory -K
 ---
 - name: Forwarders
   hosts: heavy_forwarder
@@ -18,7 +19,7 @@
     loop:
       - /home/ansible/build/files/spe_all_deploymentclient
       - /home/ansible/build/files/spe_cluster_forwarder_outputs
-      - /home/ansible/build/files/spe_cluster_indexer_base
+      - /home/ansible/build/files/spe_heavy_forwarder_inputs
 
   - name: Enabling heavy forwarding
     command: /opt/splunk/bin/splunk enable app SplunkForwarder -auth admin:{{adminPwd}}

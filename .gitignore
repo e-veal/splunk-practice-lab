@@ -16,7 +16,7 @@ tests/
 *.lic
 
 #base configs
-files/**/local/
+# files/**/local/
 !files/spe_inputs_*/*
 
 serverclass.conf

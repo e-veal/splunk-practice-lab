@@ -45,6 +45,7 @@
       - /home/ansible/build/files/spe_inputs_os
       - /home/ansible/build/files/spe_inputs_error
       - /home/ansible/build/files/spe_inputs_Splunk_TA_nix  
+      - /home/ansible/build/files/spe_cluster_forwarder_outputs
   
   # - name: Uploading license
   #   copy:
