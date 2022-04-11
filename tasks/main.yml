@@ -2,6 +2,7 @@
 # ansible-playbook ~/build/tasks/main.yml -i inventory -K
 # tasks file for build
 - import_playbook: install_splunk.yml
+- import_playbook: ../files/wkabi/install_old_splunk.yml
 - import_playbook: non_root.yml
 - import_playbook: update_servername.yml
 - import_playbook: update_base_configs.yml

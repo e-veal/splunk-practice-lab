@@ -1,0 +1,26 @@
+---
+- name: Installs Splunk
+  hosts: new_indexers
+  gather_facts: no
+  any_errors_fatal: true
+  vars_files:
+    - /home/ansible/build/vars/main.yml
+
+  tasks:
+    - name: Checking if wget package is installed
+      package_facts:
+        manager: "auto"
+
+    - name: Install wget
+      yum:
+        name: wget
+        state: latest
+      when: "'wget' not in ansible_facts.packages"
+
+    - name: Installing Splunk Enterprise on new indexers
+      unarchive:
+        src: "{{ splunk_pkg._7_2_10 }}"
+        dest: /opt
+        owner: splunk
+        group: splunk
+        remote_src: yes
