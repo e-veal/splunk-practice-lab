@@ -12,7 +12,7 @@
 
   - name: Restarting splunk
     command: /opt/splunk/bin/splunk restart
-    when: inventory_hostname in groups['base']
+    when: inventory_hostname in groups['gamora']
 
   - name: Restarting forwarders
     command: /opt/splunkforwarder/bin/splunk restart
