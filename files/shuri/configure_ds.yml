@@ -45,10 +45,3 @@
       - /home/ansible/build/files/spe_inputs_error
       - /home/ansible/build/files/spe_inputs_Splunk_TA_nix  
   
-  # - name: Uploading license
-  #   copy:
-  #     src: /home/ansible/build/files/Splunk_Enterprise_NFR_FY23.lic
-  #     dest: /opt/splunk/etc/licenses/Splunk_Enterprise_NFR_FY23.lic
-    
-  # - name: Install license
-  #   command: /opt/splunk/bin/splunk add licenses /opt/splunk/etc/licenses/Splunk_Enterprise_NFR_FY23.lic -auth admin:{{adminPwd}}
