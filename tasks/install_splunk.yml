@@ -25,7 +25,7 @@
         owner: splunk
         group: splunk
         remote_src: yes
-      when: inventory_hostname in groups['base'] or inventory_hostname == 'HF'
+      when: inventory_hostname not in groups['forwarders']
 
     - name: Installing Splunk Enterprise on new indexers
       become: yes
