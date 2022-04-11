@@ -41,14 +41,6 @@
       - /home/ansible/build/files/spe_search_volume_indexes
       - /home/ansible/build/files/spe_indexer_volume_indexes
       - /home/ansible/build/files/spe_cluster_indexer_base
-      - /home/ansible/build/files/spe_all_deploymentclient
+      - /home/ansible/build/files/spe_all_deploymentclient  
       - /home/ansible/build/files/spe_universal_forwarder_outputs
       - /home/ansible/build/files/spe_cluster_forwarder_outputs
-  
-  # - name: Uploading license
-  #   copy:
-  #     src: /home/ansible/build/files/Splunk_Enterprise_NFR_FY23.lic
-  #     dest: /opt/splunk/etc/licenses/Splunk_Enterprise_NFR_FY23.lic
-    
-  # - name: Install license
-  #   command: /opt/splunk/bin/splunk add licenses /opt/splunk/etc/licenses/Splunk_Enterprise_NFR_FY23.lic -auth admin:{{adminPwd}}
