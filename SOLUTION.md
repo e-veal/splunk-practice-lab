@@ -1,5 +1,8 @@
 # WKABI SOLUTION
 
+This is the solution for the `WKABI` Implementation Lab.
+## Instructions
+
 1. Install new indexers
     - Using sccStudent, install Splunk on NEWIDX1 & NEWIDX2
         - Get package
