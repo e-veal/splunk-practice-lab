@@ -1,5 +1,9 @@
 # GAMORA SOLUTION
 
+This is the solution for the `GAMORA` Implementation Lab.
+
+## Instructions
+
 1. Using sccStudent, install MC
     
     Get package
