@@ -1,5 +1,8 @@
 # OKOYE SOLUTION
 
+This is the solution for the `OKOYE` Implementation Lab.
+## Instructions
+
 1. Move props off indexers
 
     - On CM, copy props app to HF
