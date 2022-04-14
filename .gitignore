@@ -17,7 +17,7 @@ tests/
 *.list
 *.sh
 inventory
-**/local/outputs.conf
-**/local/server.conf
-**/local/deploymentclient.conf
-serverclass.conf
+**/outputs.conf
+**/server.conf
+**/inputs.conf
+**/serverclass.conf
