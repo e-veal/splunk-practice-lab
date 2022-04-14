@@ -1,4 +1,3 @@
-# ansible-playbook ~/build/tasks/install_splunk.yml -i inventory -K
 ---
 - name: Installs Splunk
   hosts: all
@@ -40,33 +39,33 @@
       
     - name: Configuring Splunk
       block:
-        - name: Setting environment variables
-          lineinfile:
-            path: ~/.bashrc
-            insertafter: EOF
-            line: export SPLUNK_HOME=/opt/splunk/
-            create: yes
+        # - name: Setting environment variables
+        #   lineinfile:
+        #     path: ~/.bashrc
+        #     insertafter: EOF
+        #     line: export SPLUNK_HOME=/opt/splunk/
+        #     create: yes
 
-        - name: Updating shell
-          shell: source ~/.bashrc
+        # - name: Updating shell
+        #   shell: source ~/.bashrc
 
         - name: Starting Splunk
           command: '/opt/splunk/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
       become: yes
       become_user: splunk
-      when: inventory_hostname in groups['wkabi']
+      when: inventory_hostname not in groups['forwarders']
         
     - name: Configuring Splunkforwaders
       block:
-        - name: Setting environment variables
-          lineinfile:
-            path: ~/.bashrc
-            insertafter: EOF
-            line: export SPLUNK_HOME=/opt/splunkforwarder/
-            create: yes
+        # - name: Setting environment variables
+        #   lineinfile:
+        #     path: ~/.bashrc
+        #     insertafter: EOF
+        #     line: export SPLUNK_HOME=/opt/splunkforwarder/
+        #     create: yes
 
-        - name: Updating shell
-          shell: source ~/.bashrc
+        # - name: Updating shell
+        #   shell: source ~/.bashrc
 
         - name: Starting Splunk Forwarder
           command: '/opt/splunkforwarder/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
