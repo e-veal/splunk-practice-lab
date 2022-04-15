@@ -23,9 +23,8 @@ This is the configuration for Core Implementation Lab 6
 
 ---
 ## Lab Goals
-1. Add new indexers to cluster
-1. Remove old peers
-1. Ensure data is forwarding to new peers
+1. Upgrade to the **_latest_** version of Splunk
+1. All data must be readable during upgrade
 1. Ensure Monitoring Console is monitoring active servers
 1. Ensure deployment server is configured properly
 
