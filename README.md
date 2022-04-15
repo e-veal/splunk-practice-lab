@@ -24,7 +24,7 @@ This is the configuration for Core Implementation Lab 4
 ---
 ## Lab Goals
 1. Fix data ingestion issues
-1. Ability to search on original forwarder
+1. Ability to search on original forwarder name
 1. Ensure Monitoring Console is monitoring active servers
 1. Ensure deployment server is configured properly
 
