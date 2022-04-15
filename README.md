@@ -22,9 +22,9 @@ This is the configuration for Core Implementation Lab 5
 
 ---
 ## Lab Goals
-1. Add new indexers to cluster
-1. Remove old peers
-1. Ensure data is forwarding to new peers
+1. Recreate the serverclass.conf file
+1. Copy apps to DS2 without doing it manually
+1. Switch deployment clients to DS2
 1. Ensure Monitoring Console is monitoring active servers
 1. Ensure deployment server is configured properly
 
