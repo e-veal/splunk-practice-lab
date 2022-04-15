@@ -1,4 +1,4 @@
-# ansible-playbook ~/build/tasks/configure_cmgr.yml -i inventory -K --check
+# ansible-playbook ~/build/tasks/configure_cmgr.yml -i inventory -K
 ---
 - name: Cluster Manager
   hosts: CM

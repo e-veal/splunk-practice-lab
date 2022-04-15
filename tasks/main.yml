@@ -1,15 +1,21 @@
-# ansible-playbook ~/build/tasks/main.yml -i inventory -K
+# ansible-playbook ~/build/tasks/main.yml -i inventory -K --check
 ---
 # tasks file for build
 - import_playbook: install_splunk.yml
 - import_playbook: non_root.yml
 - import_playbook: update_servername.yml
-- import_playbook: update_base_configs.yml
+- import_playbook: ../files/shuri/update_base_configs.yml
 - import_playbook: generate_wordplay.yml
 - import_playbook: configure_cmgr.yml
 - import_playbook: configure_idx.yml
-- import_playbook: configure_mc.yml
+- import_playbook: ../files/shuri/configure_mc.yml
+- import_playbook: ../files/shuri/configure_ds1.yml
+- import_playbook: ../files/shuri/configure_ds2.yml
 - import_playbook: configure_sh.yml
+- import_playbook: configure_hf.yml
 - import_playbook: configure_uf.yml
 - import_playbook: add_search_peers.yml
 - import_playbook: restart_splunk.yml
+- import_playbook: ingest_data.yml
+- import_playbook: install_license.yml
+- import_playbook: ../files/shuri/remove_serverclass.yml

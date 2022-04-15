@@ -1,4 +1,4 @@
-# ansible-playbook ~/build/tasks/configure_uf.yml -i inventory -K --check
+# ansible-playbook ~/build/tasks/configure_uf.yml -i inventory -K
 ---
 - name: Universal Forwarders
   hosts: forwarders
@@ -17,8 +17,13 @@
       dest: /opt/splunkforwarder/etc/apps
       owner: splunk
     loop:
-      - /home/ansible/build/files/spe_cluster_forwarder_outputs
       - /home/ansible/build/files/spe_all_deploymentclient
+      - /home/ansible/build/files/spe_inputs_mail
+      - /home/ansible/build/files/spe_inputs_network
+      - /home/ansible/build/files/spe_inputs_os
+      - /home/ansible/build/files/spe_inputs_error
+      - /home/ansible/build/files/spe_inputs_Splunk_TA_nix  
+      - /home/ansible/build/files/spe_universal_forwarder_outputs
 
   - name: Ensuring receiver is listening
     command: /opt/splunkforwarder/bin/splunk enable listen 9997 -auth admin:{{adminPwd}}

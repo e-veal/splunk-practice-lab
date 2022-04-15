@@ -1,8 +1,7 @@
 galaxy_info:
   author: E. Veal
-  description: Build a Splunk environment
+  description: Splunk Core Implementation Lab Practice Environment
   company: Splunk
-
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
   # issue_tracker_url: http://example.com/issue/tracker

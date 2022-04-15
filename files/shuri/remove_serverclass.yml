@@ -1,0 +1,16 @@
+  # ansible-playbook -i inventory ~/build/files/shuri/remove_serverclass.yml -K --check
+---
+- name: Delete Files
+  hosts: DS1
+  gather_facts: no
+  become: yes
+  become_user: splunk
+  vars_files:
+    - /home/ansible/build/vars/main.yml
+
+  tasks:  
+  
+  - name: Delete installation file
+    file:
+      path: /opt/splunk/etc/system/local/serverclass.conf
+      state: absent

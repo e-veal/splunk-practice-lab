@@ -1,7 +1,7 @@
-# ansible-playbook ~/build/tasks/add_search_peers.yml -i inventory -K --check
+# ansible-playbook ~/build/tasks/add_search_peers.yml -i inventory -K
 ---
 - name: Add search peers
-  hosts: all
+  hosts: "{{active_servers}}"
   any_errors_fatal: true
   become: yes
   become_user: splunk

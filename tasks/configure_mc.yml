@@ -1,4 +1,4 @@
-# ansible-playbook ~/build/tasks/configure_mc.yml -i inventory -K --check
+# ansible-playbook ~/build/tasks/configure_mc.yml -i inventory -K
 ---
 - name: Monitoring Console
   hosts: MC
@@ -15,7 +15,7 @@
     copy:
       src: /home/ansible/build/files/spe_banners/mc-global-banner.conf
       dest: /opt/splunk/etc/system/local/global-banner.conf
-      
+
   - name: Configuring serverclasses
     copy:
       src: /home/ansible/build/files/serverclass.conf
