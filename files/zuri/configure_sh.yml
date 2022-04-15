@@ -1,0 +1,17 @@
+# ansible-playbook ~/build/tasks/configure_sh.yml -i inventory -K
+---
+- name: Search Head
+  hosts: search_head
+  any_errors_fatal: true
+  gather_facts: no
+  become: yes
+  become_user: splunk
+  vars_files:
+    - /home/ansible/build/vars/main.yml
+
+  tasks:
+
+  - name: Enabling SH server banner
+    copy:
+      src: /home/ansible/build/files/spe_banners/sh-global-banner.conf
+      dest: /opt/splunk/etc/system/local/global-banner.conf

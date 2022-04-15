@@ -2,7 +2,7 @@
 This is the configuration for Core Implementation Lab 8
 > Note: Different OS version than actual
 ## Build Instructions
-- Build 9 EC2s with `1-basic-splunk-image.sh`
+- Build 8 EC2s with `1-basic-splunk-image.sh`
     - must have public IPs
     - at least 10GB for storage
 - Wait for all to state Running
@@ -18,7 +18,7 @@ This is the configuration for Core Implementation Lab 8
 - Build splunk
     `ansible-playbook ~/build/tasks/main.yml -i inventory -K`
     - Respond to password prompt
-    - grab a cup of coffee; takes ~7 mins to complete (00:36-00:43)
+    - grab a cup of coffee; takes ~7 mins to complete
 
 ---
 ## Lab Goals
