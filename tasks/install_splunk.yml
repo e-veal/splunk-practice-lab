@@ -18,7 +18,7 @@
         state: latest
       when: "'wget' not in ansible_facts.packages"
 
-- name: Installing Splunk Enterprise
+    - name: Installing Splunk Enterprise
       become: yes
       unarchive:
         src: "{{ splunk_pkg._8_2_4 }}"
@@ -26,17 +26,6 @@
         owner: splunk
         group: splunk
         remote_src: yes
-    when: inventory_hostname not in groups['forwarders']
-
-    - name: Installing Splunkforwarder
-      become: yes
-      unarchive:
-        src: "{{ splunkfwdr_pkg }}"
-        dest: /opt
-        owner: splunk
-        group: splunk
-        remote_src: yes
-      when: inventory_hostname in groups['forwarders']
       
     - name: Configuring Splunk
       block:
@@ -54,22 +43,3 @@
           command: '/opt/splunk/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
       become: yes
       become_user: splunk
-      when: inventory_hostname in groups['base']
-        
-    - name: Configuring Splunkforwaders
-      block:
-        - name: Setting environment variables
-          lineinfile:
-            path: ~/.bashrc
-            insertafter: EOF
-            line: export SPLUNK_HOME=/opt/splunkforwarder/
-            create: yes
-
-        - name: Updating shell
-          shell: source ~/.bashrc
-
-        - name: Starting Splunk Forwarder
-          command: '/opt/splunkforwarder/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
-      become: yes
-      become_user: splunk
-      when: inventory_hostname in groups['forwarders']

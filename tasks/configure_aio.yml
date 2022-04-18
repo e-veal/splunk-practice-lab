@@ -11,7 +11,7 @@
 
   tasks:
 
-  - name: Enabling SH server banner
+  - name: Enabling AIO server banner
     copy:
       src: /home/ansible/build/files/spe_banners/aio-global-banner.conf
       dest: /opt/splunk/etc/system/local/global-banner.conf
