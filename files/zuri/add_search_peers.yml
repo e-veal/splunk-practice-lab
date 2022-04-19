@@ -1,0 +1,21 @@
+# ansible-playbook ~/build/tasks/add_search_peers.yml -i inventory -K
+---
+- name: Add search peers
+  hosts: "{{active_servers}}"
+  any_errors_fatal: true
+  become: yes
+  become_user: splunk
+  vars_files:
+    - /home/ansible/build/vars/main.yml
+
+  tasks:
+
+  - name: Setting variables
+    set_fact: 
+      varCM: "{{ hostvars['CM']['ansible_default_ipv4']['address'] }}"
+      
+  - name: Adding search peers
+    command: "{{ item }}"
+    loop:
+      - "/opt/splunk/bin/splunk add search-server https://{{ varCM }}:8089 -auth admin:{{adminPwd}} -remoteUsername admin -remotePassword {{adminPwd}}"
+    when: inventory_hostname == 'MC'
