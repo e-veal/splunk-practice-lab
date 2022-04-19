@@ -11,7 +11,11 @@ This is the solution for the `ZURI` Implementation Lab.
     pass4SymmKey = <key of your choosing>
     shcluster_label=lab8_shc
     ```
-1. Restart splunk on MC
+1. Upload to MC/Deployer 
+    ```
+    rsync -a spe_search_deployer_server --exclude 'Icon*' --exclude '.DS_Store' splunk@<Public IP of Deployer>:/opt/splunk/etc/apps/
+    ```
+1. Restart splunk on MC/Deployer
     ```
     /opt/splunk/bin/splunk restart
     ```

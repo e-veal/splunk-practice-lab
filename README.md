@@ -47,10 +47,6 @@ For our final lab, you will be setting up a search head cluster using the system
 | LDAP Server ||
 |---|---|
 | **Server** | ldap.forumsys.com  |
-| **Port** | 389 |
-| **Bind DN** | cn=read-only-admin,dc=example,dc=com
-| **Bind Password** | password |
-| **Group** | ou=mathematicians |
 
 ## Who wants to be captain?
 In addition to the SHC provisioning, the customer has requested the following: 
