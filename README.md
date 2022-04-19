@@ -19,7 +19,7 @@ This is the configuration for Core Implementation Lab 8
 - Build splunk
     `ansible-playbook ~/build/tasks/main.yml -i inventory -K`
     - Respond to password prompt
-    - grab a cup of coffee; takes ~7 mins to complete
+    - grab a cup of coffee; takes ~10 mins to complete
 
 ---
 ## Lab Goals
