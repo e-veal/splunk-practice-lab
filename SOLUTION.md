@@ -84,7 +84,7 @@ This is the solution for the `ZURI` Implementation Lab.
     ```
 1. Open ports as **sccStudent**
     ```
-    sudo firewall-cmd --add-port=8191/tcp --add-port=8000/tcp --add-port=8080/tcp --add-port=8089/tcp --add-port=8191/tcp --add-port=9887/tcp --add-port=9997/tcp --permanent
+    sudo firewall-cmd --add-port=8191/tcp --add-port=8000/tcp --add-port=8080/tcp --add-port=8089/tcp --add-port=8191/tcp --add-port=9887/tcp --add-port=9997/tcp --add-port=22/tcp --permanent
 
     sudo firewall-cmd --reload
     ```
