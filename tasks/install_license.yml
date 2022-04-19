@@ -1,0 +1,28 @@
+# ansible-playbook ~/build/tasks/install_license.yml -i inventory -K --check
+---
+- name: Installs License
+  hosts: MC
+  any_errors_fatal: true
+  gather_facts: no
+  become: yes
+  become_user: splunk
+  vars_files:
+    - /home/ansible/build/vars/main.yml
+
+  tasks:
+  
+  - name: Uploading license
+    copy:
+      src: /home/ansible/build/files/Splunk_Enterprise_NFR_FY23.lic
+      dest: /opt/splunk/etc/licenses/Splunk_Enterprise_NFR_FY23.lic
+    
+  - name: Installing license
+    command: /opt/splunk/bin/splunk add licenses /opt/splunk/etc/licenses/Splunk_Enterprise_NFR_FY23.lic -auth admin:{{adminPwd}}
+
+  - name: Restarting license server
+    command: /opt/splunk/bin/splunk restart
+
+  - name: Remove license
+    file:
+      path: /home/ansible/build/files/Splunk_Enterprise_NFR_FY23.lic
+      state: absent
