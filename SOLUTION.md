@@ -127,9 +127,12 @@ This is the solution for the `ZURI` Implementation Lab.
     manager_uri = https://<IP of CM>:8089
     pass4SymmKey = <decrypted key>
     multisite = false
-1. Upload app to /etc/shcluster/apps app on the SHC Deployer
+1. Update `org_cluster_forwarder_outputs` to put to IDXs (Forwards logs to indexers)
+1. Upload apps to /etc/shcluster/apps app on the SHC Deployer
     ```
     rsync -a spe_cluster_search_base --exclude 'Icon*' --exclude '.DS_Store' splunk@<Public IP of Deployer>:/opt/splunk/etc/shcluster/apps/
+
+    rsync -a spe_cluster_forwarder_outputs --exclude 'Icon*' --exclude '.DS_Store' splunk@<Public IP of Deployer>:/opt/splunk/etc/shcluster/apps/
     ```
 1. On SHC Deployer, push apps using the following command:
     ```
@@ -174,6 +177,13 @@ This is the solution for the `ZURI` Implementation Lab.
     ```
     /opt/splunk/bin/splunk apply shcluster-bundle --answer-yes -target https://<IP of captain>:8089 -auth admin:<adminPwd>
     ```
+
+### Add search peers
+1. Add search peers on MC
+    ```
+    /opt/splunk/bin/splunk add search-server https://<IP of SH1>:8089 -auth admin:<adminPwd> -remoteUsername admin -remotePassword <adminPwd>
+
+    /opt/splunk/bin/splunk add search-server https://<IP of SH2>:8089 -auth admin:<adminPwd> -remoteUsername admin -remotePassword <adminPwd>
 
 ### Configure app permissions
 1. Create `local.meta` file in /fire_brigade/metadata
