@@ -26,7 +26,7 @@
         owner: splunk
         group: splunk
         remote_src: yes
-      when: inventory_hostname not in groups['forwarders']
+      when: inventory_hostname not in groups['forwarders'] or inventory_hostname not in groups['search_head'] 
 
     - name: Installing Splunkforwarder
       become: yes
