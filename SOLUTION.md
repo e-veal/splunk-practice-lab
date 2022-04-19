@@ -21,38 +21,48 @@ This is the solution for the `ZURI` Implementation Lab.
     ```
 
 ### Install Splunk Instances
-
+1. Change to sccStudent to install
+    ```
+    su - sccStudent
+    ```    
 1. Get package
     
     ```
     wget -O splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz 'https://download.splunk.com/products/splunk/releases/8.2.4/linux/splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz'
     ```
-    
 1. Install pkg
 
     ```
     sudo tar -xzvf splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz -C /opt
+    ```
+1. Change owner to splunk
+    ```
+    sudo chown -R splunk:splunk /opt/splunk
     ```
 
 <font size="4" color="red">**DO NOT START SPLUNK!!**</font>
 ### Match secret keys
 1. Copy secret file from CM to SHs
     ```
-    scp splunk.secret splunk@{{IP_of_MC}}:/opt/splunk/etc/auth
+    cd /opt/splunk/etc/auth
+
+    scp splunk.secret splunk@{{IP_of_SH}}:/opt/splunk/etc/auth
     ```
 
 ### Complete install
 
-1. Start splunk
+1. Start splunk on SH1 & SH2
     ```
     /opt/splunk/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd <adminPwd>
     ```
 1. Enable boot start
        
     ```
-    /opt/splunk/bin/splunk enable boot-start -user splunk
+    su - sccStudent
+
+    sudo /opt/splunk/bin/splunk enable boot-start -user splunk
     
-    chown -R splunk /opt/splunk/
+    sudo chown -R splunk /opt/splunk/
 
     sudo su - root
 
@@ -61,20 +71,20 @@ This is the solution for the `ZURI` Implementation Lab.
 
 1. Update according to [this](https://docs.splunk.com/Documentation/Splunk/8.2.5/Admin/ConfigureSplunktostartatboottime#Enable_boot-start_as_a_non-root_user)
 
-### Ensure replication and kv store ports are open
+### Ensure replication and kv store ports are open on SH1, SH2, MC
 1. Under **sccStudent**, install firewall-cmd
     ```
-    sudo yum install firewalld
+    sudo yum install firewalld -y
     ```
-1. Start service
+1. Start service as **root**
     ```
-    sudo start firewalld
+    systemctl start firewalld
 
-    sudo enable firewalld
+    systemctl enable firewalld
     ```
-1. Open ports
+1. Open ports as **sccStudent**
     ```
-    sudo firewall-cmd --add-port=8191/tcp --add-port=9887/tcp --permanent
+    sudo firewall-cmd --add-port=8191/tcp --add-port=8000/tcp --add-port=8080/tcp --add-port=8089/tcp --add-port=8191/tcp --add-port=9887/tcp --add-port=9997/tcp --permanent
 
     sudo firewall-cmd --reload
     ```
@@ -88,11 +98,11 @@ This is the solution for the `ZURI` Implementation Lab.
     ```
 1. Restart splunk on each member
     ```
-    /opt/splunk/bin/splunk 
+    /opt/splunk/bin/splunk restart
     ```
 
 ### Bring up the cluster captain
-1. Select any instance to be the captain, run the following command
+1. Select either instance (SH1 or SH2) to be the captain, run the following command
 
     ```
     /opt/splunk/bin/splunk bootstrap shcluster-captain -servers_list "https://<IP of SH1>:8089,https://<IP of SH2>:8089" -auth admin:<adminPwd>
@@ -103,10 +113,12 @@ This is the solution for the `ZURI` Implementation Lab.
     ```
     /opt/splunk/bin/splunk btool server list cluster --debug | grep -v default
     ```
-2. Grab pass4SymmKey and add to this command:
+1. Grab pass4SymmKey and add to this command:
     ```
     /opt/splunk/bin/splunk show-decrypted --value '<pass4SymmKey>'
     ```
+    > Note: It should be the same on SH1, SH2, and CM
+
 ### Connect SHC to IDX cluster
 1. Use the `org_cluster_search_base` base config:
     ```
@@ -132,7 +144,7 @@ This is the solution for the `ZURI` Implementation Lab.
 >    `splunk restart`
 
 ### Check the status of SHC
-1. Check SHC
+1. Check SHC on captain
     ```
     /opt/splunk/bin/splunk show shcluster-status -auth admin:<adminPwd>
     ```
@@ -145,7 +157,7 @@ This is the solution for the `ZURI` Implementation Lab.
 1. Unzip/untar app
 1. Upload to /etc/master-apps/ on CM
     ```
-    rsync -a TA-fire_brigade --exclude 'Icon*' --exclude '.DS_Store' splunk@<Public IP of Deployer>:/opt/splunk/etc/master-apps/
+    rsync -a TA-fire_brigade --exclude 'Icon*' --exclude '.DS_Store' splunk@<Public IP of CM>:/opt/splunk/etc/master-apps/
     ```
 1. On CM, push apps using GUI or the following command:
     ```
