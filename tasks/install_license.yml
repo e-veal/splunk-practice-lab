@@ -21,3 +21,8 @@
 
   - name: Restarting license server
     command: /opt/splunk/bin/splunk restart
+
+  - name: Remove license
+    file:
+      path: /home/ansible/build/files/Splunk_Enterprise_NFR_FY23.lic
+      state: absent
