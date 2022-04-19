@@ -16,3 +16,4 @@
 - import_playbook: add_search_peers.yml
 - import_playbook: restart_splunk.yml
 - import_playbook: ingest_data.yml
+- import_playbook: install_license.yml
