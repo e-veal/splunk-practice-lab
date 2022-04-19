@@ -10,12 +10,6 @@
     - /home/ansible/build/vars/main.yml
 
   tasks:
-
-  # - name: Download license
-  # - command: "{{ item }}"
-  #   loop:
-  #     - curl -H 'Authorization: token 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' -H 'Accept: application/vnd.github.v3.raw' -O -L https://api.github.com/e-veal/Splunk/blob/620b01e76fb4d9979d10396cfa66d02dedcaac62/Practice%20Ansible%20Environment/Splunk_Enterprise_NFR_FY23.lic
-  #     - mv ~/Splunk_Enterprise_NFR_FY23.lic ~/files/
   
   - name: Uploading license
     copy:
