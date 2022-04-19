@@ -185,17 +185,26 @@ This is the solution for the `ZURI` Implementation Lab.
 
     /opt/splunk/bin/splunk add search-server https://<IP of SH2>:8089 -auth admin:<adminPwd> -remoteUsername admin -remotePassword <adminPwd>
 
-### Update LDAP app
+### Apply LDAP app
 1. From Lab 2, update `authentication.conf` in the LDAP app:
     ```
     host = <new LDAP IP>
     bindDN = <new DNS>
     ```
-1. Upload app to MC
+1. Upload app to Deployer
     ```
-    rsync -a spe_auth_ldap --exclude 'Icon*' --exclude '.DS_Store' splunk@<Public IP of MC>:/opt/splunk/etc/apps/
+    rsync -a spe_auth_ldap --exclude 'Icon*' --exclude '.DS_Store' splunk@<Public IP of Deployer>:/opt/splunk/etc/shcluster/apps/
     ```
-1. Restart MC
+1. Push to SHs
+    ```
+    /opt/splunk/bin/splunk apply shcluster-bundle --answer-yes -target https://<IP of captain>:8089 -auth admin:<adminPwd>
+    ```
+
+### Ensure LDAP is enabled
 1. Navigate to **Settings**, **Authenication Methods**
 1. Click on **LDAP Settings** link
 1. **Enable** LDAP strategy
+
+### Update user permissions for app
+1. On SH, navigate to **Apps**, **Manage Apps**
+1. Update the permissions on **fire_brigade** and **search** to grant employees **_write_** permissions
