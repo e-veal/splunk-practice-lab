@@ -46,7 +46,7 @@ This is the solution for the `ZURI` Implementation Lab.
     ```
     cd /opt/splunk/etc/auth
 
-    scp splunk.secret splunk@{{IP_of_SH}}:/opt/splunk/etc/auth
+    rsync -a splunk.secret splunk@{{IP_of_SH}}:/opt/splunk/etc/auth
     ```
 
 ### Complete install
