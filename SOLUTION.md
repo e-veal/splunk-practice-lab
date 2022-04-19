@@ -185,18 +185,17 @@ This is the solution for the `ZURI` Implementation Lab.
 
     /opt/splunk/bin/splunk add search-server https://<IP of SH2>:8089 -auth admin:<adminPwd> -remoteUsername admin -remotePassword <adminPwd>
 
-### Configure app permissions
-1. Create `local.meta` file in /fire_brigade/metadata
-1. Add the following stanzas:
-    ```
-    []
-    access = read : [ * ], write : [ admin ]
-    export = system
-    ```
-
 ### Update LDAP app
 1. From Lab 2, update `authentication.conf` in the LDAP app:
     ```
     host = <new LDAP IP>
     bindDN = <new DNS>
     ```
+1. Upload app to MC
+    ```
+    rsync -a spe_auth_ldap --exclude 'Icon*' --exclude '.DS_Store' splunk@<Public IP of MC>:/opt/splunk/etc/apps/
+    ```
+1. Restart MC
+1. Navigate to **Settings**, **Authenication Methods**
+1. Click on **LDAP Settings** link
+1. **Enable** LDAP strategy
