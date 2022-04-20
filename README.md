@@ -36,17 +36,18 @@ For our final lab, you will be setting up a search head cluster using the system
 
 | LDAP Server ||
 |---|---|
-| **Server** | ldap.forumsys.com  |
+| **Server** | ipa.demo1.freeipa.org  |
 
 ## Configure LDAP Authentication
 Listed below are the important bits of LDAP specific information you will need to complete this lab:
 - The **bindDN** is `uid=admin,cn=users,cn=accounts,dc=demo1,dc=freeipa,dc=org`
 - For your user to be able to log in, you will need to assign either the **mail** or the **uid** as the login credentials.
-- Assign your sccStudent user the admin role by creating a new role **Student**
+- Assign the **_employee_** the admin role by creating a new role **Student**
 - Users are in the `ou=users` container under the domain.
 - Finally, the **list of groups** (which you will match to roles) is within the `ou=groups` under that container.
 - The full domain is `cn=groups,cn=accounts,dc=demo1,dc=freeipa,dc=org`.
 - All LDAP passwords is `Secret123` 
+- Once your lab is complete make sure you have downloaded your LDAP base configuration app for use in a future lab
 
 **Convenient links**
 - [Base Configs](https://drive.google.com/drive/folders/107qWrfsv17j5bLxc21ymTagjtHG0AobF)

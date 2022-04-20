@@ -33,9 +33,10 @@
 1. Click on **LDAP Settings** link
 1. Select **Map groups**
 1. Select **employee**
-1. Grant it to the **student** role
+1. Grant it to the **Student** role
 
 ## Test
+_May not work because the password can be changed by Internet users_
 1. Log out of Splunk
 1. Log back in with the following credentials:
     ```
