@@ -41,16 +41,6 @@
       
     - name: Configuring Splunk
       block:
-        - name: Setting environment variables
-          lineinfile:
-            path: ~/.bashrc
-            insertafter: EOF
-            line: export SPLUNK_HOME=/opt/splunk/
-            create: yes
-
-        - name: Updating shell
-          shell: source ~/.bashrc
-
         - name: Starting Splunk
           command: '/opt/splunk/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
       become: yes
@@ -59,16 +49,6 @@
         
     - name: Configuring Splunk forwarders
       block:
-        - name: Setting environment variables
-          lineinfile:
-            path: ~/.bashrc
-            insertafter: EOF
-            line: export SPLUNK_HOME=/opt/splunkforwarder/
-            create: yes
-
-        - name: Updating shell
-          shell: source ~/.bashrc
-
         - name: Starting Splunk Forwarder
           command: '/opt/splunkforwarder/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd {{adminPwd}}'
       become: yes

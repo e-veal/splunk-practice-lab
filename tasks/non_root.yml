@@ -1,7 +1,7 @@
 # ansible-playbook ~/build/tasks/non_root.yml -i inventory -K
 ---
 - name: 'Configure non-root user'
-  hosts: base:forwarders
+  hosts: gamora:forwarders
   any_errors_fatal: true
   gather_facts: no
   become: yes

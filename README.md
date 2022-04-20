@@ -6,7 +6,7 @@ This is the configuration for Core Implementation Lab 1
 ## Build Instructions
 - Build 7 EC2s with `1-basic-splunk-image.sh`
     - must have public IPs
-    - at least 10GB for storage
+    - at least 20GB for storage
 - Wait for all to state Running
     - May need to refresh
 - Build Ansible instance with `2-ansible-image.sh`
@@ -24,9 +24,10 @@ This is the configuration for Core Implementation Lab 1
 ---
 ## Lab Goals
 1. Join Monitoring Console to Cluster Manager with same pass4Symm key
-2. Ensure data is ingested properly (should be 3 indexes: os, mail, network)
-3. Ensure Monitoring Console is monitoring all servers in the environment
-4. Ensure deployment server is configured properly
+1. MC should be used as the license master
+1. Ensure data is ingested properly (should be 3 indexes: os, mail, network)
+1. Ensure Monitoring Console is monitoring all servers in the environment
+1. Ensure deployment server is configured properly
 
 ## Instructions
 
@@ -37,8 +38,12 @@ This Lab will take you through discovering the clustering key for an existing cl
 | CM | Cluster Manager |
 | MC | Monitoring Console |
 
+## Install Splunk on your Monitoring Console Node
+
+### Install Splunk - Do Not Start.
+
 1. Install Splunk on your Monitoring Console node. Make sure not to start it.
-2. Use the same steps to install splunk as in the first practice lab.
+2. Use the same steps to install splunk as in the first practice lab. (Splunk PS Architect Practice Lab 1 - Instructions)
 3. Copy the splunk.secret file from `$SPLUNK_HOME/etc/auth/` on your cluster master node and place it in the same location on your new Monitoring Console node.
 4. Once copied, start your new instance.
 Take the hashed Pass4SymmKey value from the existing cluster master. Remember, btool is your friend.
