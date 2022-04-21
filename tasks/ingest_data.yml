@@ -34,7 +34,7 @@
           dest: /var/data/
           owner: root
           group: root
-        copy: 
+      - copy: 
           src: /home/ansible/build/files/okoye_logs/spe_linux_syslog_inputs
           dest: /opt/splunk/etc/apps/
           owner: splunk
