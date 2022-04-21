@@ -16,7 +16,7 @@
       - name: Adding data to IDX
         copy: 
           src: /home/ansible/build/files/okoye_logs/spe_indexer_orig_fwd_props
-          dest: /opt/splunk/etc/apps/
+          dest: /opt/splunk/etc/master-apps/
           owner: splunk
           group: splunk
     become_user: root
@@ -36,7 +36,7 @@
           group: root
       - copy: 
           src: /home/ansible/build/files/okoye_logs/spe_linux_syslog_inputs
-          dest: /opt/splunk/etc/apps/
+          dest: /opt/splunkforwarder/etc/apps/
           owner: splunk
           group: splunk
     become_user: splunk
