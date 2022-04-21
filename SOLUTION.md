@@ -135,7 +135,7 @@ _Issue: Since the inputs weren't applied, data was ingested incorrectly. Therefo
 1. Put CM in maintenance mode
 
     ```
-    /opt/splunk/bin/splunk enable maintenance-mode --answer-yes -auth splunk:<adminPwd>
+    /opt/splunk/bin/splunk enable maintenance-mode --answer-yes -auth admin:<adminPwd>
     ```
 1. Stop UFs
 
