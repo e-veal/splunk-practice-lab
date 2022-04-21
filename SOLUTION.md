@@ -135,3 +135,6 @@ _Issue: All logs aren't ingesting because it thinks its already ingested. CrcLen
     disabled = 0
     ```
 1. Restart UF
+    ```
+    /opt/splunk/bin/splunk restart
+    ```
