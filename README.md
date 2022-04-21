@@ -6,7 +6,7 @@ This is the configuration for Core Implementation Lab 1
 ## Build Instructions
 - Build 7 EC2s with `1-basic-splunk-image.sh`
     - must have public IPs
-    - at least 20GB for storage
+    - at least 20 GB for storage
 - Wait for all to state Running
     - May need to refresh
 - Build Ansible instance with `2-ansible-image.sh`
