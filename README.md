@@ -7,7 +7,7 @@ This is the configuration for Core Implementation Lab 2
 - <font size=3 color=blue>**Add LDAP port 389 to security group**</font>
 - Build 1 EC2s with `1-basic-splunk-image.sh`
     - must have public IPs
-    - at least 10GB for storage
+    - at least 20 GB for storage
 - Wait for all to state Running
     - May need to refresh
 - Build Ansible instance with `2-ansible-image.sh`
