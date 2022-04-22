@@ -35,7 +35,7 @@
 
       - lineinfile:
           path:  /home/ansible/build/files/tchalla/spe_cluster_search_base/local/server.conf
-          regexp: '(master_uri){1}'
+          regexp: '^master_uri'
           line: "master_uri = https://{{ varCM }}:8089"
 
       - lineinfile:
