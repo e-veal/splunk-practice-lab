@@ -35,12 +35,13 @@
 
       - lineinfile:
           path:  /home/ansible/build/files/spe_cluster_search_base/local/server.conf
-          regexp: '(manager_uri){1}'
+          regexp: '^manager_uri'
           line: "manager_uri = https://{{ varCM }}:8089"
 
       - lineinfile:
           path:  /home/ansible/build/files/spe_cluster_indexer_base/local/server.conf
           regexp: '^manager_uri'
+          firstmatch: yes
           line: "manager_uri = https://{{ varCM }}:8089"
 
       - lineinfile:

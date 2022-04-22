@@ -5,7 +5,7 @@ This is the configuration for Core Implementation Lab 6
 ## Build Instructions
 - Build 7 EC2s with `1-basic-splunk-image.sh`
     - must have public IPs
-    - at least 10GB for storage
+    - at least 20 GB for storage
 - Wait for all to state Running
     - May need to refresh
 - Build Ansible instance with `2-ansible-image.sh`
@@ -19,7 +19,7 @@ This is the configuration for Core Implementation Lab 6
 - Build splunk
     `ansible-playbook ~/build/tasks/main.yml -i inventory -K`
     - Respond to password prompt
-    - grab a cup of coffee; takes ~7 mins to complete (00:36-00:43)
+    - grab a cup of coffee; takes ~7 mins to complete
 
 ---
 ## Lab Goals

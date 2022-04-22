@@ -16,7 +16,7 @@
     loop:
       - /opt/splunk/bin/splunk set servername {{ inventory_hostname }} -auth admin:{{adminPwd}}
       - /opt/splunk/bin/splunk restart
-    when: inventory_hostname in groups['base']
+    when: inventory_hostname not in groups['forwarders']
 
   - name: Setting server name on all the hosts in the inventory
     command: "{{ item }}"
