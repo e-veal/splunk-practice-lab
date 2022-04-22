@@ -34,18 +34,16 @@
           - /home/ansible/build/files/spe_all_deploymentclient/local/deploymentclient.conf
 
       - lineinfile:
-          path:  /home/ansible/build/files/tchalla/spe_cluster_search_base/local/server.conf
+          path:  "{{ item }}"
           regexp: '^master_uri'
           line: "master_uri = https://{{ varCM }}:8089"
+        loop:
+          - /home/ansible/build/files/tchalla/spe_cluster_search_base/local/server.conf
+          - /home/ansible/build/files/tchalla/spe_cluster_indexer_base/local/server.conf
 
       - lineinfile:
           path:  /home/ansible/build/files/tchalla/spe_cluster_indexer_base/local/server.conf
-          regexp: '^master_uri'
-          line: "master_uri = https://{{ varCM }}:8089"
-
-      - lineinfile:
-          path:  /home/ansible/build/files/tchalla/spe_cluster_indexer_base/local/server.conf
-          regexp: '^master_uri'
+          insertafter: ^\[license\]
           line: "master_uri = https://{{ varMC }}:8089"
 
       - name: Updating serverclass.conf
