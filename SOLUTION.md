@@ -5,6 +5,7 @@ This is the solution for the `SHURI` Implementation Lab.
 ## Instructions
 
  ### Recreate serverclass.conf
+ _Issue: Serverclass.conf file is missing. Customer requested it's recreated._
  1. On each type of server (IDXs, SHs, etc) navigate to `/opt/splunk/var/run/serverclass.xml`
     
     Here the names and attributes of the classes are listed.
@@ -19,9 +20,12 @@ This is the solution for the `SHURI` Implementation Lab.
 
     Ensure all_deploymentclients serverclass has restartSplunkd enabled.
 
-1. Upload serverclass.conf to DS1 and DS2 manually
-    - `rsync -a serverclass.conf --exclude 'Icon*' --exclude '.DS_Store' splunk@<Public IP of DS1 & DS2>:/opt/splunk/etc/system/local/`
-    - either run same command for DS2 or copy from DS1 to DS2
+1. Upload serverclass.conf to DS1 manually
+    - `rsync -a serverclass.conf --exclude 'Icon*' --exclude '.DS_Store' splunk@<Public IP of DS1>:/opt/splunk/etc/system/local/`
+
+1. Verify that DS1 console is configured
+
+>Note: DS2 console will not be configured until apps are placed in the deployment-apps directory
 
 ### Create deploymentclient.conf & serverclass.conf for DS2
 1. Create a copy of the deploymentclient app on DS2
@@ -46,27 +50,29 @@ This is the solution for the `SHURI` Implementation Lab.
 
 1. Reload DS1
     - To rebuild serverclasses
-        `/opt/splunk/bin/splunk reload deploy-server -auth admin:splunk3du
+        ```
+        /opt/splunk/bin/splunk reload deploy-server -auth admin:<adminPwd>
+        ```
 
-### Configure
+1. Verify DS2 is phoning home on DS1 (may take a little longer than other instances)
+
+### Configure serverclass to DS2
 1. Once DS2 phone's home to DS1, create a new serverclass for DS2 where it holds all the apps (or you can include when creating serverclass.conf)
+
 ### Verify manual app deployment
 
 1. Log onto DS2 to ensure **Forwarder Management** console loads
 
 1. Confirm that all apps deployed to `deployment-apps`
-    - Way 1: Check if apps exist on Forwarder Management console.
-    - Way 2: Check `/opt/splunk/etc/deployment-apps/`
+    - Method 1: Check if apps exist on Forwarder Management console.
+    - Method 2: Check `/opt/splunk/etc/deployment-apps/`
+    - Method 3: Execute the following search `| rest /services/deployment/server/application`
 
 ### Test DS2
-
-1. On DS1 & DS2, open **Search & Reporting**
-1. Execute the following command
-
-    `| rest /services/deployment/server/applications`
-
-1. On DS1, manually, update `deploymentclient.conf` to point to DS2
+1. Remove deploymentclient app from DS2
+1. Ensure `all_deploymentclient` app has **Restart Splunkd** is enabled
+1. On DS1, update `deploymentclient.conf` in deployment-apps to point to DS2
     ```
     targetUri = <IP of DS2>
     ```
-1. 
+1. When app is push to all 

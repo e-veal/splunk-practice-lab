@@ -26,3 +26,5 @@
     file:
       path: /home/ansible/build/Splunk_Enterprise_NFR_FY23.lic
       state: absent
+    become: root
+    delegate: localhost
