@@ -20,6 +20,7 @@
     become: yes
     become_user: root
     when: not boot_result.stat.exists
+    when: not boot_result.stat.exists and inventory_hostname not in groups['forwarders']
   
   - name: Changing owner to splunk
     file:
