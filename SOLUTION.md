@@ -10,6 +10,16 @@ This is the solution for the `TCHALLA` Implementation Lab.
 
 > [Helpful Documentation](https://docs.splunk.com/Documentation/Splunk/latest/Installation/HowtoupgradeSplunk#Splunk_Enterprise_upgrade_process)
 
+### Create backups of each instance
+1. Run diag on Cluster Manager
+    ```
+    /opt/splunk/bin/splunk diag --enable=rest
+    ```
+1. Run diag on other instances
+    ```
+    /opt/splunk/bin/splunk
+    ```
+
 ### Upgrade CM
 > Note: [Upgrade cluster documentation](https://docs.splunk.com/Documentation/Splunk/8.2.6/Indexer/Upgradeacluster#Upgrade_each_tier_separately)
 1. Verify the version of Splunk (v.8.0.5)
@@ -31,10 +41,6 @@ This is the solution for the `TCHALLA` Implementation Lab.
 1. Start Splunk service
     ```
     /opt/splunk/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd <adminPwd>
-    ```
-1. Delete installation file
-    ```
-    rm splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz
     ```
 1. Verify Cluster Manager 
     - Wait for all instances to come online
@@ -73,3 +79,11 @@ This is the solution for the `TCHALLA` Implementation Lab.
 1. Verify installation
     ```
     /opt/splunk/bin/splunk version
+
+### Clean up environment
+
+1. Delete installation file
+    ```
+    rm splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz
+    ```
+1. Clear maintenance upgrade message
