@@ -66,7 +66,7 @@ This is the solution for the `ZURI` Implementation Lab.
 
     sudo su - root
 
-    vim /etc/init.d/splunk
+    vi /etc/init.d/splunk
     ```
 
 1. Update according to [this](https://docs.splunk.com/Documentation/Splunk/8.2.5/Admin/ConfigureSplunktostartatboottime#Enable_boot-start_as_a_non-root_user)
