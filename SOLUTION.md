@@ -15,6 +15,14 @@ This is the solution for the `ZURI` Implementation Lab.
     ```
     rsync -a spe_search_deployer_server --exclude 'Icon*' --exclude '.DS_Store' splunk@<Public IP of Deployer>:/opt/splunk/etc/apps/
     ```
+1. Update permissions of folders
+    ```
+    su - sccStudent
+    sudo chown -R splunk:splunk /opt/splunk/etc/
+    exit
+    find /opt/splunk/etc/ -name 'Icon?' -type f -delete
+    find /opt/splunk/etc/ -name '.DS_Store' -type f -delete
+    ```
 1. Restart splunk on MC/Deployer
     ```
     /opt/splunk/bin/splunk restart
@@ -35,9 +43,9 @@ This is the solution for the `ZURI` Implementation Lab.
     ```
     sudo tar -xzvf splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz -C /opt
     ```
-1. Change owner to splunk
+1. Give sccStudent ownership throughout the environment
     ```
-    sudo chown -R splunk:splunk /opt/splunk
+    sudo setfacl -Rm u:sccStudent:rwx /opt/splunk
     ```
 
 <font size="4" color="red">**DO NOT START SPLUNK!!**</font>
@@ -50,13 +58,19 @@ This is the solution for the `ZURI` Implementation Lab.
     ```
 
 ### Complete install
-
+1. Change owner to splunk
+    ```
+    sudo chown -R splunk:splunk /opt/splunk
+    ```
+1. Change back to splunk user
+    ```
+    sudo su - splunk
+    ```
 1. Start splunk on SH1 & SH2
     ```
     /opt/splunk/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt --seed-passwd <adminPwd>
     ```
-1. Enable boot start
-       
+1. Enable boot start  
     ```
     su - sccStudent
 
@@ -68,7 +82,6 @@ This is the solution for the `ZURI` Implementation Lab.
 
     vi /etc/init.d/splunk
     ```
-
 1. Update according to [this](https://docs.splunk.com/Documentation/Splunk/8.2.5/Admin/ConfigureSplunktostartatboottime#Enable_boot-start_as_a_non-root_user)
 
 ### Ensure replication and kv store ports are open on SH1, SH2, MC
@@ -78,9 +91,9 @@ This is the solution for the `ZURI` Implementation Lab.
     ```
 1. Start service as **root**
     ```
-    systemctl start firewalld
+    sudo systemctl start firewalld
 
-    systemctl enable firewalld
+    sudo systemctl enable firewalld
     ```
 1. Open ports as **sccStudent**
     ```
@@ -89,8 +102,11 @@ This is the solution for the `ZURI` Implementation Lab.
     sudo firewall-cmd --reload
     ```
 ### Initialize cluster members
-> Can not create an app because API calls are triggered with CLI command
-
+> This can not be enabled with an app because API calls are triggered with CLI command
+1. Change back to splunk user
+    ```
+    sudo su - splunk
+    ```
 1. On each SH run the following command:
 
     ```
@@ -109,7 +125,7 @@ This is the solution for the `ZURI` Implementation Lab.
     ```
 
 ### Decrypt CM password 
-1. On CM, search for pass4SymmKey
+1. On SHC, search for pass4SymmKey
     ```
     /opt/splunk/bin/splunk btool server list cluster --debug | grep -v default
     ```
@@ -117,7 +133,6 @@ This is the solution for the `ZURI` Implementation Lab.
     ```
     /opt/splunk/bin/splunk show-decrypted --value '<pass4SymmKey>'
     ```
-    > Note: It should be the same on SH1, SH2, and CM
 
 ### Connect SHC to IDX cluster
 1. Use the `org_cluster_search_base` base config:
@@ -133,6 +148,14 @@ This is the solution for the `ZURI` Implementation Lab.
     rsync -a spe_cluster_search_base --exclude 'Icon*' --exclude '.DS_Store' splunk@<Public IP of Deployer>:/opt/splunk/etc/shcluster/apps/
 
     rsync -a spe_cluster_forwarder_outputs --exclude 'Icon*' --exclude '.DS_Store' splunk@<Public IP of Deployer>:/opt/splunk/etc/shcluster/apps/
+    ```
+1. Update permissions of folders
+    ```
+    su - sccStudent
+    sudo chown -R splunk:splunk /opt/splunk/etc/
+    exit
+    find /opt/splunk/etc/ -name 'Icon?' -type f -delete
+    find /opt/splunk/etc/ -name '.DS_Store' -type f -delete
     ```
 1. On SHC Deployer, push apps using the following command:
     ```
@@ -158,9 +181,17 @@ This is the solution for the `ZURI` Implementation Lab.
 ### Install TA Fire Brigade app on IDXs
 1. According to the **Details** section, you also need to download [Technology Add-on for Fire Brigade](https://splunkbase.splunk.com/app/1564/)
 1. Unzip/untar app
-1. Upload to /etc/master-apps/ on CM
+1. Upload to ***/etc/master-apps/*** on CM
     ```
     rsync -a TA-fire_brigade --exclude 'Icon*' --exclude '.DS_Store' splunk@<Public IP of CM>:/opt/splunk/etc/master-apps/
+    ```
+1. Update permissions of folders
+    ```
+    su - sccStudent
+    sudo chown -R splunk:splunk /opt/splunk/etc/
+    exit
+    find /opt/splunk/etc/ -name 'Icon?' -type f -delete
+    find /opt/splunk/etc/ -name '.DS_Store' -type f -delete
     ```
 1. On CM, push apps using GUI or the following command:
     ```
@@ -173,11 +204,18 @@ This is the solution for the `ZURI` Implementation Lab.
     ```
     rsync -a fire_brigade --exclude 'Icon*' --exclude '.DS_Store' splunk@<Public IP of Deployer>:/opt/splunk/etc/shcluster/apps/
     ```
+1. Update permissions of folders
+    ```
+    su - sccStudent
+    sudo chown -R splunk:splunk /opt/splunk/etc/
+    exit
+    find /opt/splunk/etc/ -name 'Icon?' -type f -delete
+    find /opt/splunk/etc/ -name '.DS_Store' -type f -delete
+    ```
 1. On SHC Deployer, push apps using the following command:
     ```
     /opt/splunk/bin/splunk apply shcluster-bundle --answer-yes -target https://<IP of captain>:8089 -auth admin:<adminPwd>
     ```
-
 ### Add search peers
 1. Add search peers on MC
     ```
@@ -193,7 +231,15 @@ This is the solution for the `ZURI` Implementation Lab.
     ```
 1. Upload app to Deployer
     ```
-    rsync -a spe_auth_ldap --exclude 'Icon*' --exclude '.DS_Store' splunk@<Public IP of Deployer>:/opt/splunk/etc/shcluster/apps/
+    rsync -a spe_auth_ldap --exclude 'Icon*' --exclude '.DS_Store' splunk@<External IP of Deployer>:/opt/splunk/etc/shcluster/apps/
+    ```
+1. Update permissions of folders
+    ```
+    su - sccStudent
+    sudo chown -R splunk:splunk /opt/splunk/etc/
+    exit
+    find /opt/splunk/etc/ -name 'Icon?' -type f -delete
+    find /opt/splunk/etc/ -name '.DS_Store' -type f -delete
     ```
 1. Push to SHs
     ```
