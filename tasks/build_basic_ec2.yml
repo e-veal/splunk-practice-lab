@@ -1,0 +1,30 @@
+# ansible-playbook ~/build/tasks/build_ec2.yml -i inventory --check
+---
+- name: Build Basic Splunk Image
+  hosts: localhost
+  connection: local
+  any_errors_fatal: true
+  gather_facts: no
+  vars_files:
+    - ~/build/vars/main.yml
+
+  tasks:
+  
+  - name: Creating basic AWS EC2 instance
+    ec2:
+      key_name: splunk-ec2-keypair
+      count: {{ lab.gamora_basic }}
+      group: "{{ sg_name }}"
+      instance_type: "{{ instance_type.tiny }}"
+      image: "{{ ami_id }}"
+      vpc_subnet_id: "{{ subnet_id.develop }}"
+      assign_public_ip: true
+      region: "{{ region }}"
+      wait: yes
+      user_data: "{{ lookup('file', '~/build/files/1_basic_splunk_image.sh') }}"
+      volumes:
+        - device_name: /dev/xvda
+          volume_type: gp2
+          volume_size: 8
+      instance_tags:
+        createdBy: Ansible

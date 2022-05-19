@@ -1,0 +1,30 @@
+# ansible-playbook ~/build/tasks/create_key.yml -i inventory --ask-vault-pass --check
+---
+- name: Create Key Pair
+  hosts: localhost
+  connection: local
+  any_errors_fatal: true
+  gather_facts: no
+  vars_files:
+    - ~/build/vars/main.yml
+
+  tasks:
+    - name: Delete key pair
+      ec2_key:
+        name: splunk-ec2-keypair
+        state: absent
+
+    - name: Create key pair
+      ec2_key:
+        name: splunk-ec2-keypair
+      register: ec2_key_result
+
+    - debug: 
+        msg: "{{ ec2_key_result }}"
+
+    - name: Save private key
+      copy: 
+        content: "{{ ec2_key_result.key.private_key }}"
+        dest: ~/.ssh/splunk-ec2-keypair.pem
+        mode: 0600
+      when: ec2_key_result.changed

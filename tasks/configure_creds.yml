@@ -1,0 +1,48 @@
+# ansible-playbook ~/build/tasks/configure_creds.yml -i inventory --check --ask-vault-pass
+---
+- name: Configure AWS credentials
+  hosts: localhost
+  connection: local
+  any_errors_fatal: true
+  gather_facts: no
+  vars_files:
+    - ~/build/vars/main.yml
+  vars_prompt:
+  - name: aws_access_key
+    prompt: Enter your AWS Access Key
+    private: no
+
+  - name: aws_secret_key
+    prompt: Enter your AWS Secret Key
+
+  - name: adminPwd
+    prompt: Enter your Default Password
+
+  tasks:
+    - name: Create secrets file
+      copy:
+        dest: ~/build/secrets.yml
+        content: |
+          adminPwd: {{ adminPwd }}
+
+    - name: Create cred location
+      file:
+        path: ~/.aws/ 
+        state: directory
+
+    - name: Set AWS Credentials
+      copy:
+        dest: ~/.aws/credentials 
+        content: |
+          [default]
+          AWS_ACCESS_KEY_ID={{ aws_access_key }}
+          AWS_SECRET_ACCESS_KEY={{ aws_secret_key }}
+      
+    - copy:
+        dest: ~/.aws/config 
+        content: |
+          [default] 
+          region=us-east-1
+          output=yaml
+    
+    - command: ansible-vault encrypt ~/.aws/credentials

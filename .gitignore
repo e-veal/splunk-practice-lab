@@ -7,9 +7,12 @@ Icon*
 #executables
 *.exe
 *.tgz
+*.zip
 
 #testing files
 tests/
 *.lic
 *.list
 *.sh
+
+/aws/*
