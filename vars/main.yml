@@ -7,9 +7,8 @@ subnet_id:
     testing: subnet-082916065c9a38739
     develop: subnet-0f2428741fdd24cd6 
 sg_name: splunk-practice
-aws_region: 
 ami_id: ami-0022f774911c1d690
-region: us-east-1
+aws_region: us-east-2
 
 lab:
     gamora_basic: 7

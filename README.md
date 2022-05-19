@@ -1,3 +1,3 @@
 # AWS Build
 
-Repository to build out the Splunk Practice Environments# splunk-practice-lab
+This repository contains the files to generate the AWS environments to execute the Splunk Practice Labs.

@@ -1,6 +1,6 @@
 # ansible-playbook ~/build/tasks/build_ec2.yml -i inventory --check
 ---
-- name: Build EC2 instances
+- name: Build Ansible Image
   hosts: localhost
   connection: local
   any_errors_fatal: true
@@ -10,10 +10,10 @@
 
   tasks:
   
-  - name: Creating basic AWS EC2 instance
+  - name: Creating ansible AWS EC2 instance
     ec2:
       key_name: splunk-ec2-keypair
-      count: {{ lab.gamora_basic }}
+      count: 1
       group: "{{ sg_name }}"
       instance_type: "{{ instance_type.tiny }}"
       image: "{{ ami_id }}"

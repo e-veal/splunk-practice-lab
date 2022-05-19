@@ -1,0 +1,28 @@
+# ansible-playbook ~/build/tasks/build_vpc.yml -i inventory --check
+---
+- name: Build VPC
+  hosts: localhost
+  connection: local
+  any_errors_fatal: true
+  gather_facts: no
+  vars_files:
+    - ~/build/vars/main.yml
+
+- name: Create new VPC
+  amazon.aws.ec2_vpc_net:
+    name: Splunk Environment
+    cidr_block: 10.5.0.0/24
+    region: "{{ aws_region }}"
+    tags:
+      createdBy: Ansible
+    tenancy: dedicated
+  register: vpc_results
+  
+- debug:
+    msg: "{{vpc_results}}"
+
+# - name: Create Internet gateway
+#   amazon.aws.ec2_vpc_igw:
+#     vpc_id: "{{ vpc_results }}"
+#     state: present
+#   register: igw
