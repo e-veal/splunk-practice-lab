@@ -1,5 +1,35 @@
+# ansible-playbook ~/build/tests/test.yml -i inventory --check
 ---
-- hosts: localhost
-  remote_user: root
-  roles:
-    - dek
+- name: Testing
+  hosts: localhost
+  connection: local
+  any_errors_fatal: true
+  gather_facts: no
+  vars_files:
+    - ~/build/vars/main.yml
+  # vars_prompt:
+  # - name: user_ip
+  #   prompt: Enter an IP (ex. 10.0.4.0)
+  #   private: no
+
+  tasks:
+  # - name: Loop 
+  #   debug:
+  #     msg: "Subnet: {{item.name}}, IP: {{item.ip}}/27"
+  #   loop:
+  #     - { name: 'splunk-develop', ip: '10.0.5.0' }
+  #     - { name: 'splunk-practice', ip: '10.0.5.32' }
+  #     - { name: 'splunk-testing', ip: '10.0.5.64' }
+  #     - { name: 'splunk-other', ip: '10.0.5.128' }
+
+    
+    - name: Output command results to a variable
+      command: curl -4 icanhazip.com
+      register: localip_results
+    
+    - debug:
+        msg: "{{localip_results.stdout }}"
+
+    - name: Subnets
+      debug:
+        msg: "Subnet: {{ localip_results.stdout | ansible.utils.ipsubnet(27) }}"

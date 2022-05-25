@@ -8,21 +8,93 @@
   vars_files:
     - ~/build/vars/main.yml
 
-- name: Create new VPC
-  amazon.aws.ec2_vpc_net:
-    name: Splunk Environment
-    cidr_block: 10.5.0.0/24
-    region: "{{ aws_region }}"
-    tags:
-      createdBy: Ansible
-    tenancy: dedicated
-  register: vpc_results
-  
-- debug:
-    msg: "{{vpc_results}}"
+  tasks:
 
-# - name: Create Internet gateway
-#   amazon.aws.ec2_vpc_igw:
-#     vpc_id: "{{ vpc_results }}"
-#     state: present
-#   register: igw
+  - name: Create new VPC
+    ec2_vpc_net:
+      name: Splunk Environment
+      cidr_block: 10.0.5.0/24
+      region: "{{ aws_region }}"
+      tags:
+        createdBy: Ansible
+      tenancy: dedicated
+    register: vpc_results
+
+  - name: Create Internet gateway
+    ec2_vpc_igw:
+      vpc_id: "{{ vpc_results.vpc.id }}"
+      region: "{{ aws_region }}"
+      state: present
+    register: igw_results
+
+  - name: Create subnet 
+    ec2_vpc_subnet:
+      state: present
+      vpc_id: "{{ vpc_results.vpc.id }}"
+      cidr: "{{ item }}/27"
+      region: "{{ aws_region }}"
+    loop:
+      - '10.0.5.0'
+      - '10.0.5.32'
+      - '10.0.5.64'
+      - '10.0.5.96'
+    register: subnet_results
+
+  # - lineinfile:
+  #     path: ~/build/vars/main.yml
+  #     line: 'subnet:'
+  
+  # - lineinfile:
+  #     path: ~/build/vars/main.yml
+  #     insertafter: '^subnet\:'
+  #     line:
+  #       - '- {{subnet.id}}'
+
+  - name: Store local IP address
+    command: curl -4 icanhazip.com
+    register: localip_results
+  
+  - name: Create Security Group
+    ec2_group:
+      name: Splunk-Environment
+      description: Allows Splunk
+      vpc_id: "{{ vpc_results.vpc.id }}"
+      region: "{{ aws_region }}"
+      rules:
+        - proto: tcp
+          ports:
+            - 8089
+            - 9997
+            - 9887
+            - 8191
+            - 8181
+            - 389
+          group_name: 
+            - Splunk-Environment
+        # - proto: tcp
+        #   ports:
+        #     - 80
+        #     - 22
+        #   cidr_ip: "{{ localip_results.stdout | ipsubnet(27) }}"
+      tags:
+        createdBy: Ansible
+    register: sg_results
+        
+  - name: Create IAM role
+    iam_role:
+      name: ec2_access_only_splunkenv
+      description: Allows EC2 instances to call only EC2 services
+      assume_role_policy_document: "{{ lookup('file','~/build/files/policy.json') }}"
+      managed_policies:
+        - arn:aws:iam::aws:policy/AmazonEC2FullAccess
+      tags:
+        createdBy: Ansible
+  
+  # - name: Update vars file
+  #   lineinfile:
+  #     path: ~/build/vars/main.yml
+  #     line: "{{ item }}"
+  #   loop:
+  #     - 'vpc_id: "{{ vpc_results.vpc.id }}"'
+  #     - 'sg_name: "{{ sg_results }}"'
+  #   delegate_to: localhost

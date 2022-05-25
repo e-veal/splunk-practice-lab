@@ -1,15 +1,10 @@
 ---
 # vars file for build
-ansible_python_interpreter: /usr/bin/python3
 instance_type: 
     tiny: t2.micro
 subnet_id: 
     testing: subnet-082916065c9a38739
     develop: subnet-0f2428741fdd24cd6 
-sg_name: splunk-practice
+#sg_name: splunk-practice
 ami_id: ami-0022f774911c1d690
 aws_region: us-east-2
-
-lab:
-    gamora_basic: 7
-

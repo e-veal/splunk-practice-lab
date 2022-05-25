@@ -17,7 +17,7 @@
       group: "{{ sg_name }}"
       instance_type: "{{ instance_type.tiny }}"
       image: "{{ ami_id }}"
-      vpc_subnet_id: "{{ subnet_id.develop }}"
+      vpc_subnet_id: "{{ subnet_id }}"
       assign_public_ip: true
       region: "{{ aws_region }}"
       wait: yes
