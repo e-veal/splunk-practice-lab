@@ -11,8 +11,27 @@
   # - name: user_ip
   #   prompt: Enter an IP (ex. 10.0.4.0)
   #   private: no
+  vars:
+    subnet_name:
+      - develop
+      - testing
+      - practice
+      - other
 
   tasks:
+    - ec2_vpc_subnet_info:
+        filters:
+          vpc-id: vpc-0785c2dae2fa339c5
+        region: "{{ aws_region }}"
+      register: subnet_results
+
+    - set_fact:
+        subnet_ids: "{{ subnet_results.subnets | map(attribute='id') }}"
+    
+    - debug:
+        msg: "{{item.0}}: {{item.1}}"
+      loop: "{{ subnet_name|zip(subnet_ids)|list }}"
+
   # - name: Loop 
   #   debug:
   #     msg: "Subnet: {{item.name}}, IP: {{item.ip}}/27"
@@ -23,13 +42,13 @@
   #     - { name: 'splunk-other', ip: '10.0.5.128' }
 
     
-    - name: Output command results to a variable
-      command: curl -4 icanhazip.com
-      register: localip_results
+    # - name: Output command results to a variable
+    #   command: curl -4 icanhazip.com
+    #   register: localip_results
     
-    - debug:
-        msg: "{{localip_results.stdout }}"
+    # - debug:
+    #     msg: "{{localip_results.stdout }}"
 
-    - name: Subnets
-      debug:
-        msg: "Subnet: {{ localip_results.stdout | ansible.utils.ipsubnet(27) }}"
+    # - name: Subnets
+    #   debug:
+    #     msg: "Subnet: {{ localip_results.stdout | ansible.utils.ipsubnet(27) }}"
