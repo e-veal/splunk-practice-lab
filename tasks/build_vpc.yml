@@ -7,6 +7,12 @@
   gather_facts: no
   vars_files:
     - ~/build/vars/main.yml
+  vars:
+    subnet_name:
+      - develop
+      - testing
+      - practice
+      - other
 
   tasks:
 
@@ -39,16 +45,6 @@
       - '10.0.5.64'
       - '10.0.5.96'
     register: subnet_results
-
-  # - lineinfile:
-  #     path: ~/build/vars/main.yml
-  #     line: 'subnet:'
-  
-  # - lineinfile:
-  #     path: ~/build/vars/main.yml
-  #     insertafter: '^subnet\:'
-  #     line:
-  #       - '- {{subnet.id}}'
 
   - name: Store local IP address
     command: curl -4 icanhazip.com
@@ -90,11 +86,37 @@
       tags:
         createdBy: Ansible
   
-  # - name: Update vars file
-  #   lineinfile:
-  #     path: ~/build/vars/main.yml
-  #     line: "{{ item }}"
-  #   loop:
-  #     - 'vpc_id: "{{ vpc_results.vpc.id }}"'
-  #     - 'sg_name: "{{ sg_results }}"'
-  #   delegate_to: localhost
+  - name: Update vars file
+    lineinfile:
+      path: ~/build/vars/main.yml
+      line: "{{ item }}"
+      owner: ansible
+    loop:
+      - 'vpc_id: {{ vpc_results.vpc.id }}'
+      - 'sg_name: {{ sg_results.group_name }}'
+    delegate_to: localhost
+
+  - lineinfile:
+      path: ~/build/vars/main.yml
+      owner: ansible
+      group: ansible
+      mode: 0644
+      line: "subnet:"
+
+  - ec2_vpc_subnet_info:
+      filters:
+        vpc-id: vpc-0785c2dae2fa339c5
+      region: "{{ aws_region }}"
+    register: subnet_results
+
+  - set_fact:
+      subnet_ids: "{{ subnet_results.subnets | map(attribute='id') }}"
+  
+  - lineinfile:
+      path: ~/build/vars/main.yml
+      owner: ansible
+      group: ansible
+      mode: 0644
+      line: "     {{item.0}}: {{item.1}}"
+      insertafter: "^subnet:"
+    loop: "{{ subnet_name|zip(subnet_ids)|list }}"
